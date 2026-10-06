@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Product Design · Brian Fountain</title>
+<meta name="description" content="A consolidated portfolio of Brian Fountain's products built on generative models: G3NPRO, GenBuzz, Vibeside, 1K Notes and Chapters, and the design question each one answers about where the machine ends and the person begins.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/work/ai-product-design">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="AI Product Design · Brian Fountain">
+<meta property="og:description" content="Five products built on generative models, and the design question each one answers about where the machine ends and the person begins.">
+<meta property="og:url" content="https://brianfountain.com/work/ai-product-design">
+<meta property="og:image" content="https://brianfountain.com/projects/g3npro/assets/review.jpg">
+<meta property="og:image:alt" content="The G3NPRO shot review screen: one rendered frame, its prompt, and approve or regenerate controls">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Product Design · Brian Fountain">
+<meta name="twitter:description" content="Five products built on generative models, and the design question each one answers about where the machine ends and the person begins.">
+<meta name="twitter:image" content="https://brianfountain.com/projects/g3npro/assets/review.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{--acc:#8fd0c4;--acc-soft:rgba(143,208,196,.16);--acc-wash:rgba(143,208,196,.07);--acc-edge:rgba(143,208,196,.24);--ink:#efe6da;--ink-86:rgba(239,230,218,.86);--ink-70:rgba(239,230,218,.7);--ink-55:rgba(239,230,218,.55);--ink-45:rgba(239,230,218,.45);--line:rgba(239,230,218,.12)}
+body{background:#100d0b;color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:840px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em;max-width:18ch}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:62ch}
+
+/* the products on this page, as chips that jump */
+.roster{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.roster a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:13.5px;font-weight:600;color:var(--ink-70);padding:7px 12px 7px 7px;border-radius:999px;border:1px solid rgba(239,230,218,.12);transition:color .2s,border-color .2s}
+.roster a:hover{color:var(--ink);border-color:var(--acc-edge)}
+.roster i{width:22px;height:22px;border-radius:6px;background:#17130f center/cover no-repeat;flex:none}
+
+article{max-width:840px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{text-wrap:pretty;font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:0 0 14px;max-width:32ch}
+article h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:var(--ink);margin:26px 0 8px}
+article p{font-size:clamp(15px,1.5vw,17px);color:var(--ink-86);margin-bottom:16px;max-width:70ch}
+article strong{color:var(--ink);font-weight:700}
+article ul{margin:0 0 18px 0;padding-left:22px;max-width:70ch}
+article li{font-size:clamp(15px,1.5vw,17px);color:var(--ink-86);margin-bottom:12px;padding-left:4px}
+article li::marker{color:var(--acc)}
+article code{font-family:'JetBrains Mono',monospace;font-size:.86em;background:rgba(239,230,218,.07);padding:.1em .4em;border-radius:5px}
+
+/* one product */
+.product{padding:clamp(30px,5vw,46px) 0;border-top:1px solid var(--line);scroll-margin-top:24px}
+.product:first-of-type{border-top:0;padding-top:0}
+.head{display:grid;grid-template-columns:56px 1fr auto;gap:16px;align-items:center;margin-bottom:22px}
+.head .icon{width:56px;height:56px;border-radius:12px;background:#17130f center/cover no-repeat;border:1px solid rgba(239,230,218,.14)}
+.head .who{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.5;color:var(--ink-55)}
+.head .who b{font-weight:500;color:var(--ink)}
+.head .who .yr{color:var(--acc);margin-left:.6em}
+.head .visit{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-70);text-decoration:none;padding:8px 12px;border:1px solid rgba(239,230,218,.16);border-radius:999px;white-space:nowrap;transition:color .2s,border-color .2s}
+.head .visit:hover{color:var(--ink);border-color:var(--acc-edge)}
+
+/* the gate: where the model stops and the person starts, stated for every product */
+.gate{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;margin:6px 0 26px;background:rgba(239,230,218,.1);border:1px solid rgba(239,230,218,.1);border-radius:14px;overflow:hidden;max-width:70ch}
+.gate div{background:#15110e;padding:14px 16px}
+.gate b{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;font-weight:500;color:var(--acc);margin-bottom:6px}
+.gate span{font-size:14px;line-height:1.5;color:var(--ink-86)}
+
+figure{margin:24px 0 30px;max-width:70ch}
+figure a{display:block}
+figure img,figure video{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(239,230,218,.14);box-shadow:0 18px 48px rgba(0,0,0,.45)}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:var(--ink-55);margin-top:10px;max-width:70ch}
+figcaption a{color:rgba(239,230,218,.75)}
+
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-55);max-width:70ch}
+@media (max-width:640px){
+  body{line-height:1.6}
+  article p,article li{font-size:15.5px}
+  .head{grid-template-columns:56px 1fr}
+  .head .visit{grid-column:2;justify-self:start}
+  .gate{grid-template-columns:1fr}
+}
+</style></head><body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <a class="tb-kicker" href="/projects">PROJECTS</a>
+</header>
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">AI PRODUCT DESIGN</div>
+    <h1>Where the machine ends and the person begins</h1>
+    <p class="lede">Every product I have built on a generative model comes down to the same design question: what should the model do, what should the person do, and what does the interface owe each of them? Five products answer it five ways. One runs an animation studio's production pipeline. Another is a novel outline that never leaves your browser.</p>
+    <nav class="roster" aria-label="Products on this page">
+      <a href="#g3npro"><i style="background-image:url('/assets/icon_g3npro.png')"></i>G3NPRO</a>
+      <a href="#genbuzz"><i style="background-image:url('/assets/icon_genbuzz.png')"></i>GenBuzz</a>
+      <a href="#vibeside"><i style="background-image:url('/assets/icon_vibeside.svg')"></i>Vibeside</a>
+      <a href="#1knotes"><i style="background-image:url('/assets/icon_1knotes.png')"></i>1K Notes</a>
+      <a href="#chapters"><i style="background-image:url('/assets/shot_chapters.jpeg')"></i>Chapters</a>
+    </nav>
+  </div>
+</div>
+<article>
+
+  <section class="product" id="g3npro">
+    <div class="head">
+      <div class="icon" style="background-image:url('/assets/icon_g3npro.png')"></div>
+      <div class="who"><b>G3NPRO</b><br>Founder and product design lead<span class="yr">2025–now, with customers</span></div>
+      <a class="visit" href="https://g3npro.com" rel="noopener">g3npro.com</a>
+    </div>
+    <h2>A production platform that turns a script into animation, with people making the calls that matter</h2>
+    <div class="gate">
+      <div><b>The model does</b><span>Breaks a script into beats, plans coverage, writes shot prompts, generates images, video, voices, music and effects.</span></div>
+      <div><b>The person does</b><span>Approves every shot that ships, edits what the agents drafted, and cuts the timeline.</span></div>
+      <div><b>The interface owes them</b><span>Review that is faster than generation, so human judgment is the quickest step in the system rather than the bottleneck.</span></div>
+    </div>
+    <p>G3NPRO is a platform for mid-tier and enterprise animation studios, with studio customers. The domain model mirrors real production: a property holds projects, a project holds a script parsed into scenes, and each scene breaks into shots. The centerpiece is the <strong>Director Agent</strong>, a Claude-powered cinematography system that reads a scene, plans the coverage, chooses shot types and angles, and writes visual prompts in cinematic language. It works autonomously to produce a full shot list, or interactively, refining shots in response to a person's notes.</p>
+    <p>The product design decisions that matter most are about the agent's shape. Every exchange with the model runs through <strong>structured schemas</strong>, so its output lands in the database as scenes and shots instead of prose someone has to transcribe. The in-app agent operates the platform through a small set of typed tools, so its actions go down the same code paths as a person's. When a script mentions a new character, an enrichment agent drafts a description and references that a person can accept, edit or throw away. Background jobs only ever write to the database; the interface listens and redraws itself, which keeps it honest about what is actually on file.</p>
+    <figure>
+      <img src="/projects/g3npro/assets/review.jpg" width="1470" height="766" alt="The G3NPRO shot review screen showing a rendered frame of Robin in Sherwood Forest, the @Robin-tagged prompt, keyframes, and approve and regenerate controls" loading="lazy">
+      <figcaption>Shot review. One frame, its bound prompt, and a decision. Prompts use @mentions that bind to a character record, its references and its trained model, so "@Robin" is a reference rather than a hopeful string.</figcaption>
+    </figure>
+    <p>Underneath, the generation pipeline is built to outlive its providers. Every request is classified by <strong>purpose</strong>: a character portrait, a lip-synced shot, a music score, forty-five purposes in all, and a purpose says nothing about which model produces it. A factory maps each request to one of more than a dozen provider adapters, including Runware, Kling, Runway, fal.ai, BytePlus, ElevenLabs, Tripo3D and self-hosted ComfyUI on Modal. Before anything generates, a <strong>strategy resolver</strong> looks at what the subject already has and cascades to the best technique: a trained LoRA for identity if the character has one, reference conditioning if there are references, plain text-to-generation as the floor. The assets on file enforce consistency, so prompt wording can stay loose. Characters get their own LoRAs, trained on image sets captioned inside the platform through a Python training API I built on GPU infrastructure.</p>
+    <figure>
+      <video controls preload="metadata" width="1280" height="720" poster="/assets/g3npro_frame.jpeg" src="/assets/g3npro_demo.mp4"></video>
+      <figcaption>Hip to the Hop, a finished piece produced with G3NPRO. Approved shots flow into a multi-track timeline editor, and a DaVinci Resolve plugin meets editors inside the tool they already trust. <span style="white-space:nowrap">Full technical overview at <a href="/projects/g3npro">brianfountain.com/projects/g3npro</a>.</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="product" id="genbuzz">
+    <div class="head">
+      <div class="icon" style="background-image:url('/assets/icon_genbuzz.png')"></div>
+      <div class="who"><b>GenBuzz</b><br>Founder, editor<span class="yr">2025–now</span></div>
+      <a class="visit" href="https://genbuzz.news" rel="noopener">genbuzz.news</a>
+    </div>
+    <h2>A publication where agents draft and a person decides what runs</h2>
+    <div class="gate">
+      <div><b>The model does</b><span>Ingests sources continuously, extracts the entities, and drafts each story with attribution.</span></div>
+      <div><b>The person does</b><span>Approves, edits or drops every draft before it publishes.</span></div>
+      <div><b>The interface owes them</b><span>A desk where approving is the whole job, so the human pass stays short enough to happen every day.</span></div>
+    </div>
+    <p>GenBuzz covers AI filmmaking and generative production: tools, funding, acquisitions, legal, research and events. It is an agentically managed publication. An automated pipeline ingests third-party reporting and announcements, extracts entities, and drafts stories that link and credit their sources. Nothing publishes until I approve it. The design bet is that the editorial gate is the product: the agents make the volume possible, and the human pass is what makes it worth reading.</p>
+    <p>Readers get the same principle from the other side. The newsletter is customizable by category, so a person who cares about legal decisions and not about funding rounds gets a different issue from the one who wants the tools. GenBuzz also does a second job for me: covering this field daily is my frontier radar, surfacing new models and workflow patterns before they reach my other products.</p>
+    <figure>
+      <a href="https://genbuzz.news" rel="noopener"><img src="/assets/shot_genbuzz.jpeg" width="1200" height="760" alt="GenBuzz, an agentically managed publication covering AI filmmaking, shown with its editorial controls" loading="lazy"></a>
+      <figcaption>GenBuzz from the editor's side of the desk. The agents draft. The approve controls are the quality gate.</figcaption>
+    </figure>
+  </section>
+
+  <section class="product" id="vibeside">
+    <div class="head">
+      <div class="icon" style="background-image:url('/assets/icon_vibeside.svg')"></div>
+      <div class="who"><b>Vibeside</b><br>Founder<span class="yr">2025–now, early access</span></div>
+      <a class="visit" href="https://vibesi.de" rel="noopener">vibesi.de</a>
+    </div>
+    <h2>A command center for side projects, where you review the running app instead of the diff</h2>
+    <div class="gate">
+      <div><b>The model does</b><span>Takes a task on whichever project has your attention, works in an isolated branch, and reports what it changed.</span></div>
+      <div><b>The person does</b><span>Dispatches in a sentence, looks at the live preview, replies, and ships when it looks right.</span></div>
+      <div><b>The interface owes them</b><span>Everything from a phone, in the gaps in a day, with a push when a task needs a decision.</span></div>
+    </div>
+    <p>Vibeside is a bet on what product development looks like when it happens on a phone. It's a lightweight mobile IDE built around one loop: ask for a revision, then review the running result. When you like what you see, tap publish.</p>
+<p>Under the hood, Vibeside is a self-hostable panel for all the side projects you keep half finished. You hand a task to Claude Code on any project, on any machine you own, and come back to review the running app rather than the code. Each task gets its own git worktree, so work is isolated and previewable. The live preview is a first-class toggle inside the task, and the routes the agent touched are surfaced as deep links, so reviewing a login flow means tapping through the login flow.</p>
+    <p>The core design idea is that <strong>a task is a conversation</strong>: you reply, the agent works again, and the task stays open until you merge it. A task moves from queued to running to needs review to merged, and running and needs review alternate as you reply. Needs review and failed send a web push, so progress does not depend on you being at a desk. Architecturally, the panel is a control plane and the agent is a data plane: Claude Code, your source, and your git and deploy keys never leave the machines you own. The panel only sends commands and shows what came back, which is what makes it safe to drive from a browser on a train.</p>
+    <figure>
+      <a href="https://vibesi.de" rel="noopener"><img src="/assets/shot_vibeside.jpeg" width="1200" height="760" alt="Vibeside, a mobile-first panel for dispatching tasks to Claude Code across several projects" loading="lazy"></a>
+      <figcaption>Three side projects, one thumb, zero terminals. Built on Vibe Kanban and self-hostable. The current release is single-operator early access.</figcaption>
+    </figure>
+  </section>
+
+  <section class="product" id="1knotes">
+    <div class="head">
+      <div class="icon" style="background-image:url('/assets/icon_1knotes.png')"></div>
+      <div class="who"><b>1K Notes</b><br>Founder<span class="yr">2025–now</span></div>
+      <a class="visit" href="https://1knotes.com" rel="noopener">1knotes.com</a>
+    </div>
+    <h2>A picture is worth a thousand notes</h2>
+    <div class="gate">
+      <div><b>The model does</b><span>Reads a photograph and writes an original song from it, melody and lyric included.</span></div>
+      <div><b>The person does</b><span>Chooses the picture, which is the entire creative act asked of them.</span></div>
+      <div><b>The interface owes them</b><span>One step, no vocabulary, and a way to hear what everyone else made.</span></div>
+    </div>
+    <p>1K Notes is a creative tool for people who would never describe themselves as songwriters. You attach a photo and the model turns it into a prompt for a song, then into the song itself. The interface asks for one thing, a photo, on purpose: the photo carries the mood and the specifics, and asking a non-musician to add anything else would only get in the way. This is the product where I learned most about teaching non-technical people to work with a generative system, because the lesson had to fit in a single tap.</p>
+    <p>All images are public, and every song lands in a gallery and a radio stream, so the output of one person's afternoon becomes the thing that shows the next person what the tool can do.</p>
+    <figure>
+      <a href="https://1knotes.com" rel="noopener"><img src="/assets/shot_1knotes.jpeg" width="1200" height="760" alt="1K Notes, a tool that turns a photograph into an original song" loading="lazy"></a>
+      <figcaption>Attach a photo, get a song. The gallery and radio are the tutorial.</figcaption>
+    </figure>
+  </section>
+
+  <section class="product" id="chapters">
+    <div class="head">
+      <div class="icon" style="background-image:url('/assets/shot_chapters.jpeg')"></div>
+      <div class="who"><b>Chapters</b><br>Creator<span class="yr">2025</span></div>
+      <a class="visit" href="https://chapters.brianfountain.com" rel="noopener">chapters.brianfountain.com</a>
+    </div>
+    <h2>A novel outline that never has to leave your computer</h2>
+    <div class="gate">
+      <div><b>The model does</b><span>Suggests the next story beat from the ones you have written, across twenty-seven beats and three acts.</span></div>
+      <div><b>The person does</b><span>Writes, accepts, rewrites, and locks the beats they want kept.</span></div>
+      <div><b>The interface owes them</b><span>Privacy by default, and an honest account of the trade when they opt into more power.</span></div>
+    </div>
+    <p>Chapters takes a one-line premise and helps a writer build it into a complete outline using the twenty-seven-chapter structure: nine beats each for setup, confrontation and resolution. Each beat is a field the writer can fill in, generate, or lock so that later generations leave it alone. Progress reads as beats written out of twenty-seven, and the finished outline downloads as a file the writer owns.</p>
+    <p>The design decision I care about most is the model switch. By default Chapters downloads a small language model into the browser and runs it there, so a first draft of someone's novel never leaves their machine, at the cost of a slight pause while it thinks. A toggle switches to Claude for higher-quality suggestions, and the interface says plainly what that costs: the text goes to Anthropic's servers, and the requests draw on a daily limit shared by everyone using the tool, which can run out. Writers get to choose between private and better, with the terms stated at the point of choice rather than in a policy page.</p>
+    <figure>
+      <a href="https://chapters.brianfountain.com" rel="noopener"><img src="/assets/shot_chapters.jpeg" width="1440" height="900" alt="Chapters, a novel outlining tool with twenty-seven story beats across three acts" loading="lazy"></a>
+      <figcaption>Twenty-seven beats, three acts. Local model by default, Claude on request, with the trade-off stated where the toggle is.</figcaption>
+    </figure>
+  </section>
+
+  <section class="product">
+    <h2>What the five have in common</h2>
+    <p>These are working systems I operate, and the design rules come out of running them every day. Agents fail at taste, at noticing an ambiguous spec, and at verifying their own output, so the products put people at exactly those points and make everything else fast.</p>
+    <p>The first rule is a gate at the point of consequence: shot review in G3NPRO, editorial approval in GenBuzz, the needs-review state in Vibeside, the lock on a beat in Chapters. Nothing with a consequence ships without a person seeing it. The second is that agents use the same doors as people. Typed tools and structured schemas mean an agent's action goes down the code path a human's would, and its output arrives as data rather than prose. Third, purpose over provider. Models change monthly, so classify what the product needs and keep the model choice behind an adapter. A better model becomes a swap rather than a rewrite.</p>
+    <p>Then the interface. A system that generates hundreds of assets is only as good as the speed at which a person can judge them, so the review screen gets more design attention than anything else I build. And the trade is stated where the choice is made: local by default in Chapters, and keys that never leave your machines in Vibeside.</p>
+    <p>The last rule connects this page to the other half of my work. I author Claude Code skills that encode my own production standards, so agents apply them without supervision. It is the same idea as writing a teacher-training process. Put the standard down where the next worker will find it.</p>
+    <p>The instructional design behind all of this, from bootcamp classrooms to a global sales organization, is collected at <a href="/work/instructional-design">brianfountain.com/work/instructional-design</a>. Teaching non-technical people to work with AI systems is the main thing these products have to do, and it turns out to be the same job.</p>
+  </section>
+
+  <p class="endnote">Brian Fountain &middot; All projects: <a href="/projects">brianfountain.com/projects</a> &middot; G3NPRO technical overview: <a href="/projects/g3npro">brianfountain.com/projects/g3npro</a> &middot; Instructional design: <a href="/work/instructional-design">brianfountain.com/work/instructional-design</a></p>
+</article>
+</body></html>

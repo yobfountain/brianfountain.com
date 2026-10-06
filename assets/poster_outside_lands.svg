@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1050" width="750" height="1050">
+  <rect width="750" height="1050" fill="#1b2a24"/>
+  <circle cx="560" cy="240" r="90" fill="#e8c33f"/>
+  <polygon points="0,700 180,620 380,680 560,600 750,670 750,1050 0,1050" fill="#24382f"/>
+  <polygon points="0,820 180,740 380,800 560,720 750,790 750,1050 0,1050" fill="#2e4a3c"/>
+  <polygon points="0,940 180,860 380,920 560,840 750,910 750,1050 0,1050" fill="#3a5d4a"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="78" fill="#f3ead8">
+    <text x="70" y="432">Go On &amp;</text>
+    <text x="70" y="524">Fix Your</text>
+    <text x="70" y="616">Hair</text>
+  </g>
+  <text x="72" y="686" font-family="Menlo, 'Courier New', monospace" font-size="26" fill="#e8c33f" letter-spacing="1">OUTSIDE LANDS PROMO · 2009</text>
+  <text x="72" y="982" font-family="Menlo, 'Courier New', monospace" font-size="22" fill="#cfe0d5" letter-spacing="1">SONG BY BRIAN FOUNTAIN</text>
+</svg>

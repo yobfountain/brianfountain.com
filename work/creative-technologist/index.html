@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Creative Technologist · Brian Fountain</title>
+<meta name="description" content="Brian Fountain's work as a creative technologist: browser games, an interactive data story, generative tools for animators and songwriters, a musical, a festival promo song, and two decades of interactive and transmedia projects.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/work/creative-technologist">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Creative Technologist · Brian Fountain">
+<meta property="og:description" content="Games, songs and stories that needed software to work, from a 2003 comedy site to a 2026 reader for a murder mystery printed out of order.">
+<meta property="og:url" content="https://brianfountain.com/work/creative-technologist">
+<meta property="og:image" content="https://brianfountain.com/assets/shot_cryptions.jpeg">
+<meta property="og:image:alt" content="Cryptions, a daily word puzzle of sixteen tiles hiding words behind cryptic wordplay">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Creative Technologist · Brian Fountain">
+<meta name="twitter:description" content="Games, songs and stories that needed software to work, from a 2003 comedy site to a 2026 reader for a murder mystery printed out of order.">
+<meta name="twitter:image" content="https://brianfountain.com/assets/shot_cryptions.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{--acc:#c9a2ec;--acc-soft:rgba(201,162,236,.16);--acc-wash:rgba(201,162,236,.07);--acc-edge:rgba(201,162,236,.26);--ink:#efe6da;--ink-86:rgba(239,230,218,.86);--ink-70:rgba(239,230,218,.7);--ink-55:rgba(239,230,218,.55);--ink-45:rgba(239,230,218,.45);--line:rgba(239,230,218,.12)}
+body{background:#100d0b;color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:960px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em;max-width:20ch}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:62ch}
+
+/* section jump chips */
+.roster{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.roster a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:13.5px;font-weight:600;color:var(--ink-70);padding:7px 14px;border-radius:999px;border:1px solid rgba(239,230,218,.12);transition:color .2s,border-color .2s}
+.roster a:hover{color:var(--ink);border-color:var(--acc-edge)}
+
+article{max-width:960px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{text-wrap:pretty;font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:0 0 14px;max-width:32ch}
+article p{font-size:clamp(15px,1.5vw,17px);color:var(--ink-86);margin-bottom:16px;max-width:70ch}
+article strong{color:var(--ink);font-weight:700}
+
+.part{padding:clamp(34px,5vw,54px) 0;border-top:1px solid var(--line);scroll-margin-top:24px}
+.part:first-of-type{border-top:0;padding-top:0}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--acc);margin-bottom:10px}
+
+/* a grid of playable things */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:26px 0 8px}
+.tile{display:flex;flex-direction:column;background:#15110e;border:1px solid rgba(239,230,218,.1);border-radius:16px;overflow:hidden}
+.tile .shot{display:block;aspect-ratio:16/9;overflow:hidden;background:#17130f;border-bottom:1px solid rgba(239,230,218,.08)}
+.tile .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .5s}
+.tile .shot:hover img{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.tile .shot img{transition:none}.tile .shot:hover img{transform:none}}
+.tile .body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.tile .meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-55);margin-bottom:6px}
+.tile .meta b{font-weight:500;color:var(--ink);font-size:13px;margin-right:.6em}
+.tile p{font-size:14.5px;line-height:1.58;margin-bottom:14px}
+.tile .go{margin-top:auto;align-self:flex-start}
+
+.go{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-70);text-decoration:none;padding:8px 12px;border:1px solid rgba(239,230,218,.16);border-radius:999px;white-space:nowrap;transition:color .2s,border-color .2s}
+.go:hover{color:var(--ink);border-color:var(--acc-edge)}
+
+figure{margin:24px 0 30px}
+figure a{display:block}
+figure img,figure video{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(239,230,218,.14);box-shadow:0 18px 48px rgba(0,0,0,.45)}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:var(--ink-55);margin-top:10px;max-width:70ch}
+figcaption a{color:rgba(239,230,218,.75)}
+
+/* media beside text */
+.pair{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(22px,4vw,40px);align-items:start;margin:26px 0 10px}
+.pair figure{margin:0}
+.pair h3{font-family:'Fraunces',serif;font-weight:400;font-size:21px;line-height:1.25;margin-bottom:4px}
+.pair .meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--acc);margin-bottom:12px}
+.pair p{font-size:15.5px}
+
+/* the musical: poster and player */
+.stage{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(18px,3vw,30px);align-items:start;margin:26px 0 10px}
+.stage img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid rgba(239,230,218,.14);box-shadow:0 14px 36px rgba(0,0,0,.45)}
+.stage h3{font-family:'Fraunces',serif;font-weight:400;font-size:21px;line-height:1.25;margin-bottom:4px}
+.stage .meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--acc);margin-bottom:12px}
+.stage p{font-size:15.5px}
+.stage audio{width:100%;max-width:420px;margin-top:4px;color-scheme:dark}
+.stage .cue{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--ink-55);margin:10px 0 6px}
+
+/* the archive, one row per project */
+.archive{list-style:none;margin:24px 0 8px;border-top:1px solid var(--line)}
+.archive li{display:grid;grid-template-columns:64px minmax(0,190px) minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.archive .yr{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acc)}
+.archive .nm{font-weight:700;font-size:15px;color:var(--ink)}
+.archive .nm small{display:block;font-family:'JetBrains Mono',monospace;font-weight:400;font-size:11px;color:var(--ink-55);margin-top:3px}
+.archive .ds{font-size:14.5px;line-height:1.58;color:var(--ink-86)}
+.archive .ds a{color:var(--ink);text-decoration-color:var(--acc-edge);text-underline-offset:3px}
+
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-55);max-width:70ch}
+@media (max-width:760px){
+  body{line-height:1.6}
+  article p{font-size:15.5px}
+  .tiles,.pair{grid-template-columns:1fr}
+  .stage{grid-template-columns:96px minmax(0,1fr)}
+  .archive li{grid-template-columns:52px minmax(0,1fr);gap:4px 14px}
+  .archive .ds{grid-column:2}
+}
+</style></head><body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <a class="tb-kicker" href="/projects">PROJECTS</a>
+</header>
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">CREATIVE TECHNOLOGIST</div>
+    <h1>Games, songs and stories that needed code to work</h1>
+    <p class="lede">Most of what I make starts as a joke, a puzzle or a song and ends up as software. In 2003 that was a website where the Army holds a bake sale to buy a bomber. In 2012 it was a post-apocalyptic dating story told through two sites, a film, an installation, an app and a stage piece. This year it was a reader for a 1934 murder mystery printed with its pages out of order.</p>
+    <nav class="roster" aria-label="Sections on this page">
+      <a href="#games">Games</a>
+      <a href="#data-story">Data story</a>
+      <a href="#tools">Tools for makers</a>
+      <a href="#music-and-stage">Music and stage</a>
+      <a href="#archive">2003 to 2015</a>
+    </nav>
+  </div>
+</div>
+<article>
+
+  <section class="part" id="games">
+    <div class="kicker">GAMES · 2025–2026</div>
+    <h2>Four browser games, all playable today</h2>
+    <p>I design the rules and write the code. Two of these are daily word puzzles. One brings back a board game from 1984. The fourth refuses to be a game at all and gives you a desk to work at instead.</p>
+    <div class="tiles">
+      <div class="tile">
+        <a class="shot" href="https://games.brianfountain.com/cryptions" rel="noopener"><img src="/assets/shot_cryptions.jpeg" width="1440" height="810" alt="Cryptions, a grid of sixteen word tiles in a daily puzzle" loading="lazy"></a>
+        <div class="body">
+          <div class="meta"><b>Cryptions</b>2026 · daily word puzzle</div>
+          <p>Nothing groups by what it says. Each of the sixteen tiles hides a different word behind an anagram, a homophone, an insertion, a deletion, or a string buried inside another string, and the four groups only surface once you decode them. The tile colours carry information too.</p>
+          <a class="go" href="https://games.brianfountain.com/cryptions" rel="noopener">Play Cryptions</a>
+        </div>
+      </div>
+      <div class="tile">
+        <a class="shot" href="https://games.brianfountain.com/cobwebs" rel="noopener"><img src="/assets/shot_cobwebs.jpeg" width="1440" height="810" alt="Cobwebs and Keys, a digital board game set in an old house" loading="lazy"></a>
+        <div class="body">
+          <div class="meta"><b>Cobwebs and Keys</b>2026 · multiplayer board game</div>
+          <p>A digital recreation of Mystery Mansion, the 1984 Milton Bradley game. Seven chests are hidden in an old house and two hold the real treasure. You build the rooms as you go, search them, and try to carry a chest out the front door. Play alone, or host and hand your friends a four-letter code.</p>
+          <a class="go" href="https://games.brianfountain.com/cobwebs" rel="noopener">Play Cobwebs and Keys</a>
+        </div>
+      </div>
+      <div class="tile">
+        <a class="shot" href="https://games.brianfountain.com/cains-jawbone" rel="noopener"><img src="/assets/shot_cains_jawbone.jpeg" width="1440" height="810" alt="The Cain's Jawbone Reader, with a page of the novel beside case notes" loading="lazy"></a>
+        <div class="body">
+          <div class="meta"><b>Cain's Jawbone Reader</b>2026 · reading tool</div>
+          <p>Edward Powys Mathers printed his hundred-page mystery in the wrong order, and exactly one of the 100! arrangements is right. The reader gives you nothing toward the answer. You read the pages, link the ones that follow each other, tag what you notice, and keep notes on six murderers and six victims. It all stays in your browser and exports as a case file.</p>
+          <a class="go" href="https://games.brianfountain.com/cains-jawbone" rel="noopener">Open the reader</a>
+        </div>
+      </div>
+      <div class="tile">
+        <a class="shot" href="https://bender.brianfountain.com" rel="noopener"><img src="/assets/shot_bender.jpeg" width="1440" height="900" alt="Bender, a daily word game on a letter grid" loading="lazy"></a>
+        <div class="body">
+          <div class="meta"><b>Bender</b>2025 · daily word puzzle</div>
+          <p>A quiet one. Trace words that bend through a grid of letters until every square is used. There are three new puzzles each day, at 5×5, 6×6 and 7×7.</p>
+          <a class="go" href="https://bender.brianfountain.com" rel="noopener">Play Bender</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="data-story">
+    <div class="kicker">DATA STORY · 2026</div>
+    <h2>Thirty million acres of corn, and what the same land could do with solar</h2>
+    <p>America farms about 30 million acres of corn to make fuel. Corn for Cars asks how much solar it would take to move the same number of vehicle-miles, and the answer is 339,000 acres. That number is the headline, but the argument is carried by maps: county by county, where the corn grows, how much sun falls there, what is happening to the aquifer underneath, and how far it is to the grid.</p>
+    <p>The model behind it draws on USDA crop data, PVGIS solar estimates, USGS groundwater records and DOE grid data.</p>
+    <figure>
+      <a href="https://solar.brianfountain.com" rel="noopener"><img src="/assets/shot_solar.jpeg" width="1440" height="900" alt="Corn for Cars, a county-level map of American corn acreage used for ethanol" loading="lazy"></a>
+      <figcaption>County-level maps of corn, sunlight, the aquifer and the grid. Live at <a href="https://solar.brianfountain.com" rel="noopener">solar.brianfountain.com</a></figcaption>
+    </figure>
+  </section>
+
+  <section class="part" id="tools">
+    <div class="kicker">TOOLS FOR MAKERS · 2025–NOW</div>
+    <h2>Generative tools for animators, songwriters and novelists</h2>
+    <p>Some of what I build is for other people to make things with. Each of these puts a generative model to work and then keeps a person in charge of the result. The design reasoning for each one is written up at <a href="/work/ai-product-design">brianfountain.com/work/ai-product-design</a>.</p>
+    <div class="pair">
+      <figure>
+        <video controls preload="metadata" width="1280" height="720" poster="/assets/g3npro_frame.jpeg" src="/assets/g3npro_demo.mp4"></video>
+        <figcaption>Hip to the Hop, a finished piece made in G3NPRO.</figcaption>
+      </figure>
+      <div>
+        <h3>G3NPRO</h3>
+        <div class="meta">2025–now · founder and product design lead</div>
+        <p>A production platform that turns a script into animation. A Director Agent reads each scene, plans the coverage, and writes the shot prompts. A person approves every shot before it ships. Animation studios use it today.</p>
+        <a class="go" href="https://g3npro.com" rel="noopener">g3npro.com</a>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <a class="shot" href="https://1knotes.com" rel="noopener"><img src="/assets/shot_1knotes.jpeg" width="1200" height="760" alt="1K Notes, a tool that turns a photograph into an original song" loading="lazy"></a>
+        <div class="body">
+          <div class="meta"><b>1K Notes</b>2025–now · music</div>
+          <p>For people who would never call themselves songwriters. Attach a photo and the model writes an original song from it, melody and lyric both. Every song goes into a public gallery and a radio stream, which is how the next person learns what to try.</p>
+          <a class="go" href="https://1knotes.com" rel="noopener">1knotes.com</a>
+        </div>
+      </div>
+      <div class="tile">
+        <a class="shot" href="https://chapters.brianfountain.com" rel="noopener"><img src="/assets/shot_chapters.jpeg" width="1440" height="900" alt="Chapters, a novel outlining tool with twenty-seven story beats" loading="lazy"></a>
+        <div class="body">
+          <div class="meta"><b>Chapters</b>2025 · fiction</div>
+          <p>Turns a one-line premise into a novel outline of twenty-seven beats across three acts. A small model runs in the browser by default, so a first draft never leaves the writer's machine. Claude is one toggle away, with the privacy cost stated right beside it.</p>
+          <a class="go" href="https://chapters.brianfountain.com" rel="noopener">chapters.brianfountain.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="music-and-stage">
+    <div class="kicker">MUSIC AND STAGE · 2007–2013</div>
+    <h2>Before the software, a musical and a festival song</h2>
+    <p>I came up in improv and sketch comedy at UCB, and in writing for the stage. The software came later.</p>
+    <div class="stage">
+      <img src="/assets/logo_jc2k.jpg" width="750" height="1050" alt="Poster for JC2K, a musical" loading="lazy">
+      <div>
+        <h3>JC2K</h3>
+        <div class="meta">2007 · book, music and lyrics · New York Musical Theatre Festival</div>
+        <p>The U.S. Army had a simple plan: breed a battalion of Jesus Christ clones and turn them into elite super-soldiers. Then one of the six-million-dollar messiahs escaped, and the Army had to bring him home or take him down. I wrote the book, the music and the lyrics.</p>
+        <div class="cue">FROM THE SCORE · “WHERE ARE YOU GOD?”</div>
+        <audio controls preload="none" src="/assets/jc2k.mp3"></audio>
+      </div>
+    </div>
+    <div class="pair">
+      <figure>
+        <video controls preload="none" width="1290" height="720" poster="/assets/outside_lands_frame.jpeg" src="/assets/outside_lands.mp4"></video>
+        <figcaption>The Outside Lands 2009 lineup announcement. Also on the festival's <a href="https://www.youtube.com/watch?v=JSTZAEBSTSM" rel="noopener">YouTube channel</a>.</figcaption>
+      </figure>
+      <div>
+        <h3>Go On &amp; Fix Your Hair</h3>
+        <div class="meta">2009 · song for Outside Lands</div>
+        <p>The song under Outside Lands' 2009 lineup announcement, released as Ranger Dave &amp; The Bison. Ghost Robot produced the video and Elliot Jokelson directed it. It still runs on the festival's channel.</p>
+      </div>
+    </div>
+    <p>The same decade brought an induction into the Lincoln Center Artist Academy in 2013, an official selection at the Austin Film Festival as a writer, and five years at Mister Face writing comedy-led campaigns for brands across radio, live events and the web.</p>
+  </section>
+
+  <section class="part" id="archive">
+    <div class="kicker">ARCHIVE · 2003–2015</div>
+    <h2>Hackathon builds, street games and a satire the New York Times covered</h2>
+    <p>Many of these were built in a weekend or less. A few won things.</p>
+    <ul class="archive">
+      <li><span class="yr">2015</span><span class="nm">DaysToLive<small>SMS service</small></span><span class="ds">Every few months, subscribers get a text telling them how many days they have left on Earth.</span></li>
+      <li><span class="yr">2013</span><span class="nm">CouchCachet<small>social satire</small></span><span class="ds">An app that tells your friends you're at the best parties while you sit home in pajamas. Built in 36 hours, it won the Mashery Global prize and was covered by the <a href="https://www.nytimes.com/2013/01/23/nyregion/couchcachet-app-gives-new-meaning-to-lying-on-the-couch.html" rel="noopener">New York Times</a>, BuzzFeed, Mashable and ABC News.</span></li>
+      <li><span class="yr">2012–14</span><span class="nm">Run Sheldon<small>Bee Square Games</small></span><span class="ds">Sole writer on the iOS game: copy, narrative design and marketing. It launched at #1 in Free Family Games in more than 30 countries and passed a million downloads.</span></li>
+      <li><span class="yr">2012</span><span class="nm">FutureMate<small>transmedia story</small></span><span class="ds">The government's official dating portal for after the apocalypse, told across two sites, a film, an installation, a dating app and a theatre piece. It won the first StoryCode × Lincoln Film Center story hackathon, with press in Forbes, the Washington Post and PBS.</span></li>
+      <li><span class="yr">2011</span><span class="nm">zown<small>location game</small></span><span class="ds">Capture the flag played across a whole map, with teams fighting to hold the most territories. Official selection at the 2012 Come Out and Play and City of Play festivals.</span></li>
+      <li><span class="yr">2011</span><span class="nm">uChoos<small>interactive fiction</small></span><span class="ds">Choose-your-own-adventure stories written and shared on a feature phone.</span></li>
+      <li><span class="yr">2011</span><span class="nm">SpotOn Trivia<small>mobile</small></span><span class="ds">Conceived, built and launched on the 48-hour StartupBus ride from New York to Austin.</span></li>
+      <li><span class="yr">2003</span><span class="nm">ArmyBakeSale<small>comedy site</small></span><span class="ds">A world where schools have all the money they need and the Army holds a bake sale to buy a bomber. Still up at <a href="https://armybakesale.com" rel="noopener">armybakesale.com</a>.</span></li>
+    </ul>
+  </section>
+
+  <section class="part">
+    <h2>What carries over</h2>
+    <p>ArmyBakeSale and Cryptions are twenty-three years apart, and both started as an idea that only worked once someone could play with it. I write the rules, the words and the code myself, so the idea and the playable version stay close together. On a team, that means people get something to react to before anyone writes a spec.</p>
+  </section>
+
+  <p class="endnote">Brian Fountain &middot; All projects: <a href="/projects">brianfountain.com/projects</a> &middot; AI product design: <a href="/work/ai-product-design">brianfountain.com/work/ai-product-design</a> &middot; Instructional design: <a href="/work/instructional-design">brianfountain.com/work/instructional-design</a></p>
+</article>
+</body></html>

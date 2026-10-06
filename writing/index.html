@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Writing · Brian Fountain</title>
+<meta name="description" content="Notes on learning design: competency-based learning, putting it into practice, and modeling what an individual actually needs to know.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/writing">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Writing · Brian Fountain">
+<meta property="og:description" content="Notes on learning design: competency-based learning, putting it into practice, and modeling what an individual actually needs to know.">
+<meta property="og:url" content="https://brianfountain.com/writing">
+<meta property="og:image" content="https://brianfountain.com/brian_fountain.jpeg">
+<meta property="og:image:alt" content="Portrait of Brian Fountain">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Writing · Brian Fountain">
+<meta name="twitter:description" content="Notes on learning design: competency-based learning, putting it into practice, and modeling what an individual actually needs to know.">
+<meta name="twitter:image" content="https://brianfountain.com/brian_fountain.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-nav{display:flex;gap:8px}
+.tb-nav a{padding:5px 12px;border-radius:100px;border:1px solid rgba(239,230,218,.2);background:rgba(239,230,218,.04);
+  color:rgba(239,230,218,.75);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;
+  text-decoration:none;white-space:nowrap;transition:.2s}
+.tb-nav a:hover{background:rgba(239,230,218,.12)}
+
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
+  background:radial-gradient(60% 60% at 50% 50%,rgba(231,166,141,.18),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:760px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,50px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(239,230,218,.5)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(38px,6vw,64px);line-height:1.04;margin-top:14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:56ch}
+
+main{max-width:760px;margin:0 auto;padding:clamp(28px,5vw,46px) clamp(20px,5vw,40px) 64px}
+.entry{display:block;text-decoration:none;position:relative;
+  padding:24px 26px 26px;border-radius:16px;border:1px solid rgba(239,230,218,.14);
+  background:rgba(24,19,16,.6);margin-bottom:16px;overflow:hidden;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease}
+/* Accent edge so each entry reads as the same piece it opens into. */
+.entry::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc)}
+.entry:hover{transform:translateY(-3px);border-color:rgba(239,230,218,.3);background:rgba(30,24,20,.75)}
+.entry-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--acc)}
+.entry-title{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(22px,2.8vw,29px);line-height:1.15;margin-top:9px}
+.entry-lede{font-size:clamp(14.5px,1.5vw,16px);line-height:1.55;color:rgba(239,230,218,.74);margin-top:10px;max-width:58ch}
+.entry-more{display:inline-block;margin-top:15px;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  letter-spacing:.08em;color:var(--acc)}
+
+/* Posts with their own share image show it as a thumbnail; the rest stay text-only. */
+.entry.has-img{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:22px;align-items:center}
+.entry-img{position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(239,230,218,.12);aspect-ratio:1200/630}
+.entry-img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.entry:hover .entry-img img{transform:scale(1.03)}
+/* Same "AI" bug the posts put on generated images. */
+.entry-img::after{content:"AI";position:absolute;right:7px;bottom:7px;padding:2px 5px 1px;border-radius:4px;
+  background:rgba(16,13,11,.62);border:1px solid rgba(239,230,218,.35);color:rgba(239,230,218,.9);
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.12em}
+
+@media (max-width:640px){
+  body{line-height:1.6}
+  .entry{padding:20px 20px 22px}
+  .entry.has-img{grid-template-columns:1fr;gap:16px}
+  .entry-img{order:-1}
+  .tb-back span{display:none}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <nav class="tb-nav">
+    <a href="/projects">PROJECTS</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">WRITING</div>
+    <h1>Writing</h1>
+    <p class="lede">Notes on learning design: what competency-based learning is, how a business puts it into practice, and how to model what an individual actually needs to know.</p>
+  </div>
+</div>
+
+<main>
+  <a class="entry has-img" style="--acc:#f0a868" href="/writing/rise-of-the-super-competency">
+    <div>
+      <div class="entry-kicker">LEARNING DESIGN</div>
+      <h2 class="entry-title">Rise of the Super Competency</h2>
+      <p class="entry-lede">Courses are built in big pieces and products change in small ones, so training is out of date soon after it ships. A smaller, versioned unit of curriculum, linked into a graph, can keep up.</p>
+      <span class="entry-more">READ &#8594;</span>
+    </div>
+    <div class="entry-img"><img src="/writing/rise-of-the-super-competency/assets/og.jpg" alt="" loading="lazy" width="1200" height="630"></div>
+  </a>
+
+  <a class="entry has-img" style="--acc:#e8a317" href="/writing/universal-rice-and-beans">
+    <div>
+      <div class="entry-kicker">POLICY SKETCH</div>
+      <h2 class="entry-title">Universal Rice &amp; Beans</h2>
+      <p class="entry-lede">A proposal for UNYC: the city would buy staples in bulk and every large grocery store would ring them up at $0. No card, no enrollment, about $37 per resident a year.</p>
+      <span class="entry-more">READ &#8594;</span>
+    </div>
+    <div class="entry-img"><img src="/writing/universal-rice-and-beans/assets/shelf.jpg" alt="" loading="lazy" width="1200" height="630"></div>
+  </a>
+
+  <a class="entry" style="--acc:#e7a68d" href="/writing/introduction-to-competency-based-learning">
+    <div class="entry-kicker">LEARNING DESIGN</div>
+    <h2 class="entry-title">An Introduction to Competency-Based Learning</h2>
+    <p class="entry-lede">Teaching and assessing on demonstrated mastery rather than time spent, and why a business whose training changes every month needs smaller chunks of knowledge.</p>
+    <span class="entry-more">READ &#8594;</span>
+  </a>
+
+  <a class="entry" style="--acc:#d9c48a" href="/writing/competency-based-learning-in-practice">
+    <div class="entry-kicker">LEARNING DESIGN</div>
+    <h2 class="entry-title">Putting Competency-Based Learning into Practice</h2>
+    <p class="entry-lede">What changes once competencies are arranged into a framework rather than kept as a list: recruiting, role-based learning journeys and performance evaluation.</p>
+    <span class="entry-more">READ &#8594;</span>
+  </a>
+
+  <a class="entry" style="--acc:#8fd0c4" href="/writing/thoughts-on-learning-plans">
+    <div class="entry-kicker">LEARNING ARCHITECTURE</div>
+    <h2 class="entry-title">Thoughts on Learning Plans</h2>
+    <p class="entry-lede">Every employee's responsibilities are emitted by a different set of contexts. Notes on modeling a learning journey that is unique to each person without hand-building every one.</p>
+    <span class="entry-more">READ &#8594;</span>
+  </a>
+</main>
+</body>
+</html>

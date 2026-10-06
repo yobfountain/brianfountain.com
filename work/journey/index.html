@@ -1,0 +1,504 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Journey, Learning in the Feed · Brian Fountain</title>
+<meta name="description" content="A recreation of an internal pilot at TikTok: bite-sized, role-specific training delivered as a vertical feed, with knowledge checks, an optional stitch competition and a sticker-badge journey board.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/work/journey">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Journey, learning in the feed">
+<meta property="og:description" content="Bite-sized, role-specific training delivered as a vertical feed. A recreation of an internal pilot at TikTok.">
+<meta property="og:url" content="https://brianfountain.com/work/journey">
+<meta property="og:image" content="https://brianfountain.com/work/journey/assets/lesson-still.jpg">
+<meta property="og:image:alt" content="Two coworkers in a one-on-one conversation, the still used for the demo lesson">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Journey, learning in the feed">
+<meta name="twitter:description" content="Bite-sized, role-specific training delivered as a vertical feed. A recreation of an internal pilot at TikTok.">
+<meta name="twitter:image" content="https://brianfountain.com/work/journey/assets/lesson-still.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{--acc:#ff8a7a;--acc-soft:rgba(255,138,122,.16);--acc-wash:rgba(255,138,122,.07);--acc-edge:rgba(255,138,122,.22);--ink:#efe6da;--ink-70:rgba(239,230,218,.7);--ink-50:rgba(239,230,218,.5)}
+body{background:#100d0b;color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:1080px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em;max-width:18ch}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:62ch}
+
+/* two-column body: sticky phone + prose */
+.body{max-width:1080px;margin:0 auto;padding:clamp(30px,5vw,56px) clamp(20px,5vw,40px) 40px;display:grid;grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.demo{position:sticky;top:24px}
+.demo-hint{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.6;color:var(--ink-50);text-align:center}
+.demo-hint kbd{font-family:inherit;border:1px solid rgba(239,230,218,.25);border-radius:5px;padding:0 5px}
+article{max-width:70ch;min-width:0}
+article h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:44px 0 14px}
+article h2:first-child{margin-top:0}
+article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:18px}
+article strong{color:var(--ink);font-weight:700}
+article ul{margin:0 0 18px 0;padding-left:22px}
+article li{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:12px;padding-left:4px}
+article li::marker{color:var(--acc)}
+.callout{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge)}
+.callout .ico{font-size:19px;line-height:1.3;flex:none}
+.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 24px}
+.role{padding:14px 16px;border-radius:14px;background:rgba(239,230,218,.05);border:1px solid rgba(239,230,218,.1)}
+.role b{display:block;font-size:13px;color:var(--acc);margin-bottom:6px}
+.role p{font-size:14.5px;margin:0;color:rgba(239,230,218,.8)}
+.fig-phone{margin:30px 0 34px;display:flex;flex-direction:column;align-items:center}
+.fig-phone .phone{--w:min(280px,78vw);cursor:default}
+.fig-phone .screen{touch-action:auto}
+.fig-phone figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:var(--ink-50);margin-top:18px;max-width:52ch;text-align:center}
+.s-reply img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-reply .shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,transparent 30%,transparent 60%,rgba(0,0,0,.7) 100%)}
+.s-reply .bubble{position:absolute;left:6%;top:calc(var(--w)*.34);width:74%;background:#fff;color:#161616;border-radius:14px;padding:.65em .8em;font-size:.92em;line-height:1.3;box-shadow:0 .5em 1.2em rgba(0,0,0,.35);z-index:5}
+.s-reply .bubble::after{content:"";position:absolute;left:1.2em;bottom:-.55em;border:.6em solid transparent;border-top-color:#fff;border-bottom:0}
+.s-reply .bubble .u{display:flex;align-items:center;gap:.45em;color:#6b6b6b;font-size:.85em;margin-bottom:.25em}
+.s-reply .bubble .u i{width:1.5em;height:1.5em;border-radius:50%;background:linear-gradient(135deg,#8fd0ff,#c7b3ff);display:inline-block}
+.s-reply .bubble b{font-weight:700}
+.s-reply .rec{position:absolute;right:6%;top:calc(var(--w)*.2);display:inline-flex;align-items:center;gap:.4em;font-size:.72em;font-weight:800;background:rgba(0,0,0,.45);border-radius:999px;padding:.3em .7em;z-index:5}
+.s-reply .rec i{width:.6em;height:.6em;border-radius:50%;background:#ff4d5a;display:inline-block;animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:.2}}
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12);font-size:14px;color:var(--ink-50)}
+@media (max-width:860px){
+  .body{grid-template-columns:1fr;gap:34px}
+  .demo{position:static;display:flex;flex-direction:column;align-items:center}
+  .roles{grid-template-columns:1fr}
+}
+@media (max-width:640px){body{line-height:1.6}article p,article li{font-size:15.5px}}
+
+/* ---------- the phone ---------- */
+.phone{--w:min(340px,82vw);width:var(--w);aspect-ratio:9/19.2;position:relative;margin:0 auto;border-radius:calc(var(--w)*.15);background:#1a1a1c;padding:calc(var(--w)*.032);box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 1.5px #3a3a3e,inset 0 0 0 2px #0a0a0b;outline:none}
+.phone:focus-visible{box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 3px var(--acc)}
+.phone::before,.phone::after{content:"";position:absolute;background:#2c2c30;border-radius:2px}
+.phone::before{left:-3px;top:22%;width:3px;height:9%}
+.phone::after{right:-3px;top:18%;width:3px;height:14%}
+.screen{position:absolute;inset:calc(var(--w)*.032);border-radius:calc(var(--w)*.12);overflow:hidden;background:#000;color:#fff;font-family:'Manrope',sans-serif;font-size:calc(var(--w)*.038);line-height:1.35;touch-action:pan-x}
+.island{position:absolute;left:50%;top:calc(var(--w)*.055);transform:translateX(-50%);width:26%;height:calc(var(--w)*.075);background:#000;border-radius:999px;z-index:20}
+.status{position:absolute;top:calc(var(--w)*.062);left:8%;right:8%;display:flex;justify-content:space-between;font-size:.82em;font-weight:700;z-index:19;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.status span:last-child{display:inline-flex;align-items:center;gap:.25em}
+.status i{display:inline-block;width:1.4em;height:.7em;border:1.5px solid currentColor;border-radius:3px;position:relative;opacity:.9}
+.status i::after{content:"";position:absolute;left:1.5px;top:1.5px;bottom:1.5px;width:65%;background:currentColor;border-radius:1px}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;transform:translateY(100%);transition:transform .5s cubic-bezier(.32,.72,.2,1);will-change:transform;display:flex;flex-direction:column;overflow:hidden}
+.slide.is-current{transform:translateY(0);z-index:2}
+.slide.is-past{transform:translateY(-100%)}
+.slide.is-current ~ .slide{transform:translateY(100%)}
+.dots{position:absolute;left:6%;right:6%;top:calc(var(--w)*.165);display:flex;gap:4px;z-index:10}
+.dots button{flex:1;height:3px;border-radius:3px;border:0;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:background .25s;position:relative}
+.dots button::before{content:"";position:absolute;inset:-8px 0}
+.dots button.on{background:#fff}
+.dots button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.tabs{position:absolute;top:calc(var(--w)*.205);left:0;right:0;display:flex;justify-content:center;gap:1.4em;font-size:.95em;font-weight:700;z-index:10;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.tabs span{opacity:.6;padding-bottom:.25em}
+.tabs span.on{opacity:1;border-bottom:2px solid #fff}
+
+/* slide 1: lesson */
+.s-lesson img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-lesson .shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,transparent 28%,transparent 55%,rgba(0,0,0,.75) 100%)}
+.rail{position:absolute;right:4%;bottom:19%;display:flex;flex-direction:column;align-items:center;gap:1.1em;z-index:5}
+.rail .who{width:2.9em;height:2.9em;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#ff8a7a,#8fd0ff);display:grid;place-items:center;font-weight:800;font-size:.9em;position:relative;margin-bottom:.4em}
+.rail .who::after{content:"+";position:absolute;bottom:-.7em;left:50%;transform:translateX(-50%);width:1.3em;height:1.3em;border-radius:50%;background:var(--acc);color:#fff;font-size:.9em;line-height:1.3em;text-align:center;font-weight:800}
+.rail .act{display:flex;flex-direction:column;align-items:center;gap:.2em;font-size:.72em;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.rail svg{width:2.2em;height:2.2em;fill:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+.meta{position:absolute;left:5%;right:20%;bottom:6.5%;z-index:5;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.meta .chip{display:inline-flex;align-items:center;gap:.4em;font-size:.72em;font-weight:700;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:.3em .8em;margin-bottom:.7em}
+.meta .chip i{width:.6em;height:.6em;border-radius:50%;background:#7ef0b2;display:inline-block}
+.meta .handle{font-weight:800;font-size:.95em}
+.meta .cap{font-size:.86em;margin-top:.3em;line-height:1.4}
+.meta .cap b{font-weight:700;color:#fff}
+.meta .cap span{color:rgba(255,255,255,.85)}
+.meta .sound{display:flex;align-items:center;gap:.5em;font-size:.76em;margin-top:.6em;opacity:.9}
+.meta .sound em{font-style:normal;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.playbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.25);z-index:6}
+.playbar i{display:block;height:100%;width:0;background:#fff;animation:play 45s linear infinite}
+@keyframes play{to{width:100%}}
+.lesson-tag{position:absolute;left:5%;top:calc(var(--w)*.31);z-index:5;font-size:.7em;font-weight:700;background:var(--acc);color:#1a0b08;border-radius:6px;padding:.25em .6em;text-shadow:none}
+
+/* slide 2: knowledge check */
+.s-check{background:radial-gradient(120% 70% at 50% -10%,#3b2a68 0%,#171326 55%,#0c0a14 100%);padding:calc(var(--w)*.26) 7% 7%}
+.s-check .kicker{font-size:.72em;font-weight:800;letter-spacing:.06em;color:#c7b3ff}
+.s-check h3{font-size:1.32em;line-height:1.2;font-weight:800;margin:.35em 0 .9em}
+.opts{display:flex;flex-direction:column;gap:.55em}
+.opt{appearance:none;width:100%;text-align:left;border:1.5px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:14px;padding:.75em .9em;font:inherit;font-size:.86em;line-height:1.35;cursor:pointer;display:flex;gap:.7em;align-items:flex-start;transition:background .2s,border-color .2s,transform .2s,opacity .3s}
+.opt b{flex:none;width:1.7em;height:1.7em;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:grid;place-items:center;font-size:.85em;font-weight:800}
+.opt:hover{background:rgba(255,255,255,.11)}
+.opt:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.opt.right{background:rgba(126,240,178,.18);border-color:#7ef0b2}
+.opt.right b{background:#7ef0b2;color:#0b2a1a;border-color:#7ef0b2}
+.opt.wrong{background:rgba(255,120,120,.16);border-color:#ff8a8a;animation:shake .4s}
+.opt.dim{opacity:.35}
+@keyframes shake{20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+.verdict{margin-top:1.1em;min-height:3.4em;font-size:.86em;line-height:1.4;color:rgba(255,255,255,.85)}
+.verdict b{color:#7ef0b2}
+.verdict.no b{color:#ff8a8a}
+.pop{position:absolute;left:50%;top:71%;transform:translate(-50%,-50%) scale(0) rotate(-14deg);z-index:12;pointer-events:none;transition:transform .55s cubic-bezier(.2,1.6,.4,1)}
+.pop.show{transform:translate(-50%,-50%) scale(1) rotate(-8deg)}
+.pop.fade{transition:transform .35s ease-in,opacity .35s;transform:translate(-50%,-70%) scale(.6) rotate(-8deg);opacity:0}
+
+/* stickers */
+.sticker{--sz:4.4em;width:var(--sz);height:var(--sz);display:grid;place-items:center;position:relative;transform:rotate(var(--rot,-6deg))}
+.sticker img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 .3em .6em rgba(0,0,0,.45))}
+.sticker.big{--sz:7.4em}
+.sticker.big::after{content:attr(data-label);position:absolute;left:50%;bottom:-1.9em;transform:translateX(-50%) rotate(8deg);white-space:nowrap;font-size:.72em;font-weight:800;background:#fff;color:#1a1a1c;border-radius:999px;padding:.25em .8em;box-shadow:0 .2em .6em rgba(0,0,0,.4)}
+
+/* slide 3: stitch */
+.s-stitch{background:linear-gradient(160deg,#ff5c7a 0%,#ff8a5c 45%,#ffc857 100%);color:#2a0b12;padding:calc(var(--w)*.26) 8% 8%}
+.s-stitch::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 50% at 80% 100%,rgba(255,255,255,.35),transparent 70%);pointer-events:none}
+.s-stitch .week{display:inline-flex;align-items:center;gap:.45em;font-size:.72em;font-weight:800;background:rgba(42,11,18,.85);color:#fff;border-radius:999px;padding:.35em .9em .35em .5em;position:relative}
+.s-stitch .week i{width:1.5em;height:1.5em;border-radius:50%;background:#ffc857;display:grid;place-items:center;font-style:normal;font-size:.9em}
+.s-stitch h3{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;font-size:2.7em;line-height:.96;letter-spacing:-.02em;margin:.5em 0 .45em;position:relative}
+.s-stitch .quote{position:relative;background:#fff;color:#1a1a1c;border-radius:16px 16px 16px 4px;padding:.85em 1em;font-size:.95em;font-weight:600;box-shadow:0 .6em 1.4em rgba(90,20,30,.28);transform:rotate(-1.5deg)}
+.s-stitch .quote small{display:block;font-size:.72em;font-weight:700;color:#8a6b70;margin-bottom:.3em}
+.s-stitch .ask.tip{margin-top:.6em;font-weight:500;color:#5a2532}
+.s-stitch .ask{position:relative;margin-top:1.1em;font-size:.88em;line-height:1.4;font-weight:600;color:#3d1520}
+.s-stitch .cta{margin-top:auto;position:relative;appearance:none;border:0;width:100%;padding:.95em;border-radius:999px;background:#1a0b10;color:#fff;font:inherit;font-weight:800;font-size:.95em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.6em;transition:transform .15s,background .2s}
+.s-stitch .cta:hover{transform:translateY(-1px)}
+.s-stitch .cta:focus-visible{outline:3px solid #fff}
+.s-stitch .cta svg{width:1.25em;height:1.25em;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.s-stitch .cta.done{background:#0b7a46}
+.s-stitch .count{position:relative;text-align:center;font-size:.74em;font-weight:700;margin-top:.7em;color:#4a1a26}
+.s-stitch .skip{position:relative;text-align:center;font-size:.72em;font-weight:600;margin-top:.35em;color:rgba(74,26,38,.7)}
+
+/* slide 4: journey */
+.s-journey{background:radial-gradient(110% 60% at 50% 0%,#1f3d3a 0%,#0e1a1c 60%,#090d10 100%);padding:calc(var(--w)*.26) 7% 8%}
+.s-journey .kicker{font-size:.72em;font-weight:800;letter-spacing:.06em;color:#8fe3cf}
+.s-journey h3{font-size:1.32em;line-height:1.2;font-weight:800;margin:.3em 0 .1em}
+.s-journey .role{font-size:.8em;color:rgba(255,255,255,.65);padding:0;border:0;background:none}
+.jstats{display:flex;gap:.6em;margin:.9em 0 1em;font-size:.78em;font-weight:700}
+.jstats div{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:.6em .7em;line-height:1.25}
+.jstats small{display:block;font-weight:600;color:rgba(255,255,255,.55);font-size:.85em}
+.jbar{height:6px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden;margin-bottom:1.2em}
+.jbar i{display:block;height:100%;width:37.5%;background:linear-gradient(90deg,#8fe3cf,#ffc857);border-radius:999px;transition:width .6s cubic-bezier(.32,.72,.2,1)}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:.9em .2em;justify-items:center;padding:.2em 0 0}
+.badge{display:flex;flex-direction:column;align-items:center;gap:.3em;font-size:.7em;font-weight:700;text-align:center;line-height:1.15;color:rgba(255,255,255,.85);width:100%}
+.badge .sticker{--sz:7em}
+.badge.locked .sticker{transform:rotate(0)}
+.badge.locked .sticker img{filter:grayscale(1) opacity(.28)}
+.badge.locked{color:rgba(255,255,255,.4)}
+.badge.new .sticker{animation:stick .6s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stick{0%{transform:scale(0) rotate(30deg)}100%{transform:scale(1) rotate(var(--rot,-6deg))}}
+.jcta{margin-top:auto;appearance:none;border:0;width:100%;padding:.9em;border-radius:999px;background:#8fe3cf;color:#08201c;font:inherit;font-weight:800;font-size:.95em;cursor:pointer;transition:transform .15s}
+.jcta:hover{transform:translateY(-1px)}
+.jcta:focus-visible{outline:3px solid #fff}
+.jfoot{margin-top:.8em;font-size:.78em;color:rgba(255,255,255,.6);text-align:center;line-height:1.4}
+.jfoot b{color:#ffc857}
+
+.swipe-hint{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);z-index:11;font-size:.7em;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:.1em;color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.6);pointer-events:none;animation:nudge 1.6s ease-in-out infinite;transition:opacity .3s}
+.swipe-hint.off{opacity:0}
+.swipe-hint svg{width:1.6em;height:1.6em;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+@keyframes nudge{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+.s-lesson .swipe-hint{bottom:2.2%}
+
+@media (prefers-reduced-motion:reduce){
+  .slide,.pop,.jbar i,.opt,.sticker{transition:none!important;animation:none!important}
+  .swipe-hint,.playbar i,.badge.new .sticker{animation:none!important}
+  .playbar i{width:38%}
+}
+</style></head><body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <a class="tb-kicker" href="/">WORK</a>
+</header>
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">INTERNAL PILOT AT TIKTOK</div>
+    <h1>Journey, the training that ran inside the feed</h1>
+    <p class="lede">Sales teams at TikTok spent their days inside a vertical feed, so we put their training there too. Journey delivered lessons in under a minute and checked understanding on the next swipe. Anyone who wanted to practice out loud could stitch a response into an optional weekly competition. This page recreates the experience as a working demo.</p>
+  </div>
+</div>
+
+<div class="body">
+  <div class="demo">
+    <div class="phone" id="phone" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Journey demo. Use the arrow keys or swipe to move between screens.">
+      <div class="island"></div>
+      <div class="status"><span>9:41</span><span>●●●● <i></i></span></div>
+      <div class="screen">
+        <div class="slides" id="slides">
+
+          <!-- 1 · lesson -->
+          <section class="slide s-lesson is-current" aria-label="Lesson">
+            <img src="assets/lesson-still.jpg" alt="Two coworkers talking across a small table in an office lounge, warm afternoon light">
+            <div class="shade"></div>
+            <div class="tabs"><span>My role</span><span class="on">For you</span></div>
+            <div class="lesson-tag">Lesson 2 of 5</div>
+            <div class="rail">
+              <div class="who">LT</div>
+              <div class="act"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.6 3 5 6.6 5c2 0 3.4 1.1 4.4 2.4C12 6.1 13.4 5 15.4 5 19 5 21.1 8.6 19.6 11.8 17.5 16.4 12 21 12 21z"/></svg>12.4K</div>
+              <div class="act"><svg viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.3 1.2 4.4 3.2 5.9L4 21l4.6-2.1c1.1.3 2.2.4 3.4.4 5.5 0 10-3.6 10-8.3S17.5 3 12 3z"/></svg>318</div>
+              <div class="act"><svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Save</div>
+              <div class="act"><svg viewBox="0 0 24 24"><path d="M14 4l8 7-8 7v-4.5C8.5 13.5 5 15 2 19c1-6 4.5-10 12-10.5V4z"/></svg>Share</div>
+            </div>
+            <div class="meta">
+              <div class="chip"><i></i>Account Manager, Sales</div>
+              <div class="handle">@learning.team</div>
+              <div class="cap"><b>Feedback that lands, part 2.</b> <span>Situation, behavior, impact. Forty-five seconds, then a quick check.</span></div>
+              <div class="sound">♪ <em>original sound, Learning team</em></div>
+            </div>
+            <div class="playbar"><i></i></div>
+            <div class="swipe-hint"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Swipe up</div>
+          </section>
+
+          <!-- 2 · knowledge check -->
+          <section class="slide s-check" aria-label="Knowledge check">
+            <div class="kicker">Quick check</div>
+            <h3>Which one is feedback in the SBI shape?</h3>
+            <div class="opts" id="opts">
+              <button class="opt" data-a="A"><b>A</b><span>Great job on the deck. Really strong work this week.</span></button>
+              <button class="opt" data-a="B" data-right><b>B</b><span>In Tuesday's pitch, when you opened with the client's own numbers, the room leaned in and we got the follow-up meeting.</span></button>
+              <button class="opt" data-a="C"><b>C</b><span>You should be more confident in pitches.</span></button>
+              <button class="opt" data-a="D"><b>D</b><span>Everyone loved it. Keep it up!</span></button>
+            </div>
+            <p class="verdict" id="verdict">Tap the one that names a situation, a behavior and its impact.</p>
+            <div class="pop" id="pop"><div class="sticker big" style="--rot:-8deg" data-label="SBI spotter"><img src="assets/stickers/sbi-spotter.png" alt=""></div></div>
+            <div class="swipe-hint off" id="hint2"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Keep going</div>
+          </section>
+
+          <!-- 3 · stitch -->
+          <section class="slide s-stitch" aria-label="Stitch challenge">
+            <div class="week"><i>🏆</i>Optional: this week's competition, closes Friday</div>
+            <h3>Say it so it lands.</h3>
+            <div class="quote"><small>Your manager just said</small>“Nice work on the deck.”</div>
+            <p class="ask">Want to practice out loud? Stitch a 30-second version with a situation, a behavior and an impact. Best three get featured Monday.</p>
+            <p class="ask tip">One take is plenty. Open with the moment, say what they did, then say what it changed.</p>
+            <button class="cta" id="stitchBtn"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16M9 4l-5 4 5 4M15 12l5 4-5 4"/></svg><span>Stitch your response</span></button>
+            <div class="count" id="stitchCount">42 stitches so far</div>
+            <div class="skip">Not this time? Swipe up to keep going.</div>
+          </section>
+
+          <!-- 4 · journey -->
+          <section class="slide s-journey" aria-label="Your journey">
+            <div class="kicker">Your journey</div>
+            <h3>Feedback that lands</h3>
+            <div class="role">Account Manager, Sales</div>
+            <div class="jstats">
+              <div><span id="stickerCount">3</span> of 8<small>stickers</small></div>
+              <div>4 days<small>streak</small></div>
+              <div>#12<small>on your team</small></div>
+            </div>
+            <div class="jbar"><i id="jbar"></i></div>
+            <div class="board" id="board">
+              <div class="badge"><div class="sticker" style="--rot:-7deg"><img src="assets/stickers/first-watch.png" alt=""></div>First watch</div>
+              <div class="badge"><div class="sticker" style="--rot:5deg"><img src="assets/stickers/role-match.png" alt=""></div>Role match</div>
+              <div class="badge"><div class="sticker" style="--rot:-4deg"><img src="assets/stickers/streak.png" alt=""></div>3-day streak</div>
+              <div class="badge locked" id="bSbi"><div class="sticker" style="--rot:6deg"><img src="assets/stickers/sbi-spotter.png" alt=""></div>SBI spotter</div>
+              <div class="badge locked" id="bStitch"><div class="sticker" style="--rot:-6deg"><img src="assets/stickers/stitched-it.png" alt=""></div>Stitched it</div>
+              <div class="badge locked"><div class="sticker" style="--rot:4deg"><img src="assets/stickers/featured.png" alt=""></div>Featured</div>
+              <div class="badge locked"><div class="sticker" style="--rot:-5deg"><img src="assets/stickers/week-1.png" alt=""></div>Week 1 done</div>
+              <div class="badge locked"><div class="sticker" style="--rot:7deg"><img src="assets/stickers/feedback-pro.png" alt=""></div>Feedback pro</div>
+            </div>
+            <button class="jcta" id="keepGoing">Keep going</button>
+            <p class="jfoot" id="jfoot">Two lessons left this week. <b>Next up:</b> receiving feedback.</p>
+          </section>
+
+        </div>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+      </div>
+    </div>
+    <p class="demo-hint">The demo plays on its own. Hover or tap to take over, swipe or use <kbd>↑</kbd> <kbd>↓</kbd>, and it resumes after a few seconds. Answer the check to unlock a sticker. The stitch is optional and unlocks another.</p>
+  </div>
+
+  <article>
+    <h2>The pilot</h2>
+    <p>Global Business Solutions is TikTok's sales organization. Its account managers, sellers and ops leads were the audience for most of the training my team built, and they had one thing in common: they spent all day in a vertical feed. Journey was an internal pilot that took that seriously. Instead of pulling people out to a course, it delivered training in the format they already knew by heart: full-screen, one idea at a time, swipe for the next.</p>
+    <div class="callout"><div class="ico">📱</div><p>The phone beside this text is a working recreation of the pilot: the watch-and-check loop, the optional stitch, and the journey board. The original code stayed with TikTok, so the demo is rebuilt from scratch with a stand-in still where a video would play.</p></div>
+
+    <h2>Bite-sized, and built for the learner's role</h2>
+    <p>Every lesson ran under a minute and taught exactly one thing. That constraint did most of the design work for us. A skill like giving feedback breaks naturally into a short series: why vague praise fails, the situation-behavior-impact shape, delivering it live, receiving it well.</p>
+    <p>The series was the same for everyone. The examples were not. The pilot knew the learner's role, and the scenario inside each lesson was written for that role, so the same skill arrived wearing familiar clothes:</p>
+    <div class="roles">
+      <div class="role"><b>Account Manager</b><p>The feedback is about a client pitch. The stitch prompt is a manager's throwaway comment on a deck.</p></div>
+      <div class="role"><b>Ops lead</b><p>The feedback is about a handoff that slipped. The stitch prompt is a peer's vague note on a process doc.</p></div>
+    </div>
+    <p>Nobody had to translate a generic example into their own work. That was the point.</p>
+
+    <h2>Watch and check, then an optional stitch</h2>
+    <p>The core loop was two swipes: watch, then check. A third swipe offered something extra to anyone who wanted it.</p>
+    <ul>
+      <li><strong>Watch.</strong> A short video with the same chrome as the app: caption, sound, the rail on the right. Nothing signals "this is training" except the lesson tag and the role chip.</li>
+      <li><strong>Check.</strong> One question, answered by tapping. Instant feedback, and a sticker if you got it right. The check is on the very next swipe so the idea is still warm.</li>
+      <li><strong>Stitch, if you want to.</strong> A third slide, styled like a challenge, invited the learner to stitch their own response. It was never required, and swiping past it cost nothing. Stitching was the app's native way to reply to a video with a video, so practicing the skill meant using the feature people already used to be funny with their friends.</li>
+    </ul>
+    <p>For the people who took it up, the stitch turned into a weekly competition. Entries were visible to the team, the best three were featured on Monday, and that small stage did more for participation than any reminder email.</p>
+    <figure class="fig-phone">
+      <div class="phone" aria-hidden="true">
+        <div class="island"></div>
+        <div class="status"><span>9:41</span><span>●●●● <i></i></span></div>
+        <div class="screen">
+          <section class="slide s-reply is-current">
+            <img class="bg" src="assets/stitch-reply.jpg" alt="" loading="lazy">
+            <div class="shade"></div>
+            <div class="rec"><i></i>0:18</div>
+            <div class="bubble"><div class="u"><i></i>Your manager</div><b>“Nice work on the deck.”</b></div>
+            <div class="rail">
+              <div class="who">AV</div>
+              <div class="act"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.6 3 5 6.6 5c2 0 3.4 1.1 4.4 2.4C12 6.1 13.4 5 15.4 5 19 5 21.1 8.6 19.6 11.8 17.5 16.4 12 21 12 21z"/></svg>96</div>
+              <div class="act"><svg viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.3 1.2 4.4 3.2 5.9L4 21l4.6-2.1c1.1.3 2.2.4 3.4.4 5.5 0 10-3.6 10-8.3S17.5 3 12 3z"/></svg>14</div>
+              <div class="act"><svg viewBox="0 0 24 24"><path d="M14 4l8 7-8 7v-4.5C8.5 13.5 5 15 2 19c1-6 4.5-10 12-10.5V4z"/></svg>Share</div>
+            </div>
+            <div class="meta">
+              <div class="handle">@ava.sells</div>
+              <div class="cap"><b>Replying to @your.manager</b> <span>Tuesday's pitch, you opened with their numbers, and we got the follow-up. That's the deck. #feedbackthatlands</span></div>
+              <div class="sound">♪ <em>original sound, ava.sells</em></div>
+            </div>
+            <div class="playbar"><i></i></div>
+          </section>
+        </div>
+      </div>
+      <figcaption>A stitch entry. The manager's line sits on screen as a comment reply, and the learner answers it in the SBI shape.</figcaption>
+    </figure>
+
+    <h2>The journey board</h2>
+    <p>Progress was a board of stickers. Each one was earned by doing something specific, watching a first lesson, spotting the SBI shape, stitching an entry, holding a streak, and the locked ones showed what was still ahead. Stickers, rather than points or percentages, because stickers are a thing you collect and a thing you show. In the demo, answering the check correctly and tapping the stitch button both unlock stickers on the board, which is how the pilot behaved.</p>
+    <p>What the board changed was completion. A course you abandon halfway leaves nothing behind. A board with five of eight stickers on it is a reason to come back.</p>
+
+    <p class="endnote">Journey was an internal pilot built with the learning team in TikTok's Global Business Solutions. This page is a recreation for demonstration; the training content is illustrative, and the photo is a generated stand-in for lesson video. Not affiliated with or endorsed by TikTok.</p>
+  </article>
+</div>
+
+<script>
+(function(){
+  var phone=document.getElementById('phone');
+  var slides=Array.prototype.slice.call(document.querySelectorAll('#slides .slide'));
+  var dotsEl=document.getElementById('dots');
+  var cur=0, busy=false;
+  slides.forEach(function(_,i){
+    var b=document.createElement('button');
+    b.type='button'; b.setAttribute('aria-label','Screen '+(i+1));
+    b.addEventListener('click',function(){go(i);});
+    dotsEl.appendChild(b);
+  });
+  var dots=dotsEl.querySelectorAll('button');
+  function render(){
+    slides.forEach(function(s,i){
+      s.classList.toggle('is-current',i===cur);
+      s.classList.toggle('is-past',i<cur);
+      s.setAttribute('aria-hidden',i===cur?'false':'true');
+    });
+    dots.forEach(function(d,i){d.classList.toggle('on',i===cur);});
+  }
+  function go(n){
+    if(busy) return;
+    n=(n+slides.length)%slides.length;
+    if(n===cur) return;
+    cur=n; render();
+    busy=true; setTimeout(function(){busy=false;},520);
+  }
+  function next(){go(cur+1);} function prev(){go(cur-1);}
+
+  // autoplay: advance every 3s; any interaction pauses; resume 6s after the last one
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var auto=null, idleT=null, inView=true;
+  function play(){ if(auto||reduce||!inView||document.hidden) return; auto=setInterval(next,3000); }
+  function stop(){ if(auto){clearInterval(auto); auto=null;} }
+  function touch(){ stop(); clearTimeout(idleT); idleT=setTimeout(play,6000); }
+  ['mouseenter','mousemove','pointerdown','click','keydown','wheel','touchstart','focusin'].forEach(function(ev){
+    phone.addEventListener(ev,touch,{passive:true});
+  });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ inView=en[0].isIntersecting; inView?(idleT?null:play()):stop(); },{threshold:.4}).observe(phone);
+  }
+  document.addEventListener('visibilitychange',function(){ document.hidden?stop():play(); });
+  play();
+
+  // wheel: one step per gesture
+  var wheelLock=0;
+  phone.addEventListener('wheel',function(e){
+    e.preventDefault();
+    var now=Date.now();
+    if(now-wheelLock<700||Math.abs(e.deltaY)<8) return;
+    wheelLock=now;
+    e.deltaY>0?next():prev();
+  },{passive:false});
+
+  // touch swipe
+  var ty=null;
+  phone.addEventListener('touchstart',function(e){ty=e.touches[0].clientY;},{passive:true});
+  phone.addEventListener('touchend',function(e){
+    if(ty===null) return;
+    var dy=e.changedTouches[0].clientY-ty; ty=null;
+    if(Math.abs(dy)<40) return;
+    dy<0?next():prev();
+  },{passive:true});
+
+  // keys
+  phone.addEventListener('keydown',function(e){
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='j'){e.preventDefault();next();}
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='k'){e.preventDefault();prev();}
+  });
+
+  // knowledge check
+  var opts=document.querySelectorAll('#opts .opt');
+  var verdict=document.getElementById('verdict');
+  var pop=document.getElementById('pop');
+  var hint2=document.getElementById('hint2');
+  var sbiDone=false;
+  opts.forEach(function(o){
+    o.addEventListener('click',function(){
+      if(sbiDone) return;
+      if(o.hasAttribute('data-right')){
+        sbiDone=true;
+        o.classList.add('right');
+        opts.forEach(function(x){ if(x!==o) x.classList.add('dim'); x.disabled=true; });
+        verdict.className='verdict';
+        verdict.innerHTML='<b>That\'s it.</b> Tuesday\'s pitch is the situation, opening with their numbers is the behavior, the follow-up meeting is the impact.';
+        pop.classList.add('show');
+        setTimeout(function(){pop.classList.add('fade');},2600);
+        setTimeout(function(){pop.classList.remove('show','fade');},3000);
+        unlock('bSbi');
+        hint2.classList.remove('off');
+      }else{
+        o.classList.add('wrong');
+        setTimeout(function(){o.classList.remove('wrong');},450);
+        verdict.className='verdict no';
+        var why={A:'Praise without a situation or a behavior. What exactly was strong?',C:'A trait, not a behavior. It gives nothing to repeat next time.',D:'Warm, but there is no situation and no impact to point at.'}[o.getAttribute('data-a')];
+        verdict.innerHTML='<b>Not quite.</b> '+why;
+      }
+    });
+  });
+
+  // stitch
+  var stitchBtn=document.getElementById('stitchBtn');
+  var stitchCount=document.getElementById('stitchCount');
+  var stitched=false;
+  stitchBtn.addEventListener('click',function(){
+    if(stitched) return;
+    stitched=true;
+    stitchBtn.classList.add('done');
+    stitchBtn.querySelector('span').textContent='Stitch submitted';
+    stitchCount.textContent='43 stitches so far, including yours';
+    unlock('bStitch');
+    setTimeout(next,900);
+  });
+
+  // journey: keep going wraps back to the next lesson
+  document.getElementById('keepGoing').addEventListener('click',function(){ go(0); });
+
+  // journey board
+  var count=3;
+  function unlock(id){
+    var b=document.getElementById(id);
+    if(!b||!b.classList.contains('locked')) return;
+    b.classList.remove('locked'); b.classList.add('new');
+    count++;
+    document.getElementById('stickerCount').textContent=count;
+    document.getElementById('jbar').style.width=(count/8*100)+'%';
+    if(count>=5) document.getElementById('jfoot').innerHTML='Two stickers this session. <b>Next up:</b> receiving feedback.';
+  }
+
+  render();
+})();
+</script>
+</body></html>

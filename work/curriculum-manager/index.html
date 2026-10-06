@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Curriculum Design · Brian Fountain</title>
+<meta name="description" content="Brian Fountain on building enablement curriculum: performance expectations turned into observable behavior, objectives with assessments that check them, role-based learning paths, and reinforcement that follows the evidence.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/work/curriculum-manager">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Curriculum Design">
+<meta property="og:description" content="Curriculum built backward from behavior a manager could watch for, with the assessment and the refresher designed alongside the lesson.">
+<meta property="og:url" content="https://brianfountain.com/work/curriculum-manager">
+<meta property="og:image" content="https://brianfountain.com/work/journey/assets/lesson-still.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{--acc:#a9d48a;--acc-soft:rgba(169,212,138,.14);--acc-wash:rgba(169,212,138,.06);--acc-edge:rgba(169,212,138,.22);--miss:#f0927a}
+body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(239,230,218,.45);text-decoration:none}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:840px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(30px,5vw,50px);line-height:1.08;margin-top:14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:62ch}
+article{max-width:840px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,2.6vw,29px);line-height:1.22;margin:42px 0 12px}
+article h2:first-child{margin-top:0}
+article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:16px;max-width:70ch}
+article strong{color:#efe6da;font-weight:700}
+figure{margin:24px 0 30px}
+figure img,figure video{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(239,230,218,.14);box-shadow:0 18px 48px rgba(0,0,0,.45)}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:rgba(239,230,218,.55);margin-top:10px;max-width:70ch}
+figcaption a{color:rgba(239,230,218,.75)}
+.fig-phone img{max-width:300px;margin:0 auto}
+.fig-phone figcaption{text-align:center;margin-left:auto;margin-right:auto}
+.chain{border:1px solid rgba(239,230,218,.14);border-radius:14px;background:var(--acc-wash);box-shadow:0 18px 48px rgba(0,0,0,.45);overflow:hidden}
+.ch-head{padding:14px 18px 0}
+.ch-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:rgba(239,230,218,.5)}
+.ch-name{font-family:'Fraunces',serif;font-size:21px;line-height:1.25;margin-top:4px}
+.ch-steps{display:flex;gap:6px;padding:14px 18px;border-bottom:1px solid rgba(239,230,218,.1);overflow-x:auto;scrollbar-width:none}
+.ch-steps::-webkit-scrollbar{display:none}
+.ch-step{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(239,230,218,.7);background:transparent;border:1px solid rgba(239,230,218,.2);border-radius:999px;padding:5px 12px 5px 6px;cursor:pointer}
+.ch-step b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(239,230,218,.1);font-weight:500;font-size:11px}
+.ch-step[aria-selected="true"]{color:#100d0b;background:var(--acc);border-color:var(--acc)}
+.ch-step[aria-selected="true"] b{background:rgba(16,13,11,.15)}
+.ch-panel{padding:20px 18px 22px}
+.ch-panel[hidden]{display:none}
+.ch-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--acc);margin-bottom:8px}
+.ch-panel p{font-size:15.5px;margin-bottom:12px}
+.ch-quote{font-family:'Fraunces',serif;font-size:20px;line-height:1.4;color:#efe6da}
+.ch-list{list-style:none;margin:0 0 6px}
+.ch-list li{position:relative;padding:8px 0 8px 22px;font-size:15px;color:rgba(239,230,218,.86);border-top:1px solid rgba(239,230,218,.07)}
+.ch-list li:first-child{border-top:0}
+.ch-list li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--acc)}
+.ch-list .when{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acc);margin-right:8px}
+.ch-aside{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:rgba(239,230,218,.55)}
+.ch-opts{display:grid;gap:8px;margin:4px 0 12px}
+.ch-opt{text-align:left;font-family:'Manrope',sans-serif;font-size:15px;line-height:1.45;color:#efe6da;background:rgba(239,230,218,.03);border:1px solid rgba(239,230,218,.16);border-radius:10px;padding:11px 14px;cursor:pointer}
+.ch-opt:hover{border-color:rgba(239,230,218,.35)}
+.ch-opt.is-right{border-color:var(--acc);background:var(--acc-soft)}
+.ch-opt.is-wrong{border-color:var(--miss);background:rgba(240,146,122,.1)}
+.ch-fb{font-size:14.5px;line-height:1.55;color:rgba(239,230,218,.86);border-left:2px solid var(--acc);padding:2px 0 2px 12px}
+.ch-fb.is-wrong{border-left-color:var(--miss)}
+.ch-fb[hidden]{display:none}
+.ch-nav{display:flex;justify-content:space-between;gap:10px;padding:0 18px 18px}
+.ch-nav button{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(239,230,218,.75);background:transparent;border:0;cursor:pointer;padding:4px 0}
+.ch-nav button:disabled{opacity:.3;cursor:default}
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12);font-size:14px;color:rgba(239,230,218,.55);max-width:70ch}
+</style></head><body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <span class="tb-kicker">WORK</span>
+</header>
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">CURRICULUM DESIGN &middot; ENABLEMENT</div>
+    <h1>Every lesson starts from something a manager could watch someone do</h1>
+    <p class="lede">I have written curriculum for TikTok's worldwide sales organization, for Google's advertisers, for career changers learning to code, and for engineers at Fortune 500 companies. The method comes from competency-based education. Decide what a capable person does, write it down as behavior someone could observe, and build backward to the lesson, the check and the refresher. Each step below comes with the work behind it.</p>
+  </div>
+</div>
+<article>
+
+  <h2>From what good looks like to behavior you can watch</h2>
+  <p>Curriculum starts before there is any content. With a team's leaders I write down what a fully proficient person in each role actually does: the calls they run, the questions they ask, the mistakes they've stopped making. Then I rewrite each item until a manager could watch for it on a real call. "Understands the product" fails that test. "Explains a reporting change in the client's own metrics before the client asks" passes. Proficiency levels come from the same list, so moving up a level means showing more of the behaviors. Finished modules don't count toward it.</p>
+  <p>I introduced this practice at TikTok for Global Business Solutions, the company's sales organization. It comes from my training: my master's in instructional design is from Western Governors University, which built its degrees on competency-based education, where students advance by demonstrating mastery. ADDIE is the process I was trained in, and competency mapping is how I do its analysis step.</p>
+
+  <h2>Learning paths by role, for the first month and every month after</h2>
+  <p>TikTok's competency system assembled a learning path for each person from their region, their sales vertical and the size of their clients. New hires got the onboarding sequence for their role. Everyone else got ongoing training as the ad products changed, which happened several times a month, plus an on-demand library for whatever question was in front of them that afternoon. Leaders followed their teams' progress on a dashboard connected to the LMS. For some teams facilitator-led training dropped 25% once the paths replaced how they took training.</p>
+
+  <h2>Objectives first, then the assessment that checks them</h2>
+  <p>I don't consider an objective finished until I can write the assessment item for it. If I can't say what a correct answer looks like, the objective is still vague. For behavior on the job, scenarios make the best assessments. The learner gets a situation from their own week and picks what they'd do, and the feedback explains what each choice would have led to.</p>
+  <p>The sample below takes one made-up competency for a customer success manager through the whole chain. The assessment step works, so try answering it.</p>
+
+  <figure>
+  <div class="chain" id="chain">
+    <div class="ch-head">
+      <div class="ch-kicker">SAMPLE COMPETENCY &middot; CUSTOMER SUCCESS</div>
+      <div class="ch-name">Raises renewal risk while there's still time to act</div>
+    </div>
+    <div class="ch-steps" role="tablist" aria-label="Steps in the chain">
+      <button class="ch-step" role="tab" aria-selected="true" aria-controls="ch-1" id="ch-t1"><b>1</b>Expectation</button>
+      <button class="ch-step" role="tab" aria-selected="false" aria-controls="ch-2" id="ch-t2"><b>2</b>Behavior</button>
+      <button class="ch-step" role="tab" aria-selected="false" aria-controls="ch-3" id="ch-t3"><b>3</b>Objective</button>
+      <button class="ch-step" role="tab" aria-selected="false" aria-controls="ch-4" id="ch-t4"><b>4</b>Assessment</button>
+      <button class="ch-step" role="tab" aria-selected="false" aria-controls="ch-5" id="ch-t5"><b>5</b>Reinforcement</button>
+    </div>
+
+    <div class="ch-panel" role="tabpanel" id="ch-1" aria-labelledby="ch-t1">
+      <div class="ch-label">WHAT THE TEAM LEAD SAID</div>
+      <p class="ch-quote">"My best CSMs never get surprised by a churn at renewal."</p>
+      <p class="ch-aside">A performance expectation, in a leader's words. True, and impossible to teach or check as written.</p>
+    </div>
+
+    <div class="ch-panel" role="tabpanel" id="ch-2" aria-labelledby="ch-t2" hidden>
+      <div class="ch-label">WHAT A MANAGER COULD WATCH FOR</div>
+      <ul class="ch-list">
+        <li>Reviews the account's usage before every scheduled call</li>
+        <li>Names a usage drop to the customer within a week of seeing it</li>
+        <li>Asks what changed on the customer's side before proposing anything</li>
+        <li>Logs the risk in the CRM the same day, with a dated next step</li>
+      </ul>
+      <p class="ch-aside">Each line can be seen on a call or in the CRM. "Is proactive about risk" couldn't be.</p>
+    </div>
+
+    <div class="ch-panel" role="tabpanel" id="ch-3" aria-labelledby="ch-t3" hidden>
+      <div class="ch-label">LEARNING OBJECTIVE</div>
+      <p class="ch-quote">Given an account whose usage has fallen, the CSM opens the next call with the data and a question about what changed, and ends it with a dated next step.</p>
+      <p class="ch-aside">It names the situation, the action and the evidence of success, so the assessment item follows almost directly.</p>
+    </div>
+
+    <div class="ch-panel" role="tabpanel" id="ch-4" aria-labelledby="ch-t4" hidden>
+      <div class="ch-label">SCENARIO CHECK</div>
+      <p>Northwind's active users fell 38% last quarter. Renewal is in 90 days, and your champion hasn't brought it up. Your monthly check-in is tomorrow. How do you open?</p>
+      <div class="ch-opts" id="ch-opts">
+        <button class="ch-opt" type="button" data-fb="This answers a question nobody has asked yet. If the drop came from a reorg or a stalled rollout, a discount won't fix it, and you've cut the price for nothing.">Send the renewal quote early with a discount, so price isn't a reason to leave.</button>
+        <button class="ch-opt" type="button" data-right data-fb="This is the behavior the objective describes. The data comes first, then a question. The customer explains the cause, and the next step comes out of that explanation.">Share the usage chart, say what you noticed, and ask what changed on their side.</button>
+        <button class="ch-opt" type="button" data-fb="The quarterly review may land after the point where you can still change the outcome. Waiting is exactly how a CSM gets surprised at renewal.">Keep tomorrow's agenda and raise it at the quarterly business review.</button>
+        <button class="ch-opt" type="button" data-fb="Your manager will want to know, but you don't know the cause yet. Talk to the customer first, then escalate with facts.">Escalate to your manager before you talk to the customer.</button>
+      </div>
+      <p class="ch-fb" id="ch-fb" hidden aria-live="polite"></p>
+    </div>
+
+    <div class="ch-panel" role="tabpanel" id="ch-5" aria-labelledby="ch-t5" hidden>
+      <div class="ch-label">AFTER THE LESSON</div>
+      <ul class="ch-list">
+        <li><span class="when">Day 2</span>A one-minute scenario with a different account and a different cause for the drop</li>
+        <li><span class="when">Day 14</span>The manager listens to a real call and checks two things: was the drop named, and did a question come before a proposal</li>
+        <li><span class="when">Day 45</span>A refresher, only for people whose call missed either check</li>
+        <li><span class="when">Next release</span>If the usage report changes, only the Day 2 scenario and its chart get rewritten</li>
+      </ul>
+      <p class="ch-aside">Someone who shows the behavior on a real call skips the refresher.</p>
+    </div>
+
+    <div class="ch-nav">
+      <button type="button" id="ch-prev">&larr; Back</button>
+      <button type="button" id="ch-next">Next &rarr;</button>
+    </div>
+  </div>
+  <figcaption>Illustrative. The account, the numbers and the team lead are made up.</figcaption>
+  </figure>
+
+  <h2>Practice and refreshers that follow the evidence</h2>
+  <p>One course rarely changes how someone works. Journey, a pilot I designed at TikTok, delivered practice inside the vertical feed salespeople already used all day. Every lesson ran under a minute and taught one idea, and the knowledge check came on the next swipe. An optional weekly stitch competition gave people a reason to practice where colleagues could see it, and a sticker board gave a half-finished week a reason to be finished. The featured-entry stage raised participation more than any reminder email did.</p>
+  <p>Refreshers should be scheduled by evidence. If the behavior shows up on real calls, the refresher is wasted time for that person. If it doesn't, they need it right away, before the gap becomes a habit.</p>
+  <figure class="fig-phone">
+    <a href="/work/journey"><img src="/work/journey/assets/lesson-still.jpg" width="725" height="1280" alt="A Journey lesson: a short vertical video with a knowledge check on the next swipe" loading="lazy"></a>
+    <figcaption>Journey, rebuilt as a working demo at <a href="/work/journey">brianfountain.com/work/journey</a>.</figcaption>
+  </figure>
+
+  <h2>Across formats</h2>
+  <p>At Google I designed eLearning courses on measurement and attribution, written as stories about one business making one decision, and managed SweetRush, the outside production partner that built the video and interactive assets. At Thinkful I was creative lead on the redesign of Prep, the free self-paced course for prospective students. In person I taught more than thirty classes and workshops at General Assembly, where I was consistently the highest-rated instructor. At New York Code and Design Academy I built the corporate training line and delivered it to Walt Disney Parks and Resorts Technology Group and Estée Lauder, in rooms full of people who knew their own systems better than I did.</p>
+
+  <h2>With experts, and with the people who deliver it</h2>
+  <p>Most of my content started in someone else's head. At TikTok the experts were product managers whose ad products changed several times a month. At Google it was the Global Curriculum Manager for Measurement and Attribution, who said my course read "more like a story than a formal training, while still conveying meaningful information." Running that work means agreeing early on who owns what. The expert owns accuracy, I own whether a learner can use it, and both of us are held to a date. With SweetRush it meant holding an agency to a style guide on an agency timeline.</p>
+  <p>The content also has to survive being delivered by someone else. At TikTok I designed sessions that a partner facilitator team delivered, so each one had to carry enough of the teaching for a facilitator to run it without me. At NYCDA I wrote the teacher-training and curriculum-design processes, which is how instructors I never met delivered the program to our standard as the school grew from three locations to seven.</p>
+
+  <h2>Written for the selling method the team already uses</h2>
+  <p>TikTok's sellers worked from the Challenger model. A Challenger seller opens with an insight that changes how the client sees their own business, tailors it to the person in the room, and takes control of where the conversation goes. Product training for that team was most useful when it ended in something a seller could teach a client. MEDDICC, Command of the Message and Sandler each ask for something different, and the principle carries over: learn the method the team is coached on, then write the scenarios in its vocabulary, so practice and coaching point the same direction.</p>
+
+  <h2>After launch: accuracy, and the learner data</h2>
+  <p>Content starts going stale the day the product moves. My answer at TikTok, argued in internal papers, was granularity. Knowledge is broken into small pieces that are tracked individually and updated or retired one at a time, so a product change costs a paragraph instead of a course. For impact I built Kirkpatrick Level 4 measurement with a data scientist. Quarterly cohort analysis tied what people consumed to what they sold, and competency lift measured capability directly. It showed which content built capability and which only drew attendance, and that decided what we revised next.</p>
+
+  <h2>AI in the curriculum workflow</h2>
+  <p>I've built on Claude since Claude Code came out in February 2025. I also run GenBuzz, a daily publication where agents ingest sources and draft each story, and nothing publishes until I approve it. Curriculum work fits the same arrangement. A model drafts the video script from an expert's notes, sketches the storyboard, writes a first pass of scenario questions with their wrong answers, and sorts open-ended learner feedback into themes. I write the objectives and check every assessment item against them myself, because a model will happily write a confident answer key for a question that has two right answers.</p>
+
+  <h2>Where to look</h2>
+  <p><strong>The full portfolio:</strong> each role above, with the TikTok measurement in more detail, is at <a href="/work/instructional-design">brianfountain.com/work/instructional-design</a>. You can swipe through Journey yourself at <a href="/work/journey">brianfountain.com/work/journey</a>.</p>
+  <p><strong>The argument behind the method:</strong> three essays on competency-based learning at <a href="/writing">brianfountain.com/writing</a>, adapted from the TikTok papers for a general reader.</p>
+
+  <p class="endnote">Brian Fountain &middot; More work: <a href="/projects">brianfountain.com/projects</a> &middot; Enablement programs: <a href="/work/program-manager">brianfountain.com/work/program-manager</a></p>
+</article>
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll("#chain .ch-step"));
+  var prev = document.getElementById("ch-prev");
+  var next = document.getElementById("ch-next");
+  var current = 0;
+
+  function show(i){
+    current = i;
+    tabs.forEach(function(t, n){
+      t.setAttribute("aria-selected", String(n === i));
+      document.getElementById(t.getAttribute("aria-controls")).hidden = n !== i;
+    });
+    tabs[i].scrollIntoView({ block:"nearest", inline:"nearest" });
+    prev.disabled = i === 0;
+    next.disabled = i === tabs.length - 1;
+  }
+  tabs.forEach(function(t, n){ t.addEventListener("click", function(){ show(n); }); });
+  prev.addEventListener("click", function(){ if (current > 0) show(current - 1); });
+  next.addEventListener("click", function(){ if (current < tabs.length - 1) show(current + 1); });
+
+  var opts = Array.prototype.slice.call(document.querySelectorAll("#ch-opts .ch-opt"));
+  var fb = document.getElementById("ch-fb");
+  opts.forEach(function(o){
+    o.addEventListener("click", function(){
+      var right = o.hasAttribute("data-right");
+      opts.forEach(function(x){ x.classList.remove("is-right", "is-wrong"); });
+      o.classList.add(right ? "is-right" : "is-wrong");
+      fb.textContent = (right ? "Right. " : "Not quite. ") + o.getAttribute("data-fb");
+      fb.className = "ch-fb" + (right ? "" : " is-wrong");
+      fb.hidden = false;
+    });
+  });
+
+  show(0);
+})();
+</script>
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thoughts on Learning Plans · Brian Fountain</title>
+<meta name="description" content="Notes on modeling individual learning journeys: knowledge granularity and the contexts that emit a person's responsibilities.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/writing/thoughts-on-learning-plans">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Thoughts on Learning Plans · Brian Fountain">
+<meta property="og:description" content="Notes on modeling individual learning journeys: knowledge granularity and the contexts that emit a person's responsibilities.">
+<meta property="og:url" content="https://brianfountain.com/writing/thoughts-on-learning-plans">
+<meta property="og:image" content="https://brianfountain.com/brian_fountain.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thoughts on Learning Plans · Brian Fountain">
+<meta name="twitter:description" content="Notes on modeling individual learning journeys: knowledge granularity and the contexts that emit a person's responsibilities.">
+<meta name="twitter:image" content="https://brianfountain.com/brian_fountain.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#8fd0c4;--acc-soft:rgba(143,208,196,.18);--acc-wash:rgba(143,208,196,.08);--acc-edge:rgba(143,208,196,.24)}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;
+  line-height:1.65}
+a{color:inherit}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+
+/* A single reading column. The glow sits behind the header only, so it never competes
+   with body copy the way a full-bleed aurora would. */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
+  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:720px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:60ch}
+
+article{max-width:720px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:44px 0 14px}
+article h2:first-child{margin-top:0}
+article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:18px;max-width:66ch}
+article strong{color:#efe6da;font-weight:700}
+article ol,article ul{margin:0 0 18px 0;padding-left:22px;max-width:66ch}
+article li{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:12px;padding-left:4px}
+article li::marker{color:var(--acc)}
+article ul ul,article ol ol,article ul ol,article ol ul{margin:12px 0 0 0}
+
+.callout{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px;padding:16px 18px;border-radius:14px;
+  background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:66ch}
+.callout .ico{font-size:19px;line-height:1.3;flex:none}
+.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
+.callout p + p{margin-top:9px}
+.callout .label{font-weight:700;color:#efe6da}
+
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12);
+  font-size:14px;color:rgba(239,230,218,.55);max-width:66ch}
+.endnote em{font-style:italic}
+
+@media (max-width:640px){
+  body{line-height:1.6}
+  article p,article li{font-size:15.5px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <a class="tb-kicker" href="/writing">WRITING</a>
+</header>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">LEARNING ARCHITECTURE</div>
+    <h1>Thoughts on Learning Plans</h1>
+    <p class="lede">Notes on the architectural direction of a learning platform, and on the problem of modeling a learning journey that is different for every single employee.</p>
+  </div>
+</div>
+
+<article>
+  <h2>Knowledge granularity</h2>
+  <p>Ultimately it is desirable to have the smallest possible chunk of knowledge. Eventually that chunk is the competency. At the moment the most reasonable chunk is the course: in early versions of the platform we track a learner's journey by the courses they complete.</p>
+
+  <h2>Responsibility emitters</h2>
+  <p>An individual employee's responsibilities are a composite of several contexts that are probably unique to them. The role of business development manager brings an expectation of certain knowledge and skills, and most people in that role need the same knowledge. But two of them might have additional contexts that change their particular learning journey, such as the industry they specialize in: automotive against consumer packaged goods.</p>
+  <p>Here is a list of the contexts that might emit additional responsibilities.</p>
+  <ul>
+    <li><strong>Role.</strong> Presumably your role contributes the most to what is expected of you.</li>
+    <li><strong>Contributor type.</strong> Most organizations have additional expectations of people who lead.
+      <ul>
+        <li>Individual contributor</li>
+        <li>Lead</li>
+        <li>Director</li>
+      </ul>
+    </li>
+    <li><strong>Area of focus or region.</strong> Does the role carry a specialization that requires additional training? Regulated industries, for example.</li>
+    <li><strong>Location.</strong> A less important context, but perhaps a more actionable one for onboarding. How to get a new employee badge, for instance.</li>
+    <li><strong>Employment type.</strong> Is this person a full-time employee or a third-party contractor?</li>
+    <li><strong>Organization.</strong> Does the learner work for the company or outside it? An account manager at an ad agency, for example.</li>
+    <li><strong>Individual.</strong> Ultimately each person also works with their leader to plot their own path through their career.</li>
+  </ul>
+
+  <h2>Modeling the journey</h2>
+  <p>These unique journeys have to be modeled in a database in such a way that each context can be updated dynamically without sacrificing what is bespoke about an individual employee. The proposal is a two-phase approach: start with something simpler, then migrate to a model that affords greater complexity.</p>
+
+  <div class="endnote">
+    <p><em>Adapted from an internal memo. The source document ends here; the two-phase model it proposes was never written up.</em></p>
+  </div>
+</article>
+</body>
+</html>

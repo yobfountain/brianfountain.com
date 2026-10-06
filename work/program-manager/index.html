@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Technical Enablement · Brian Fountain</title>
+<meta name="description" content="Brian Fountain on running technical enablement programs: role-based onboarding with a defined finish, a knowledge base with owners and review dates, and a cadence aimed at measured gaps.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/work/program-manager">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Technical Enablement">
+<meta property="og:description" content="Role-based onboarding with a defined finish, a knowledge base with owners and review dates, and the measurement that shows where people still aren't ready.">
+<meta property="og:url" content="https://brianfountain.com/work/program-manager">
+<meta property="og:image" content="https://brianfountain.com/work/journey/assets/lesson-still.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{--acc:#9fb7f0;--acc-soft:rgba(159,183,240,.14);--acc-wash:rgba(159,183,240,.06);--acc-edge:rgba(159,183,240,.22);--late:#f0927a}
+body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(239,230,218,.45);text-decoration:none}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:840px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(30px,5vw,50px);line-height:1.08;margin-top:14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:62ch}
+article{max-width:840px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,2.6vw,29px);line-height:1.22;margin:42px 0 12px}
+article h2:first-child{margin-top:0}
+article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:16px;max-width:70ch}
+article strong{color:#efe6da;font-weight:700}
+figure{margin:24px 0 30px}
+figure img,figure video{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(239,230,218,.14);box-shadow:0 18px 48px rgba(0,0,0,.45)}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:rgba(239,230,218,.55);margin-top:10px;max-width:70ch}
+figcaption a{color:rgba(239,230,218,.75)}
+.fig-phone img{max-width:300px;margin:0 auto}
+.fig-phone figcaption{text-align:center;margin-left:auto;margin-right:auto}
+.kb{margin:24px 0 30px;border:1px solid rgba(239,230,218,.14);border-radius:14px;background:var(--acc-wash);box-shadow:0 18px 48px rgba(0,0,0,.45);overflow:hidden}
+.kb-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px solid rgba(239,230,218,.1)}
+.kb-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:rgba(239,230,218,.5);margin-right:4px}
+.kb-chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(239,230,218,.75);background:transparent;border:1px solid rgba(239,230,218,.2);border-radius:999px;padding:5px 12px;cursor:pointer}
+.kb-chip[aria-pressed="true"]{color:#100d0b;background:var(--acc);border-color:var(--acc)}
+.kb-spacer{flex:1}
+.kb-row{display:grid;grid-template-columns:minmax(0,1fr) 150px 140px;gap:4px 16px;align-items:baseline;padding:12px 16px;border-bottom:1px solid rgba(239,230,218,.07)}
+.kb-row:last-child{border-bottom:0}
+.kb-head{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:rgba(239,230,218,.45);padding-top:10px;padding-bottom:8px}
+.kb-title{font-size:15px;color:#efe6da}
+.kb-note{display:block;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(239,230,218,.5);margin-top:2px}
+.kb-owner{font-size:13.5px;color:rgba(239,230,218,.7)}
+.kb-date{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(239,230,218,.7);white-space:nowrap}
+.kb-row.is-late .kb-date{color:var(--late)}
+.kb-row.is-dep .kb-name{color:rgba(239,230,218,.5);text-decoration:line-through;text-decoration-color:rgba(239,230,218,.3)}
+.kb-empty{padding:18px 16px;font-size:14px;color:rgba(239,230,218,.55)}
+@media (max-width:620px){
+  .kb-row{grid-template-columns:minmax(0,1fr) auto}
+  .kb-head{display:none}
+  .kb-title{grid-column:1/-1}
+}
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12);font-size:14px;color:rgba(239,230,218,.55);max-width:70ch}
+</style></head><body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <span class="tb-kicker">WORK</span>
+</header>
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">TECHNICAL ENABLEMENT &middot; PROGRAM MANAGEMENT</div>
+    <h1>New engineers should know when they're ready, and so should their managers</h1>
+    <p class="lede">For nearly five years I built the technical learning for TikTok's worldwide sales organization, whose ad products changed every month. Before that I wrote the teacher-training and curriculum processes that carried a coding school from three locations to seven. Each time the job was to get people ready quickly and keep what they read accurate after the product moved on. This page covers how I run that program for a technical team, and the work it draws on.</p>
+  </div>
+</div>
+<article>
+
+  <h2>Onboarding that ends when someone is ready</h2>
+  <p>At TikTok I replaced a course catalog with a competency model. Each competency was something a person could be observed doing, and the system assembled a learning path for each person from their region, their sales vertical and the size of their clients. Being ramped stopped meaning hours watched. It meant the competencies for your role had been shown, and your manager could see which ones were left. Leaders read their own teams' progress on a dashboard connected to the LMS, and some teams cut facilitator-led training by 25%.</p>
+  <p>For an engineering team I start the same way. I sit with the leads and write down what a fully ramped person in each role does in an ordinary week, then work backward to the first thirty days. The new hire gets a path with a visible end. Their manager gets a list of what's left instead of a hunch.</p>
+
+  <h2>A knowledge base with owners and review dates</h2>
+  <p>TikTok also showed me what happens to documentation when the product changes monthly. Each release invalidated whole courses, and nobody could say with confidence which version was current. My answer, argued in internal papers, was granularity: break knowledge into small pieces that are tracked individually, give each piece an owner, and update or retire them one at a time. A product change should cost a paragraph. It shouldn't cost a course.</p>
+  <p>Applied to an engineering knowledge base, that starts with an audit. Find the duplicates, pick the canonical version of each, and mark the rest deprecated with a pointer to the replacement, so nobody's bookmark leads to a dead end. After that every document carries a named owner and a review date, and someone checks the dates. Readers at different levels also need different ways in. A new hire and a three-year veteran can share the same canonical page and still shouldn't be sent to it first.</p>
+  <p>The sample below runs that model on made-up documents. Filter by reader, or show only what's overdue.</p>
+
+  <div class="kb" id="kb">
+    <div class="kb-bar">
+      <span class="kb-label">READER</span>
+      <button class="kb-chip" type="button" data-level="all" aria-pressed="true">Everyone</button>
+      <button class="kb-chip" type="button" data-level="new" aria-pressed="false">New hire</button>
+      <button class="kb-chip" type="button" data-level="exp" aria-pressed="false">Experienced</button>
+      <span class="kb-spacer"></span>
+      <button class="kb-chip" type="button" data-late aria-pressed="false">Overdue only</button>
+    </div>
+    <div class="kb-row kb-head"><span>DOCUMENT</span><span>OWNER</span><span>REVIEW BY</span></div>
+    <div id="kb-rows"></div>
+  </div>
+
+  <h2>A regular cadence, aimed at measured gaps</h2>
+  <p>Onboarding ends, and the product keeps shipping. The cadence I run has live sessions for material that needs questions answered, short async updates for everything else, and release summaries written for the person who has to explain the change to a customer the same day. What goes into that cadence should come from evidence about where people aren't ready yet.</p>
+  <p>At TikTok I built that evidence with a data scientist. Kirkpatrick Level 4 measurement tied what people consumed to what they sold through quarterly cohort analysis, and competency lift measured capability directly. It showed which content built capability and which only drew attendance, and it was set up so it could have shown we were wrong. When a format wasn't working, we changed the format. Journey, a pilot I ran there, moved training into the vertical feed salespeople already used all day. Lessons ran under a minute, with a knowledge check on the next swipe.</p>
+  <figure class="fig-phone">
+    <a href="/work/journey"><img src="/work/journey/assets/lesson-still.jpg" width="725" height="1280" alt="A Journey lesson: a short vertical video with a knowledge check on the next swipe" loading="lazy"></a>
+    <figcaption>Journey, rebuilt as a working demo at <a href="/work/journey">brianfountain.com/work/journey</a>.</figcaption>
+  </figure>
+
+  <h2>Working alongside the leaders, translating both ways</h2>
+  <p>Most of my enablement work has been translation. At TikTok the experts were product managers and the audience was a sales force, so technical material had to become something a seller could use on a call that afternoon. At New York Code and Design Academy it ran the other way. I built the school's corporate training line and taught engineers at Walt Disney Parks and Resorts Technology Group and Estée Lauder, people who knew their own systems better than I did. Adapting go-to-market material for engineers is the same skill pointed the opposite way: cut the pitch, and add the detail an engineer is going to check.</p>
+  <p>Getting knowledge out of experts is the other half. At Google I worked with the Global Curriculum Manager for Measurement and Attribution to turn a dry subject into courses that, in the partner's words, read more like a story than a formal training. At TikTok I wrote sessions that a partner facilitator team delivered, so each one had to carry enough of the expert's knowledge for someone else to teach it.</p>
+
+  <h2>Programs from nothing to launch, several at once</h2>
+  <p>The competency practice at TikTok began as internal papers making the case. It became a data model, then a measurement plan, then a system the organization used every day. At NYCDA, while the school grew from three locations to seven, I wrote the teacher-training and curriculum-design processes so instructors I never met could teach to our standard, and I taught the flagship program the whole time.</p>
+  <p>Now I run four products in parallel as a solo founder. G3NPRO is used in production by animation studios. GenBuzz is a daily publication, and Vibeside and 1K Notes round out the set. Keeping four things moving at once depends on written specs and status anyone can read, plus a willingness to drop whatever isn't earning its time.</p>
+
+  <h2>AI for drafting, people for sign-off</h2>
+  <p>I have built on Claude since Claude Code came out in February 2025. GenBuzz runs an agent pipeline that ingests sources and drafts each story with attribution, and nothing publishes until I approve it. I write Claude Code skills that encode my standards so agents apply them without me watching. In an enablement program the same tools draft release summaries from changelogs, flag documents whose source code changed since their last review, and turn a recorded expert session into a first draft. A person still owns every page that ships. I have watched agents be confidently wrong in my own pipelines.</p>
+  <figure>
+    <a href="https://genbuzz.news"><img src="/assets/shot_genbuzz.jpeg" alt="GenBuzz, a daily publication on AI filmmaking drafted by agents and approved by an editor" loading="lazy"></a>
+    <figcaption>GenBuzz. Agents ingest and draft, and every story waits for an editor. Design notes at <a href="/work/ai-product-design">brianfountain.com/work/ai-product-design</a>.</figcaption>
+  </figure>
+
+  <h2>Where to look</h2>
+  <p><strong>The learning work:</strong> the TikTok competency model, the Google and Thinkful courses and the NYCDA processes are gathered at <a href="/work/instructional-design">brianfountain.com/work/instructional-design</a>. Teaching engineers live is covered at <a href="/work/lead-technical-instructor">brianfountain.com/work/lead-technical-instructor</a>.</p>
+  <p><strong>The systems:</strong> the products I run, with the design rules that came from running them, are at <a href="/work/ai-product-design">brianfountain.com/work/ai-product-design</a>. The arguments for competency-based learning are three essays at <a href="/writing">brianfountain.com/writing</a>.</p>
+
+  <p class="endnote">Brian Fountain &middot; More work: <a href="/projects">brianfountain.com/projects</a> &middot; Instructional design: <a href="/work/instructional-design">brianfountain.com/work/instructional-design</a></p>
+</article>
+<script>
+(function(){
+  // Sample records. Review dates are offsets from today so the overdue state stays current.
+  var DOCS = [
+    { title:"Your first week: access, accounts, and who to ask", owner:"Enablement", levels:["new"], days:21, status:"canonical" },
+    { title:"Deploying into a customer's private cloud", owner:"Platform lead", levels:["new","exp"], days:46, status:"canonical" },
+    { title:"Customer environment setup (2024)", owner:"Platform lead", levels:["new","exp"], days:0, status:"deprecated", replacedBy:"Deploying into a customer's private cloud" },
+    { title:"Escalating a customer incident", owner:"Support lead", levels:["new","exp"], days:4, status:"canonical" },
+    { title:"Debugging evaluation pipelines", owner:"Staff engineer, evals", levels:["exp"], days:-12, status:"canonical" },
+    { title:"Writing a customer-facing postmortem", owner:"Solutions lead", levels:["exp"], days:-3, status:"canonical" },
+    { title:"API rate limits and quotas", owner:"API team", levels:["new","exp"], days:83, status:"canonical" }
+  ];
+  var state = { level:"all", late:false };
+  var rows = document.getElementById("kb-rows");
+  var fmt = new Intl.DateTimeFormat("en-US", { month:"short", day:"numeric" });
+
+  function render(){
+    var shown = DOCS.filter(function(d){
+      if (state.level !== "all" && d.levels.indexOf(state.level) < 0) return false;
+      if (state.late && !(d.status === "canonical" && d.days < 0)) return false;
+      return true;
+    });
+    rows.textContent = "";
+    if (!shown.length){
+      var empty = document.createElement("div");
+      empty.className = "kb-empty";
+      empty.textContent = "Nothing overdue for this reader.";
+      rows.appendChild(empty);
+      return;
+    }
+    shown.forEach(function(d){
+      var row = document.createElement("div");
+      row.className = "kb-row" + (d.status === "deprecated" ? " is-dep" : "") + (d.status === "canonical" && d.days < 0 ? " is-late" : "");
+      var title = document.createElement("span");
+      title.className = "kb-title";
+      var name = document.createElement("span");
+      name.className = "kb-name";
+      name.textContent = d.title;
+      title.appendChild(name);
+      var note = document.createElement("span");
+      note.className = "kb-note";
+      note.textContent = d.status === "deprecated" ? "Deprecated. Use: " + d.replacedBy : (d.levels.length > 1 ? "Canonical · all readers" : "Canonical · " + (d.levels[0] === "new" ? "new hires" : "experienced"));
+      title.appendChild(note);
+      var owner = document.createElement("span");
+      owner.className = "kb-owner";
+      owner.textContent = d.owner;
+      var date = document.createElement("span");
+      date.className = "kb-date";
+      if (d.status === "deprecated") date.textContent = "Retired";
+      else {
+        var when = new Date(Date.now() + d.days * 864e5);
+        date.textContent = fmt.format(when) + (d.days < 0 ? " · overdue" : "");
+      }
+      row.appendChild(title); row.appendChild(owner); row.appendChild(date);
+      rows.appendChild(row);
+    });
+  }
+
+  document.querySelectorAll("#kb [data-level]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      state.level = btn.getAttribute("data-level");
+      document.querySelectorAll("#kb [data-level]").forEach(function(b){ b.setAttribute("aria-pressed", String(b === btn)); });
+      render();
+    });
+  });
+  var lateBtn = document.querySelector("#kb [data-late]");
+  lateBtn.addEventListener("click", function(){
+    state.late = !state.late;
+    lateBtn.setAttribute("aria-pressed", String(state.late));
+    render();
+  });
+  render();
+})();
+</script>
+</body></html>

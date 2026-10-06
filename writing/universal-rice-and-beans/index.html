@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Universal Rice &amp; Beans · Brian Fountain</title>
+<meta name="description" content="A policy sketch for UNYC: free rice and dry pulses at every large grocery store in New York City, no card and no enrollment, for about $37 per resident a year.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/writing/universal-rice-and-beans">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Universal Rice &amp; Beans">
+<meta property="og:description" content="A policy sketch for UNYC: free rice and dry pulses at every large grocery store in the city, no card and no enrollment.">
+<meta property="og:url" content="https://brianfountain.com/writing/universal-rice-and-beans">
+<meta property="og:image" content="https://brianfountain.com/writing/universal-rice-and-beans/assets/shelf.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Universal Rice &amp; Beans">
+<meta name="twitter:description" content="A policy sketch for UNYC: free rice and dry pulses at every large grocery store in the city, no card and no enrollment.">
+<meta name="twitter:image" content="https://brianfountain.com/writing/universal-rice-and-beans/assets/shelf.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#e8a317;--acc-soft:rgba(232,163,23,.18);--acc-wash:rgba(232,163,23,.07);--acc-edge:rgba(232,163,23,.26)}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
+  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:720px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
+.subtitle{font-family:'Fraunces',serif;font-optical-sizing:auto;font-style:italic;font-weight:400;font-size:clamp(20px,2.6vw,27px);line-height:1.25;color:rgba(239,230,218,.72);margin-top:10px}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:60ch}
+.byline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(239,230,218,.5);margin-top:22px}
+
+article{max-width:720px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:48px 0 14px}
+article h2:first-child{margin-top:0}
+article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:18px;max-width:66ch}
+article strong{color:#efe6da;font-weight:700}
+article ul{margin:0 0 18px 0;padding-left:22px;max-width:66ch}
+article li{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:10px;padding-left:4px}
+article li::marker{color:var(--acc)}
+/* Links use a bottom border, like the glossary terms, so both rules sit the same distance below the text. */
+article a{text-decoration:none;padding-bottom:.15em;border-bottom:1.5px solid rgba(232,163,23,.5)}
+article a:hover{border-bottom-color:var(--acc)}
+
+/* Figures break out of the text column on wide screens so the scenes read as photographs. */
+figure{margin:30px 0 34px}
+figure.wide{margin-left:calc(50% - min(50vw - 20px, 540px));margin-right:calc(50% - min(50vw - 20px, 540px))}
+figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(239,230,218,.12);box-shadow:0 18px 48px rgba(0,0,0,.45)}
+figure.flat img{box-shadow:none}
+/* A small broadcast-style bug marks every generated photograph. */
+.shot{position:relative;display:block}
+.shot::after{content:"AI";position:absolute;right:12px;bottom:12px;padding:3px 7px 2px;border-radius:5px;
+  background:rgba(16,13,11,.62);border:1px solid rgba(239,230,218,.35);color:rgba(239,230,218,.9);
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.12em;
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);pointer-events:none}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:rgba(239,230,218,.55);margin-top:10px;max-width:70ch}
+figure.wide figcaption{padding:0 4px}
+
+/* Four dishes in a row; two by two on a phone. */
+.dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.dishes figure{margin:0}
+.dishes img{aspect-ratio:1/1;object-fit:cover;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.4)}
+.dishes .shot::after{right:8px;bottom:8px;font-size:9.5px;padding:2px 6px 1px}
+.dishes figcaption{margin-top:8px;color:rgba(239,230,218,.72)}
+.dishes figcaption span{display:block;color:rgba(239,230,218,.45);font-size:11px}
+@media (max-width:640px){.dishes{grid-template-columns:repeat(2,1fr)}}
+.table-wrap{overflow-x:auto;margin:6px 0 26px;border:1px solid rgba(239,230,218,.12);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid rgba(239,230,218,.08);vertical-align:top}
+th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;font-weight:500;color:rgba(239,230,218,.5);text-transform:uppercase}
+td{color:rgba(239,230,218,.86)}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.total td{font-weight:700;color:#efe6da;border-bottom:none;background:var(--acc-wash)}
+
+.callout{margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:66ch}
+.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
+.callout p + p{margin-top:10px}
+
+.sources{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12)}
+.sources h2{font-size:20px;margin:0 0 12px}
+.sources ul{padding-left:18px}
+.sources li{font-size:13.5px;color:rgba(239,230,218,.6);margin-bottom:6px}
+.endnote{margin-top:34px;font-size:14px;color:rgba(239,230,218,.55);max-width:66ch}
+
+@media (max-width:640px){
+  body{line-height:1.6}
+  article p,article li{font-size:15.5px}
+  .tb-back span{display:none}
+}
+
+/* Glossary annotations, same pattern as solar.brianfountain.com: a dotted term opens one shared popover. */
+button.ann{font:inherit;line-height:inherit;vertical-align:baseline;color:inherit;background:none;border:0;padding:0 .04em;margin:0;
+  cursor:help;text-align:left;border-bottom:1.5px dotted rgba(232,163,23,.75)}
+button.ann:hover,button.ann[aria-expanded=true]{background:rgba(232,163,23,.16)}
+button.ann:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+#pop{position:fixed;z-index:120;max-width:310px;background:#231d18;color:#efe6da;
+  border:1px solid rgba(239,230,218,.16);border-radius:10px;padding:14px 16px;
+  font-family:'Manrope',sans-serif;font-size:13.5px;line-height:1.55;
+  opacity:0;visibility:hidden;transition:opacity .12s;box-shadow:0 12px 32px rgba(0,0,0,.5)}
+#pop[data-open]{opacity:1;visibility:visible}
+#pop .t{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);display:block;margin-bottom:7px}
+#pop .w{display:block;margin-top:9px;padding-top:9px;border-top:1px solid rgba(239,230,218,.16);
+  color:rgba(239,230,218,.7);font-style:italic}
+@media (prefers-reduced-motion:reduce){#pop{transition:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <a class="tb-kicker" href="/writing">WRITING</a>
+</header>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">POLICY SKETCH &middot; FOOD</div>
+    <h1>Universal Rice &amp; Beans</h1>
+    <p class="subtitle">A proposal to give every New Yorker free rice and beans</p>
+    <p class="lede">Under this proposal, the city would buy rice and dry pulses in bulk and bag them in clear packaging marked not for sale, and every large grocery store would ring them up at $0. No card and no enrollment. It would cost about $316 million a year, a quarter of one percent of the city budget.</p>
+    <p class="byline">BRIAN FOUNTAIN &middot; OCTOBER 2026</p>
+  </div>
+</div>
+
+<article>
+
+  <p>One in three adult New Yorkers says they need more money to afford enough food. Among families with children it is more than 40 percent, according to the <a href="https://robinhood.org/news/dinner-or-the-light-bill-the-cost-of-hunger-in-nyc-this-robin-hood-moment/">Robin Hood Poverty Tracker</a>. <button class="ann" type="button" data-t="Feeding America">Feeding America</button>'s stricter measure puts about 1.4 million residents, 16.8 percent of the city, as <button class="ann" type="button" data-t="food insecure">food insecure</button> in 2023. In the Bronx it was 22.6 percent (<a href="https://www.nyc.gov/assets/foodpolicy/downloads/pdf/NYC-Food-by-the-Numbers-2025.pdf">NYC Food by the Numbers 2025</a>).</p>
+
+  <p>Plenty of these households work. A family of four needs more than $125,000 a year to cover basic costs here, and federal benefits cut off near $33,000 (<a href="https://www.cityharvest.org/wp-content/uploads/2026/05/Child-Hunger-Report_Spring-2026.pdf">City Harvest</a>). About 30 percent of food-insecure households earn too much for <button class="ann" type="button" data-t="SNAP">SNAP</button>. When rent, childcare and the ConEd bill come due, food is often where cash-strapped families find savings.</p>
+
+  <p>So here is a floor. I'm calling it UNYC, for universal New York City. Every resident can walk into a grocery store and leave with rice and beans without paying, without showing anything, and without anyone asking why.</p>
+
+  <figure class="flat">
+    <img src="assets/unyc-logo.svg" alt="The UNYC logo: a rounded gold U set beside the blocky blue NYC wordmark" loading="lazy" style="border:none;border-radius:12px;background:#f6f3ec;padding:clamp(20px,5vw,44px)">
+    <figcaption>A proposed program logo for UNYC. The NYC logo is the property of the City of New York and appears here only to show how a city co-brand could look.</figcaption>
+  </figure>
+
+  <h2>The plan in one paragraph</h2>
+
+  <p>The city buys rice and <button class="ann" type="button" data-t="pulses">pulses</button> in bulk from mills and importers, to its own <button class="ann" type="button" data-t="purchase specification">quality specification</button>. Contract packers bag them in UNYC packaging. Distributors carry the bags on their normal routes and get paid a fee per pound delivered. They never own the product, so there is no markup to inflate. Stores above a size threshold must carry the bags, ring them up as a $0 item and absorb the handling. <button class="ann" type="button" data-t="bodega">Bodegas</button>, pantries and soup kitchens can opt in. Licensed food vendors can get their own supply in exchange for selling a cheap <button class="ann" type="button" data-t="public plate">public plate</button>. The whole thing would move about 390 million pounds of food a year.</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>Line</th><th>Annual cost</th></tr></thead>
+    <tbody>
+      <tr><td>Food, packed and delivered to a city warehouse</td><td class="num">$196M</td></tr>
+      <tr><td>UNYC packaging</td><td class="num">$6M</td></tr>
+      <tr><td>Distribution to stores, pantries and vendors</td><td class="num">$55M</td></tr>
+      <tr><td>Overuse and <button class="ann" type="button" data-t="leakage">leakage</button> allowance (10% of the lines above)</td><td class="num">$26M</td></tr>
+      <tr><td>Administration</td><td class="num">$34M</td></tr>
+      <tr class="total"><td>Total</td><td class="num">$316M</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Those are central estimates from the <a href="/writing/universal-rice-and-beans/cost-model">cost model</a>, which prices every line from USDA purchase prices, state distribution fees and city payroll data. Allowing for uncertainty in every input, the total most likely falls between $290 and $350 million. That is about 0.25 percent of the city's $124.7 billion budget, or $37 per resident per year. For comparison, federal SNAP benefits in the city totaled $5.1 billion in fiscal 2025. This program would be about 6 percent of that.</p>
+
+  <h2>Why rice and beans, and not a basket</h2>
+
+  <p>Rice and beans are not a complete diet, and the program doesn't pretend otherwise. The point is a floor: enough that nobody in the city goes hungry while they sort out everything else.</p>
+
+  <p>Together they make a <button class="ann" type="button" data-t="complete protein">complete protein</button>. Rice is low in lysine and beans are low in methionine, and each covers the other. A pound of dry rice has about 1,600 calories. A pound of dry beans has about 100 grams of protein, plus fiber, folate, iron and potassium. What they lack (vitamin C, B12, calcium, fat) mostly arrives with whatever they are cooked with. Nobody eats them plain. They become habichuelas guisadas, dal, rajma chawal, moros y cristianos. The program covers the base of the plate and leaves the onions, peppers, oil and eggs to household budgets, SNAP, <button class="ann" type="button" data-t="WIC">WIC</button> and the pantries.</p>
+
+  <div class="wide dishes-wrap" style="margin:26px calc(50% - min(50vw - 20px, 540px)) 34px">
+    <div class="dishes">
+      <figure><span class="shot"><img src="assets/dish-habichuelas.jpg" alt="Habichuelas guisadas, stewed red beans with potato and squash, beside white rice" loading="lazy"></span><figcaption>Habichuelas guisadas<span>Puerto Rico, Dominican Republic</span></figcaption></figure>
+      <figure><span class="shot"><img src="assets/dish-dal.jpg" alt="Masoor dal, red lentils tempered with garlic, cumin and chili, beside white rice" loading="lazy"></span><figcaption>Dal and rice<span>Bangladesh, India, Pakistan</span></figcaption></figure>
+      <figure><span class="shot"><img src="assets/dish-rajma.jpg" alt="Rajma chawal, kidney beans in tomato and onion gravy, beside basmati rice" loading="lazy"></span><figcaption>Rajma chawal<span>North India</span></figcaption></figure>
+      <figure><span class="shot"><img src="assets/dish-moros.jpg" alt="Moros y cristianos, rice cooked with black beans, beside fried sweet plantains" loading="lazy"></span><figcaption>Moros y cristianos<span>Cuba</span></figcaption></figure>
+    </div>
+  </div>
+
+  <p>The practical case is stronger than the nutritional one. Dry rice and beans keep for a year without refrigeration, so almost nothing spoils. A dollar buys about 4,500 calories of long-grain rice at USDA's delivered price. Nearly every kitchen in the city already uses them: Latin American, Caribbean, South Asian, East Asian, West African and Middle Eastern households cook rice and pulses daily. And a cheap, bulky staple has almost no resale value, which keeps cheating small without an enforcement budget.</p>
+
+  <p>Every alternative loses on one of those counts. Bread spoils in days and pasta carries less protein. Potatoes and produce are heavy and perishable. Canned goods cost more per serving. A broad grocery basket multiplies the cost, and the mayor's planned municipal grocery stores already try that at a discount. Cash already exists. It's called SNAP, and it misses the 30 percent of struggling households who earn too much.</p>
+
+  <p>"Beans" here means pulses: beans, lentils, chickpeas, split peas, <button class="ann" type="button" data-t="pigeon peas">pigeon peas</button> and mung beans, all dry and unflavored. That matters. Lentils and chickpeas are the everyday legume in South Asian, Middle Eastern and Ethiopian homes, and New York State counts about 125,000 Bangladeshi and 97,000 Pakistani residents, most of them in Queens (<a href="https://dol.ny.gov/asian-american-and-pacific-islander-heritage-month">NYS DOL</a>). A beans-only rule would give those families rice and nothing they cook with it. Rice covers long-grain, medium, short, jasmine, basmati, <button class="ann" type="button" data-t="parboiled rice">parboiled</button> and brown, bought at standard grade. Aged basmati, organic lines and imported Japanese short-grain stay on the regular shelf at regular prices.</p>
+
+  <h2>How much the city eats, and what it costs</h2>
+
+  <p>New Yorkers eat roughly 290 to 340 million pounds of dry rice and 110 to 130 million pounds of dry pulses a year. That is about 1.2 million pounds a day, or around 30 tractor-trailer loads.</p>
+
+  <p>The rice number starts from USDA's figure of about 21 pounds per American per year for food use (<a href="https://www.usda.gov/node/16551">USDA</a>). New York eats more than that because of who lives here. Survey data in <a href="https://www.choicesmagazine.org/choices-magazine/submitted-articles/who-will-eat-rice-in-the-united-states">Choices</a> shows Asian Americans account for 31 percent of U.S. rice demand and Hispanic Americans 27 percent. Reweighted to the city, which is 28 percent Hispanic and 16 percent Asian, the multiplier comes out near 1.6, or about 34 pounds per person. Restaurant rice is already inside that figure. For scale, about 19 billion pounds of food a year reach the city's 42,000 food outlets (<a href="https://citylimits.org/spared-by-sandy-citys-waterfront-food-hub-prepares-for-future-disasters/">City Limits</a>). This program would be about 2.4 percent of it.</p>
+
+  <p>Packed in plain bags and delivered by the truckload, the food itself runs about $196 million a year at USDA's own estimated prices for the same products (<a href="https://www.fns.usda.gov/sites/default/files/resource-files/TEFAPListofMaterialsReportFY26.xlsx">USDA FNS</a>). Long-grain white rice is 28 to 35 dollars per hundred pounds at the mill (<a href="https://www.ams.usda.gov/mnreports/ams_1655.pdf">USDA AMS</a>). Split peas pay growers 11 cents a pound, pinto and black beans 22 cents (<a href="https://www.rma.usda.gov/print/pdf/node/7743">USDA RMA</a>). Imported jasmine and basmati cost about half again as much as domestic long-grain once they land, but per quarter-cup serving the whole range runs from 4 cents to 9. The rice blend moves the budget far more than any choice of bean. Two conditions matter right now: U.S. rice is expensive after a 39-year-low crop (<a href="https://www.ers.usda.gov/topics/crops/rice/market-outlook">USDA ERS</a>), and pulse prices are soft.</p>
+
+  <p>Running it costs about $34 million a year. Half of that is roughly 110 city staff for procurement, contracts, audits and field checks, priced from city payroll data with benefits. The rest covers lot inspection at USDA's published fees, a reporting portal, outreach, a legal reserve, and mobile trucks and pickup lockers for food deserts. Two costs are left out by design. Stores absorb handling, which would run about $2 to $12 million a year if the city paid for it at <button class="ann" type="button" data-t="bottle-bill rates">bottle-bill rates</button>. And nobody enrolls, which is the bigger saving. For a sense of what enrollment costs, <button class="ann" type="button" data-t="IDNYC">IDNYC</button>, the city's ID card, has reached about a quarter of eligible residents in 11 years on a $17.9 million budget with 175 staff (<a href="https://www.nyc.gov/assets/idnyc/downloads/pdf/IDNYC-Q1-2026-Quarterly-Report-(Final).pdf">IDNYC</a>). Carding 8.5 million people would likely cost more than this program's entire administrative budget.</p>
+
+  <h2>Picking it up</h2>
+
+  <figure class="wide">
+    <span class="shot"><img src="assets/shelf.jpg" alt="A supermarket shelf in the Bronx stocked with clear UNYC bags of rice, black beans and red lentils, a shopper reaching for rice" loading="lazy"></span>
+    <figcaption>The rice aisle in a Bronx supermarket. UNYC bags take one shelf section; the store's regular rice and beans stay where they were.</figcaption>
+  </figure>
+
+  <p>The city had 984 grocery stores as of November 2025. Every one above a size or revenue threshold would carry UNYC bags. You take one off the shelf, it scans at $0, and you go. There is a per-transaction limit at the register, and that is the only cap on residents. About 13,000 bodegas can opt in, along with the city's 604 pantries, 90 soup kitchens and pickup lockers in neighborhoods without a supermarket.</p>
+
+  <figure class="wide">
+    <span class="shot"><img src="assets/checkout.jpg" alt="A checkout lane where UNYC rice and black beans ring up at $0.00 beside an onion, a pepper, oil and eggs that the customer pays for" loading="lazy"></span>
+    <figcaption>The bags ring up at $0.00. The onion, pepper, oil and eggs are what the household still buys, and where the money it saved tends to go.</figcaption>
+  </figure>
+
+  <p>No money changes hands at the store, which removes most of the reasons to cheat. Stores confirm each delivery and report weekly give-aways from their register data. Those reports set the next shipment: roughly the last two weeks of give-aways plus a small buffer. Egypt's bread subsidy is the warning here. When it switched from allotting flour to paying bakeries per verified sale, consumption in the early provinces fell 15 to 35 percent (<a href="https://jordantimes.com/node/259867">Jordan Times/Reuters</a>), which says a lot about where the flour had been going. UNYC never pays a store per bag, so there is no count to pad.</p>
+
+  <figure class="wide">
+    <span class="shot"><img src="assets/bodega.jpg" alt="A bodega owner hands a clear UNYC bag of rice across the counter to a teenager, with a rack of UNYC rice and lentils behind him and a cat on the counter" loading="lazy"></span>
+    <figcaption>A bodega that opted in. Corner stores make up about a fifth of the customers at the <button class="ann" type="button" data-t="Hunts Point">Hunts Point</button> markets, which is the natural base for the program's warehouse.</figcaption>
+  </figure>
+
+  <h2>The bag does the enforcing</h2>
+
+  <p>The packaging carries a surprising share of the fraud prevention. Anyone handed a UNYC bag knows it was free, so a shop trying to sell one gets caught by its own customers. Selling it quietly means paying to rebag it, which wipes out the profit on a staple worth under a dollar a pound. Petty fraud stops without an inspector.</p>
+
+  <figure class="wide flat">
+    <img src="assets/bags.jpg" alt="The UNYC bag family: clear retail bags of rice, black beans and red lentils, a 25 pound clear food-service bag of black beans and a 50 pound woven rice sack" loading="lazy">
+    <figcaption>Retail: 5 lb rice, 2 lb black beans, 2 lb red lentils. Food service: a 25 lb clear bag and the standard 50 lb woven rice sack with a window. Three inks on clear film: white, city blue and rice gold.</figcaption>
+  </figure>
+
+  <p>The bags are clear film with three screen-printed inks, the cheapest package that works. A white top panel carries the mark and the variety. The middle is left clear, so the rice or lentils are the label, and one set of plates covers every variety with only the name changing. The bottom band says FREE · NOT FOR SALE · $0, then "free" in six more languages, cooking directions, a lot number and "Paid for by New Yorkers." The food-service bags say NOT FOR RESALE · CITY PROPERTY, because a restaurant is allowed to cook with them and not allowed to pass them on.</p>
+
+  <p>Once the bags get home, cooking a year's worth in a rice cooker and a pressure cooker takes about 12 <button class="ann" type="button" data-t="kWh">kWh</button> per person, or $3.60 to $4.80 at <button class="ann" type="button" data-t="Con Edison">Con Edison</button>'s rates.</p>
+
+  <figure class="wide">
+    <span class="shot"><img src="assets/kitchen.jpg" alt="A grandmother in a Queens kitchen stirs red lentil dal while a rice cooker steams, UNYC bags of rice and lentils clipped shut on the counter" loading="lazy"></span>
+    <figcaption>Dal and rice in Queens. The program supplies the base of the plate; the onions, garlic, chilies and turmeric come from the household.</figcaption>
+  </figure>
+
+  <h2>The public plate</h2>
+
+  <p>Giving away food for free creates a negative incentive for restaurants that must be addressed. The city has over 24,000 of them and 5,000 mobile vendors (<a href="https://www.nal.usda.gov/research-tools/food-safety-research-projects/evaluating-interventions-improve-food-safety-0">USDA NAL</a>), and a halal cart or a Dominican lunch counter could quietly fill its kitchen from grocery shelves. A shop going through 100 pounds a day would save about $15,000 a year. Policing that would be expensive and unnecessary. Letting them in openly is cheaper.</p>
+
+  <p>Any vendor with a Health Department permit can opt in. They get UNYC stock delivered with their normal orders, capped monthly by permit type and seat count so a 12-seat spot can't order like a banquet hall. In exchange, they post a plate of rice and pulses at around $3, which uses about a third of a pound of dry staples. The health inspector checks that the plate is posted on the visits they already make.</p>
+
+  <figure class="wide">
+    <span class="shot"><img src="assets/lunch-counter.jpg" alt="A Washington Heights lunch counter serves a $3 public plate of rice and beans; a 50 pound UNYC rice sack and a 25 pound bag of black beans stand in the kitchen behind" loading="lazy"></span>
+    <figcaption>The $3 public plate at a Washington Heights counter, cooked from the 50 lb sack in the back.</figcaption>
+  </figure>
+
+  <p>What that buys is a hot-meal network. Shelter residents, people in <button class="ann" type="button" data-t="SRO">single-room occupancy</button> buildings and anyone else without a kitchen get cooked food, and carts reach blocks that supermarkets don't. Most restaurant rice is already inside the volume estimate, so vendor participation mostly changes where the rice gets cooked. Over-ordering and chains drawing huge volumes are the risks to watch, and a per-company cap handles the chains.</p>
+
+  <figure class="wide">
+    <span class="shot"><img src="assets/halal-cart.jpg" alt="On a cold Manhattan corner, a halal cart vendor hands a closed styrofoam container to an older man in a worn overcoat with a hearing aid behind his ear; a public plate sign with the UNYC logo is taped to the cart" loading="lazy"></span>
+    <figcaption>A $3 plate from a halal cart in January. Carts reach corners that supermarkets and pantries don't, at hours they aren't open.</figcaption>
+  </figure>
+
+  <h2>Who loses</h2>
+
+  <p>The big brands lose some regional sales and survive. The businesses that could close are small and New York-dependent: regional importers of parboiled rice, pigeon peas, basmati and lentils for Caribbean, West African and South Asian stores; repackers whose whole margin is bagging bulk rice for bodegas; <button class="ann" type="button" data-t="private label">private labels</button> sold mostly on city shelves. Specialty grocers built around 20-pound rice bags lose an anchor product but keep spices, produce and meat, and opting in keeps people coming through the door.</p>
+
+  <p>City purchasing decides most of this. The city could hire those same local repackers to bag UNYC stock, give small importers a procurement preference and phase the program in over a year or two. Meanwhile the complements gain. Money a household stops spending on rice tends to go to oil, onions, sofrito, adobo, eggs and meat, which offsets part of what grocers lose.</p>
+
+  <p>The fight is already visible. The mayor's five planned city-owned grocery stores, starting at The Peninsula in Hunts Point and La Marqueta in East Harlem, have drawn complaints from bodega owners about unfair competition (<a href="https://www.vitalcitynyc.org/mamdani-city-run-grocery-stores-economic-challenges/">Vital City</a>). On September 9, 2026, the National Supermarket Association sued in federal court, calling the plan a tax-subsidized predatory pricing scheme (<a href="https://news.bloomberglaw.com/litigation/mamdanis-city-grocery-plan-sets-up-a-monopoly-lawsuit-says">Bloomberg Law</a>). UNYC would draw the same argument at a larger scale.</p>
+
+  <h2>What the other side will propose</h2>
+
+  <p>Incumbents will push alternatives that route public money through the existing market, and each one has a real case. <strong>Expanding SNAP</strong> keeps retail margins and full choice, but SNAP is federal, so a city top-up needs its own means test, and it still misses the 30 percent who earn too much. <strong>Vouchers for any rice and beans at retail</strong> keep every brand whole, but retail rice costs roughly three times the <button class="ann" type="button" data-t="mill price">mill price</button>, so the same dollar buys a third of the food. <strong>Funding pantries</strong> uses a trusted network, but 604 pantries with limited hours are not 984 supermarkets and 13,000 bodegas, and pantries carry a stigma the checkout lane doesn't. <strong>Tax breaks for stores in food deserts</strong> fix access and not price, one store at a time over years.</p>
+
+  <p>They have a point about choice, and UNYC offers two items. It also asks stores to absorb handling that New York's bottle bill pays them 3.5 cents a container to do. The strongest framing is a complement: a universal floor at the lowest cost per pound, with SNAP, pantries and the market above it. That makes an either-or fight harder to win.</p>
+
+  <h2>It has been done, in pieces</h2>
+
+  <p>Free staple rations run at national scale elsewhere. India's PMGKAY gives 5 kg of free grain a month to 813.5 million people through ration shops, extended to December 2028 (<a href="https://www.deccanherald.com/india/new-beneficiaries-can-be-added-to-pm-garib-kalyan-anna-yojana-says-union-minister-pralhad-joshi-3462345">Deccan Herald</a>). Cuba's libreta has handed out subsidized rice and beans since 1962; supply shortfalls broke it, not the ration design (<a href="https://diariodecuba.com/cuba/1727278347_57365.html">Diario de Cuba</a>). New York already runs one universal food program with no means test. Free school lunch dropped the income forms in 2017 for 1.1 million students, precisely to end the stigma and paperwork (<a href="https://www.schools.nyc.gov/about-us/news/announcements/contentdetails/2017/09/06/chancellor-fari%C3%B1a-announces-free-school-lunch-for-all">NYC DOE</a>). Nothing I found combines free staples with private retail pickup and no ID.</p>
+
+  <p>On the law, requiring stores to carry a product and regulating its price both have precedent. Minneapolis has required licensed grocers and corner stores to stock beans, peas and lentils since 2008 (<a href="https://www.minneapolismn.gov/business-services/business-assistance/run/food-business-rules/staple-foods">City of Minneapolis</a>). Nebbia v. New York upheld the state's minimum milk price in 1934. The exposed pieces are elsewhere. New York City only has the powers Albany delegates, Albany already blocked the city's plastic bag fee, and a pending bill, <a href="https://www.nysenate.gov/legislation/bills/2025/A10801">A10801</a>, would limit municipal authority over grocery prices. Making stores absorb handling for free is the part most likely to be called a <button class="ann" type="button" data-t="taking">taking</button>. Two moves would firm it up: state enabling legislation, and a small handling fee modeled on the bottle bill, which would add about $2 to $12 million a year.</p>
+
+  <div class="callout"><p>None of this is legal advice. A real program would need the city's lawyers.</p></div>
+
+  <h2>What's still open</h2>
+
+  <ul>
+    <li>The size threshold for mandatory grocers: square footage, revenue or register count.</li>
+    <li>The per-transaction cap, and whether to add a hashed ID scan with a weekly limit.</li>
+    <li>The public plate price. What should it cost, and what effect does it have on a vendor's economics?</li>
+    <li>How long the phase-in runs, and how much preference small importers get.</li>
+    <li>Whether to add plain canned beans for people with no kitchen at all.</li>
+  </ul>
+
+  <p>The number I keep returning to is $37 per resident per year. For that, nobody in the city has to go without dinner, and nobody has to fill out a form or explain themselves to get it.</p>
+
+  <div class="callout">
+    <p>UNYC is a speculative proposal, not a city program. The photographs are generated illustrations of the packaging in use; the people in them are not real. This proposal has not been independently validated. If you would like to help this idea take the next steps, email Brian at this domain.</p>
+    <p>This proposal was researched and co-written using Claude Opus 5.5. All photorealistic images were generated with Nano Banana Pro. The figures in the cost table, with their sources and datasets, are on the <a href="/writing/universal-rice-and-beans/cost-model">cost model</a> page.</p>
+  </div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://robinhood.org/news/dinner-or-the-light-bill-the-cost-of-hunger-in-nyc-this-robin-hood-moment/">Robin Hood: Dinner or the Light Bill, November 2025</a></li>
+      <li><a href="https://www.cityharvest.org/wp-content/uploads/2026/05/Child-Hunger-Report_Spring-2026.pdf">City Harvest: Child Hunger Report, Spring 2026</a></li>
+      <li><a href="https://www.nyc.gov/assets/foodpolicy/downloads/pdf/NYC-Food-by-the-Numbers-2025.pdf">NYC Mayor's Office of Food Policy: Food by the Numbers 2025</a></li>
+      <li><a href="https://www.choicesmagazine.org/choices-magazine/submitted-articles/who-will-eat-rice-in-the-united-states">Choices: Who (Will) Eat Rice in the United States? (2024)</a></li>
+      <li><a href="https://www.usda.gov/node/16551">USDA: Newly Updated Food Availability Data</a></li>
+      <li><a href="https://www.ers.usda.gov/sites/default/files/_laserfiche/outlooks/111478/VGS-375.pdf">USDA ERS: Vegetables and Pulses Outlook, April 2025</a></li>
+      <li><a href="https://www.ers.usda.gov/topics/crops/rice/market-outlook">USDA ERS: Rice Market Outlook</a></li>
+      <li><a href="https://www.ams.usda.gov/mnreports/ams_1655.pdf">USDA AMS: Weekly National Rice Summary</a></li>
+      <li><a href="https://www.ams.usda.gov/mnreports/ams_2917.pdf">USDA AMS: Dry Edible Beans Daily Grower Bids</a></li>
+      <li><a href="https://www.rma.usda.gov/print/pdf/node/7743">USDA RMA: 2025 Dry Bean and Dry Pea Harvest Prices</a></li>
+      <li><a href="https://citylimits.org/spared-by-sandy-citys-waterfront-food-hub-prepares-for-future-disasters/">City Limits: Hunts Point food hub</a></li>
+      <li><a href="https://dol.ny.gov/asian-american-and-pacific-islander-heritage-month">NYS Department of Labor: AAPI Heritage Month 2026</a></li>
+      <li><a href="https://www.nyc.gov/assets/idnyc/downloads/pdf/IDNYC-Q1-2026-Quarterly-Report-(Final).pdf">IDNYC Q1 2026 Quarterly Report</a></li>
+      <li><a href="https://www.nal.usda.gov/research-tools/food-safety-research-projects/evaluating-interventions-improve-food-safety-0">USDA NAL: NYC restaurants and mobile vendors</a></li>
+      <li><a href="https://www.vitalcitynyc.org/mamdani-city-run-grocery-stores-economic-challenges/">Vital City: Mamdani's city-run grocery stores</a></li>
+      <li><a href="https://news.bloomberglaw.com/litigation/mamdanis-city-grocery-plan-sets-up-a-monopoly-lawsuit-says">Bloomberg Law: City grocery plan lawsuit, September 2026</a></li>
+      <li><a href="https://www.deccanherald.com/india/new-beneficiaries-can-be-added-to-pm-garib-kalyan-anna-yojana-says-union-minister-pralhad-joshi-3462345">Deccan Herald: PMGKAY extended to 2028</a></li>
+      <li><a href="https://diariodecuba.com/cuba/1727278347_57365.html">Diario de Cuba: The ration book, from dependence to hunger</a></li>
+      <li><a href="https://jordantimes.com/node/259867">Jordan Times/Reuters: Egypt smart cards for bread, 2015</a></li>
+      <li><a href="https://www.schools.nyc.gov/about-us/news/announcements/contentdetails/2017/09/06/chancellor-fari%C3%B1a-announces-free-school-lunch-for-all">NYC DOE: Free School Lunch for All, 2017</a></li>
+      <li><a href="https://www.minneapolismn.gov/business-services/business-assistance/run/food-business-rules/staple-foods">City of Minneapolis: Staple foods ordinance</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Nebbia_v._New_York">Nebbia v. New York (1934)</a></li>
+      <li><a href="https://www.nysenate.gov/legislation/bills/2025/A10801">NY Assembly Bill A10801</a></li>
+      <li><a href="https://outage-pro.com/electricity-rates/new-york">Outage Pro: New York electricity rates, May 2026</a></li>
+    </ul>
+  </section>
+
+</article>
+<script>window.__GLOSS={"food insecure": ["Lacking reliable access to enough food at some point in the year, usually because of money.", ""], "Feeding America": ["A national network of food banks. Its Map the Meal Gap study estimates food insecurity county by county.", ""], "SNAP": ["The federal food benefit once called food stamps, loaded monthly onto a card for low-income households.", "Eligibility ends near $33,000 for a family of four; basic costs in the city run past $125,000."], "pulses": ["The dried seeds of legumes: beans, lentils, chickpeas, split peas, pigeon peas and mung beans.", "Soybeans are excluded by name, and so are canned beans."], "purchase specification": ["The city's minimum quality standard for each variety: grade, broken grains, crop age and contaminant limits, checked by USDA inspection on every lot.", ""], "bodega": ["A small neighborhood grocery and convenience store, often family-run. The city has about 13,000.", ""], "public plate": ["A plate of rice and pulses, around $3, that a participating vendor must post in exchange for UNYC stock.", "Compliance is checked on the health inspections that already happen."], "leakage": ["Program food that goes somewhere other than intended: resale, hoarding or waste.", "Budgeted at 10 percent of food and delivery costs, within a 5 to 15 percent range."], "complete protein": ["Protein that supplies all nine amino acids the body can't make. Rice is short on lysine and beans on methionine; together they cover each other.", ""], "WIC": ["A federal nutrition program for low-income pregnant women, new mothers and young children.", ""], "parboiled rice": ["Rice partly boiled in its husk before milling, which gives firmer grains. Common in West African and Caribbean cooking.", ""], "pigeon peas": ["A small legume central to Caribbean cooking, called gandules in Puerto Rico.", ""], "IDNYC": ["New York City's free municipal ID card, open to residents regardless of immigration status.", "About 1.9 million cardholders after 11 years, roughly a quarter of those eligible."], "mill price": ["What a rice mill charges for milled rice in bulk, before bagging, freight and retail markup.", "Long-grain white is about 28 to 35 cents a pound at the mill."], "kWh": ["Kilowatt-hour, the unit on an electric bill. One kWh runs a 1,000-watt appliance for an hour.", ""], "Con Edison": ["The utility that delivers electricity and gas in New York City.", ""], "SRO": ["Single-room occupancy: housing rented as single rooms, often with no private kitchen.", ""], "private label": ["A store's or distributor's own brand, as opposed to a national brand.", ""], "Hunts Point": ["The Hunts Point Food Distribution Center, a city-owned wholesale hub in the South Bronx that moves about 4.5 billion pounds of food a year.", ""], "bottle-bill rates": ["New York's bottle bill pays stores 3.5 cents for each can or bottle they take back, to cover the work of handling returns.", "At that rate the roughly 94 million retail bags UNYC would hand out each year come to about $3.3 million. The $2 to $12 million range allows up to 10 cents a bag."], "taking": ["When government takes private property it must pay for it. In Horne v. Department of Agriculture (2015), forcing raisin growers to hand over part of their crop counted as one.", "The city supplies the food itself, so the exposed piece is making stores absorb handling for free."]};</script>
+<script>
+(function(){
+ var G=window.__GLOSS||{},pop=document.createElement('div');
+ pop.id='pop';pop.setAttribute('role','tooltip');document.body.appendChild(pop);
+ var open=null,timer=null;
+ function place(btn){
+   // Park it at the origin first so it lays out at its natural width before measuring.
+   pop.style.left='0px';pop.style.top='0px';
+   var p=pop.getBoundingClientRect(),r=btn.getBoundingClientRect(),M=10;
+   var left=Math.max(M,Math.min(r.left,innerWidth-p.width-M));
+   var below=r.bottom+8,above=r.top-p.height-8,top;
+   if(below+p.height+M<=innerHeight) top=below;
+   else if(above>=M) top=above;
+   else top=Math.max(M,Math.min(r.top,innerHeight-p.height-M));
+   pop.style.left=left+'px';pop.style.top=top+'px';
+ }
+ function show(btn){
+   var d=G[btn.dataset.t];if(!d)return;
+   pop.innerHTML='<span class="t">'+btn.dataset.t+'</span>'+d[0]+(d[1]?'<span class="w">'+d[1]+'</span>':'');
+   pop.setAttribute('data-open','');place(btn);
+   btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-describedby','pop');
+   open=btn;
+ }
+ function hide(){
+   if(!open)return;
+   pop.removeAttribute('data-open');
+   open.setAttribute('aria-expanded','false');open.removeAttribute('aria-describedby');
+   open=null;
+ }
+ document.addEventListener('mouseover',function(e){
+   var b=e.target.closest&&e.target.closest('button.ann');
+   clearTimeout(timer);
+   if(b){timer=setTimeout(function(){show(b);},90);}
+   else if(open&&!e.target.closest('#pop')){timer=setTimeout(hide,120);}
+ });
+ document.addEventListener('focusin',function(e){
+   var b=e.target.closest&&e.target.closest('button.ann');
+   if(b)show(b);else hide();
+ });
+ document.addEventListener('click',function(e){
+   var b=e.target.closest&&e.target.closest('button.ann');
+   if(b){e.preventDefault();open===b?hide():show(b);}
+   else if(!e.target.closest('#pop'))hide();
+ });
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')hide();});
+ addEventListener('scroll',function(){if(open)place(open);},{passive:true});
+ addEventListener('resize',hide);
+ document.querySelectorAll('button.ann').forEach(function(b){
+   b.setAttribute('aria-expanded','false');
+   b.setAttribute('aria-label',b.textContent+', show definition');
+ });
+})();
+</script>
+</body>
+</html>

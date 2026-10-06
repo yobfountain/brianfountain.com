@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projects — Brian Fountain</title>
+<meta name="description" content="Projects Brian Fountain has built — generative-AI products, games, and story experiments spanning two decades.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/projects">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Projects — Brian Fountain">
+<meta property="og:description" content="Projects Brian Fountain has built — generative-AI products, games, and story experiments spanning two decades.">
+<meta property="og:url" content="https://brianfountain.com/projects">
+<meta property="og:image" content="https://brianfountain.com/brian_fountain.jpeg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projects — Brian Fountain">
+<meta name="twitter:description" content="Projects Brian Fountain has built — generative-AI products, games, and story experiments spanning two decades.">
+<meta name="twitter:image" content="https://brianfountain.com/brian_fountain.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-padding-top:50px}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.band{position:relative;min-height:min(78vh,720px);display:flex;align-items:flex-end;
+  overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.band-media{position:absolute;inset:0;background:#100d0b;overflow:hidden}
+/* Accent-derived aurora: three soft blurred blobs slowly drifting behind the content. */
+.band-aurora{position:absolute;inset:-25%}
+.band-blob{position:absolute;width:62%;height:74%;border-radius:50%;filter:blur(72px);
+  mix-blend-mode:screen;will-change:transform}
+.band-blob.b1{left:30%;top:-6%;background:radial-gradient(circle at 50% 50%,var(--c1),transparent 66%);animation:drift1 26s ease-in-out infinite}
+.band-blob.b2{left:46%;top:24%;background:radial-gradient(circle at 50% 50%,var(--c2),transparent 66%);animation:drift2 33s ease-in-out infinite}
+.band-blob.b3{left:6%;top:14%;background:radial-gradient(circle at 50% 50%,var(--c3),transparent 66%);animation:drift3 40s ease-in-out infinite}
+/* Pattern collection — each band gets the next pattern in a cycling sequence. Transform/opacity only, no filters.
+   Constructed patterns use opaque neutral greys + a layer opacity so each band's aurora hue shows through.
+
+   Isometric 3D blocks. */
+.band-blocks{position:absolute;top:0;left:0;--u:20px;--tw:calc(var(--u) * 12);--th:calc(var(--u) * 12.8);
+  width:calc(100% + var(--tw));height:calc(100% + var(--th));
+  --c1:#5a6068;--c2:#8a9098;--c3:#dfe3e8;--cs:#33383f;opacity:.5;
+  --gp:50% / var(--tw) var(--th);
+  background:
+    repeating-conic-gradient(from 61.93deg at 75% 36.5%,var(--c1) 0%,var(--c1) 2%,var(--cs) 16%,#fff0 0% 100%) var(--gp),
+    repeating-conic-gradient(from 118.07deg at 75% 87.5%,var(--c3) 0% 34.5%,#fff0 0% 100%) var(--gp),
+    repeating-conic-gradient(from 118.07deg at 50% 75%,#fff0 2%,var(--cs) 17.15%,#fff0 0% 100%) var(--gp),
+    repeating-conic-gradient(from 61.93deg at 50% 50%,var(--c3) 0% 15.59%,var(--c2) 0% 32.79%,#fff0 0% 100%) var(--gp),
+    repeating-conic-gradient(from -118.07deg at 25% 12.5%,var(--c2) 0% 32.79%,var(--c1) 0% 50%,#fff0 0% 100%) var(--gp),
+    repeating-conic-gradient(from -61.93deg at 25% 87.5%,#fff0 0 67.25%,var(--c2) 0% 100%) var(--gp),
+    repeating-conic-gradient(from -61.93deg at 50% 75%,#fff0 0% 66.5%,var(--c1) 0% 84.25%,var(--c3) 0% 100%) var(--gp),
+    repeating-conic-gradient(from -61.93deg at 25% 37.5%,var(--c3) 0% 34.5%,var(--c1) 0% 67.25%,var(--c2) 0% 100%) var(--gp);
+  animation:blocksdrift 52s linear infinite}
+@keyframes blocksdrift{to{transform:translate(calc(var(--tw) * -1),calc(var(--th) * -1))}}
+/* Adaptive cube tessellation — transparent white/black facets take on the aurora color beneath; slow seamless drift. */
+.band-cubes{position:absolute;top:0;left:0;--u:10.5px;--sz:calc(var(--u) * 8);
+  width:calc(100% + var(--sz));height:calc(100% + var(--sz));
+  --f1:rgba(255,255,255,.12);--f2:rgba(255,255,255,.05);--f3:rgba(0,0,0,.06);--f4:rgba(0,0,0,.15);
+  background-size:var(--sz) var(--sz);
+  background-image:
+    conic-gradient(from 231deg at 10% 42%,var(--f1) 0 116deg,#0000 0 100%),
+    conic-gradient(from -309deg at 90% 58%,var(--f1) 0 116deg,#0000 0 100%),
+    conic-gradient(from 103deg at 58% 90%,var(--f4) 0 116deg,#0000 0 100%),
+    conic-gradient(from -77deg at 42% 10%,var(--f4) 0 117deg,#0000 0 100%),
+    conic-gradient(from 0deg at 50% 50%,var(--f2) 0 90deg,var(--f4) 0 101.5deg,var(--f3) 0 168.5deg,var(--f1) 0 180deg,var(--f2) 0 270deg,var(--f4) 0 281.5deg,var(--f3) 0 348.5deg,var(--f1) 0 360deg);
+  animation:cubedrift 40s linear infinite}
+@keyframes cubedrift{to{transform:translate(calc(var(--sz) * -1),calc(var(--sz) * -1))}}
+/* Interlocking "weave" tessellation — two half-tile-offset copies; transparent facets adapt to the aurora; slow drift. */
+.band-weave{position:absolute;top:0;left:0;--u:10px;--t:calc(var(--u) * 10);
+  width:calc(100% + var(--t));height:calc(100% + var(--t));
+  --c1:#6b727a;--c2:#454b52;--sh:#1c2026;--hi:#e2e7ec;opacity:.5;
+  --gp:50%/var(--t) var(--t);--bp:calc(var(--u) * -5) calc(var(--u) * -5);
+  --bg:
+    radial-gradient(ellipse at 25% 92%,var(--c2) 0 1%,#fff0 20%) var(--gp),
+    radial-gradient(circle at 25% 75%,var(--c2) 0 1%,#fff0 20%) var(--gp),
+    radial-gradient(ellipse at 25% 110%,var(--c1) 0 5%,#fff0 35%) var(--gp),
+    conic-gradient(from 180deg at 50% 49%,var(--sh) 0 25%,#fff0 0 100%) var(--gp),
+    linear-gradient(180deg,#fff0 0 50%,var(--hi) 51%,#fff0 51% 100%) var(--gp),
+    linear-gradient(180deg,#fff0 0 50%,var(--c1) 50%,var(--sh) 100%) var(--gp);
+  background:var(--bg),var(--bg);
+  background-position:var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),0 0,0 0,0 0,0 0,0 0,0 0;
+  animation:weavedrift 44s linear infinite}
+@keyframes weavedrift{to{transform:translate(calc(var(--t) * -1),calc(var(--t) * -1))}}
+/* Faceted "stars" tessellation — same transparent-facet treatment on a taller tile; slow drift. */
+.band-stars{position:absolute;top:0;left:0;--u:11px;--tw:calc(var(--u) * 5);--th:calc(var(--u) * 10);
+  width:calc(100% + var(--tw));height:calc(100% + var(--th));
+  --c1:#1c2025;--c2:#4a515a;--c3:#c8ced4;opacity:.5;background-color:var(--c2);
+  --gp:50%/var(--tw) var(--th);--bp:calc(var(--u) * -2.5) calc(var(--u) * -5);
+  --bg:
+    radial-gradient(circle at 50% 25%,var(--c2) 23%,#fff0 25% 100%) var(--gp),
+    conic-gradient(from 270deg at 34% 46%,var(--c2) 0 12.5%,#fff0 0 100%) var(--gp),
+    conic-gradient(from 45deg at 66% 46%,var(--c2) 0 12.5%,#fff0 0 100%) var(--gp),
+    conic-gradient(from 180deg at 50% 80%,var(--c2) 0 12.5%,#fff0 0 100%) var(--gp),
+    conic-gradient(from 135deg at 50% 80%,var(--c2) 0 12.5%,#fff0 0 100%) var(--gp),
+    conic-gradient(from 0deg at 0% 20%,var(--c2) 0 12.5%,#fff0 0 100%) var(--gp),
+    conic-gradient(from -45deg at 100% 20%,var(--c2) 0 12.5%,#fff0 0 100%) var(--gp),
+    linear-gradient(180deg,var(--c2) 0 4.5%,#fff0 0 45.25%,var(--c2) 0 50%,#fff0 0% 100%) var(--gp),
+    radial-gradient(circle at 50% 25%,#fff0 0 25%,var(--c2) 26% 32%,#fff0 0 100%) var(--gp),
+    linear-gradient(165deg,var(--c3) -15%,var(--c1) 44%,#fff0 0 100%) var(--gp),
+    linear-gradient(180deg,var(--c1) 50%,#fff0 0 100%) var(--gp);
+  background:var(--bg),var(--bg);
+  background-position:var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),var(--bp),0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0;
+  animation:starsdrift 50s linear infinite}
+@keyframes starsdrift{to{transform:translate(calc(var(--tw) * -1),calc(var(--th) * -1))}}
+/* Interlocking S-wave tessellation. The shape is built by OPAQUE occlusion, so making the colors transparent
+   would expose the construction — instead we use opaque neutral greys and set layer opacity, letting the
+   aurora hue show through the finished composite. Slow drift. */
+.band-waves{position:absolute;top:0;left:0;--sz:10px;--sz2:calc(var(--sz) * 10);--sz3:calc(var(--sz2) / 2);
+  width:calc(100% + var(--sz2));height:calc(100% + var(--sz2));
+  --c1:#e6eaef;--c2:#242830;--c0:#0000;--ts:50% / var(--sz2) var(--sz2);opacity:.36;
+  background:
+    conic-gradient(from 136deg at 26% 75%,var(--c2) 0 25%,#fff0 0 100%) var(--ts),
+    conic-gradient(from 136deg at 26% 75%,var(--c2) 0 25%,#fff0 0 100%) var(--ts),
+    conic-gradient(from 136deg at 26% 75%,var(--c2) 0 25%,#fff0 0 100%) var(--ts),
+    conic-gradient(from 90deg at 51% 99%,var(--c1) 0 25%,#fff0 0 100%) var(--ts),
+    conic-gradient(from 90deg at 51% 99%,var(--c1) 0 25%,#fff0 0 100%) var(--ts),
+    conic-gradient(from 90deg at 51% 99%,var(--c1) 0 25%,#fff0 0 100%) var(--ts),
+    radial-gradient(circle at 100.5% -0.5%,var(--c1) 0 var(--sz3),var(--c0) calc(var(--sz3) + 1px) 100%) var(--ts),
+    radial-gradient(circle at 50% -0.5%,var(--c2) 0 var(--sz3),var(--c0) calc(var(--sz3) + 1px) 100%) var(--ts),
+    radial-gradient(circle at 100.5% -0.5%,var(--c1) 0 var(--sz3),var(--c0) calc(var(--sz3) + 1px) 100%) var(--ts),
+    radial-gradient(circle at 100.5% -1.5%,var(--c1) 0 var(--sz3),var(--c0) calc(var(--sz3) + 1px) 100%) var(--ts),
+    radial-gradient(circle at 100.5% -1.5%,var(--c1) 0 var(--sz3),var(--c0) calc(var(--sz3) + 1px) 100%) var(--ts),
+    radial-gradient(circle at 0% 100%,var(--c2) 0 var(--sz3),var(--c0) calc(var(--sz3) + 1px) 100%) var(--ts),
+    conic-gradient(from -180deg at 5% 50%,var(--c2) 0 25%,var(--c0) 0 100%) var(--ts),
+    conic-gradient(from -180deg at 5% 50%,var(--c2) 0 25%,var(--c0) 0 100%) var(--ts),
+    conic-gradient(from -180deg at 5% 50%,var(--c2) 0 25%,var(--c0) 0 100%) var(--ts),
+    conic-gradient(from -180deg at 5% 50%,var(--c2) 0 25%,var(--c0) 0 100%) var(--ts),
+    conic-gradient(from -90deg at 50% 58%,var(--c1) 0 25%,var(--c0) 0 100%) var(--ts),
+    radial-gradient(circle at 50% 100%,var(--c1) 0 var(--sz3),var(--c2) calc(var(--sz3) + 1px) 100%) var(--ts);
+  animation:wavesdrift 46s linear infinite}
+@keyframes wavesdrift{to{transform:translate(calc(var(--sz2) * -1),calc(var(--sz2) * -1))}}
+/* Hexagon honeycomb — flat-top hexagons with transparent 3-facet shading; adapts to the aurora; slow drift. */
+.band-hex{position:absolute;top:0;left:0;--u:7px;--tw:calc(var(--u) * 10);--th:calc(var(--u) * 12);
+  width:calc(100% + var(--tw));height:calc(100% + var(--th));
+  --f1:#e2e6ea;--f2:#b4bac0;--f3:#767c83;--f4:#3c424a;opacity:.35;
+  --gp:50% / var(--tw) var(--th);
+  --glt:repeating-conic-gradient(from 210deg at 16.66% 25%,var(--f2) 0% 33.3%,#fff0 0% 100%) var(--gp);
+  --glb:repeating-conic-gradient(from 210deg at 16.66% 75%,var(--f4) 0% 33.3%,#fff0 0% 100%) var(--gp);
+  background:
+    repeating-linear-gradient(to bottom,
+      var(--f1) 0% 1.5%,transparent 1.5% 23.5%,var(--f2) 23.5% 26.5%,transparent 26.5% 48.5%,
+      var(--f3) 48.5% 51.5%,transparent 51.5% 73.5%,var(--f4) 73.5% 76.5%,transparent 76.5% 98.5%,
+      var(--f1) 98.5% 100%) var(--gp),
+    var(--glt),var(--glb),
+    repeating-conic-gradient(from 150deg at 50% 75%,var(--f1) 0% 33.3%,#fff0 0% 100%) var(--gp),
+    repeating-conic-gradient(from 90deg at 66.66% 50%,var(--f4) 0% 33.3%,#fff0 0% 100%) var(--gp),
+    repeating-conic-gradient(from -90deg at 50% 25%,var(--f1) 0% 33.3%,var(--f2) 0% 66.4%,var(--f3) 0% 100%) var(--gp);
+  animation:hexdrift 48s linear infinite}
+@keyframes hexdrift{to{transform:translate(calc(var(--tw) * -1),calc(var(--th) * -1))}}
+/* Pause offscreen bands; only the in-view band animates. These follow the shorthands above so they win the cascade. */
+.band .band-blob,.band .band-blocks,.band .band-cubes,.band .band-weave,.band .band-stars,.band .band-waves,.band .band-hex{animation-play-state:paused}
+.band.in-view .band-blob,.band.in-view .band-blocks,.band.in-view .band-cubes,.band.in-view .band-weave,.band.in-view .band-stars,.band.in-view .band-waves,.band.in-view .band-hex{animation-play-state:running}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(9%,7%) scale(1.16)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1.06)}50%{transform:translate(-11%,-7%) scale(.9)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(7%,-9%) scale(1.13)}}
+.band-scrim{position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(16,13,11,.94),rgba(16,13,11,.55) 46%,rgba(16,13,11,.12) 100%),
+             linear-gradient(0deg,rgba(16,13,11,.92),transparent 58%)}
+.band-content{position:relative;z-index:2;padding:clamp(24px,5vw,64px);max-width:640px;width:100%}
+.band-index{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(239,230,218,.5)}
+.band-name{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:clamp(34px,6vw,70px);line-height:1.02;margin-top:8px}
+.band-meta{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;margin-top:10px}
+.band-blurb{font-size:clamp(14px,1.4vw,16px);line-height:1.55;color:rgba(239,230,218,.82);margin-top:12px;max-width:560px}
+.band-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.band-tags span{padding:4px 11px;border-radius:100px;border:1px solid rgba(239,230,218,.2);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.03em;color:rgba(239,230,218,.72)}
+.band-cta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:11px 18px;border-radius:100px;
+  border:none;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;font-weight:700;
+  color:#12110f;cursor:pointer;text-decoration:none;transition:.2s}
+.band-cta:hover{filter:brightness(1.08)}
+.band-archived{display:inline-block;margin-top:20px;padding:8px 14px;border-radius:100px;
+  border:1px dashed rgba(239,230,218,.25);font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.1em;color:rgba(239,230,218,.5)}
+/* Every band: text on the left, a framed preview (screenshot or player) on the right. */
+.band-content.has-player{max-width:1180px;display:flex;gap:clamp(24px,4vw,56px);align-items:center}
+.band-text{flex:1 1 0;min-width:0;max-width:560px}
+.band-player{flex:0 0 46%;max-width:600px;min-width:0}
+.band-player video{width:100%;aspect-ratio:16/9;height:auto;display:block;border-radius:14px;
+  background:#000;border:1px solid rgba(239,230,218,.18);box-shadow:0 26px 64px -22px rgba(0,0,0,.85)}
+/* Framed screenshot preview — same treatment as the player. */
+.band-frame{display:block;flex:0 0 46%;max-width:600px;min-width:0;border-radius:14px;overflow:hidden;
+  border:1px solid rgba(239,230,218,.18);box-shadow:0 26px 64px -22px rgba(0,0,0,.85);background:#17130f;
+  transition:transform .25s ease,box-shadow .25s ease}
+.band-frame img{width:100%;height:auto;display:block}
+a.band-frame:hover{transform:translateY(-5px);box-shadow:0 36px 76px -20px rgba(0,0,0,.92)}
+/* Audio band — a framed poster (portrait) with an inline player beneath it. */
+.band-audio{flex:0 0 46%;max-width:600px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:16px}
+.band-audio .poster{max-height:440px;width:auto;max-width:100%;display:block;border-radius:14px;
+  border:1px solid rgba(239,230,218,.18);box-shadow:0 26px 64px -22px rgba(0,0,0,.85);background:#17130f}
+.band-audio .cap{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:rgba(239,230,218,.6)}
+.band-audio audio{width:100%;max-width:360px;height:38px}
+@media (max-width:900px){
+  .band{max-height:none}
+  .band-content.has-player{flex-direction:column;align-items:flex-start;gap:20px}
+  .band-text{max-width:none}
+  .band-player,.band-frame,.band-audio{flex:none;width:100%;max-width:560px}
+  .band-audio{align-items:flex-start}
+}
+.pbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  gap:14px;padding:12px clamp(16px,4vw,40px);background:rgba(14,11,9,.82);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid rgba(239,230,218,.1)}
+.pback{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.pback span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.pfilters{display:flex;flex-wrap:wrap;gap:7px}
+.pchip{padding:5px 12px;border-radius:100px;border:1px solid rgba(239,230,218,.2);background:rgba(239,230,218,.04);
+  color:rgba(239,230,218,.75);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;cursor:pointer;transition:.2s}
+.pchip.on{border-color:transparent;background:#efe6da;color:#12110f;font-weight:700}
+@media (max-width:640px){ .band{min-height:70vh} .pfilters{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch} .pchip{flex:none} }
+@media (prefers-reduced-motion: reduce){ .band-blob,.band-blocks,.band-cubes,.band-weave,.band-stars,.band-waves,.band-hex{animation:none} }
+</style>
+</head>
+<body>
+  <header class="pbar" id="pbar">
+    <a class="pback" href="/">↩ <span>Brian Fountain</span></a>
+    <nav class="pfilters" id="pfilters"></nav>
+  </header>
+  <main class="film" id="film"></main>
+  <script>
+(function(){
+var PROJECTS = [
+  { name:"Corn for Cars", year:"2026", cat:"Data Story · Energy", accent:"#e8c33f",
+    blurb:"An interactive data story about the 30 million acres America farms for fuel — and the 339,000 acres of solar that would move the same vehicle-miles. County-level maps of corn, sunlight, the aquifer and the grid, modeled from USDA, PVGIS, USGS and DOE data.",
+    tags:["Data visualization","Mapping","Energy"],
+    media:{type:"image", src:"/assets/shot_solar.jpeg"},
+    action:{label:"Open solar.brianfountain.com", href:"https://solar.brianfountain.com"},
+    filters:["Recent","Story"] },
+  { name:"Cryptions", year:"2026", cat:"Word Game", accent:"#e7a68d",
+    blurb:"A daily word puzzle where nothing groups by what it says. Sixteen tiles each hide a different word — behind anagrams, homophones, insertions, deletions and strings buried inside other strings — and the four groups only surface once you decode them. The tile colours mean something too.",
+    tags:["Daily puzzle","Cryptic wordplay","Game design"],
+    media:{type:"image", src:"/assets/shot_cryptions.jpeg"},
+    action:{label:"Play cryptions", href:"https://games.brianfountain.com/cryptions"},
+    filters:["Recent","Games","Founder"] },
+  { name:"Cain's Jawbone Reader", year:"2026", cat:"Puzzle · Reading Tool", accent:"#d9c48a",
+    blurb:"Edward Powys Mathers printed his 1934 murder mystery with its hundred pages in the wrong order — exactly one of the 100! arrangements is right. Somewhere to work, not an answer: read the pages, link the ones that follow each other, tag what you notice, and keep case notes on the six murderers and their six victims. Everything stays in your browser and exports as a case file.",
+    tags:["Puzzle","Reading tool","Local-first"],
+    media:{type:"image", src:"/assets/shot_cains_jawbone.jpeg"},
+    action:{label:"Open the reader", href:"https://games.brianfountain.com/cains-jawbone"},
+    filters:["Recent","Games","Story"] },
+  { name:"Cobwebs and Keys", year:"2026", cat:"Board Game · Multiplayer", accent:"#d6a344",
+    blurb:"A digital recreation of Mystery Mansion, the 1984 Milton Bradley board game. Seven chests are hidden in the old house and only two hold the real treasure: build the rooms, search them, and carry a chest out of the front door. Play solo or host a game and hand friends a four-letter code.",
+    tags:["Board game","Multiplayer","Game design"],
+    media:{type:"image", src:"/assets/shot_cobwebs.jpeg"},
+    action:{label:"Play Cobwebs and Keys", href:"https://games.brianfountain.com/cobwebs"},
+    filters:["Recent","Games"] },
+  { name:"G3NPRO", year:"2025", cat:"AI · Animation", accent:"#8fd0c4",
+    blurb:"A production platform that turns a script into animation. Agents plan the coverage and generate the shots. A person approves every one that ships. Used by animation studios today.",
+    tags:["Generative AI","Animation","Product"],
+    media:{type:"video", src:"/assets/g3npro_sample.mp4", poster:"/assets/shot_g3npro.jpeg", demo:"/assets/g3npro_demo.mp4", frame:"/assets/g3npro_frame.jpeg"},
+    action:{label:"Visit g3npro.com", href:"https://g3npro.com"},
+    filters:["Recent","AI","Founder"] },
+  { name:"GenBuzz", year:"2025", cat:"AI · News", accent:"#7fb4ea",
+    blurb:"An agentically-driven news aggregator for the fast-moving world of AI filmmaking — surfacing what matters without the noise.",
+    tags:["Agentic","News","AI film"],
+    media:{type:"image", src:"/assets/shot_genbuzz.jpeg"},
+    action:{label:"Open genbuzz.news", href:"https://genbuzz.news"},
+    filters:["Recent","AI","Story","Founder"] },
+  { name:"Bender", year:"2025", cat:"Word Game", accent:"#e7a68d",
+    blurb:"A cozy daily word game — trace words that bend through a letter grid and fill every square. New 5×5, 6×6 and 7×7 puzzles each day.",
+    tags:["Daily puzzle","Word game","Design"],
+    media:{type:"image", src:"/assets/shot_bender.jpeg"},
+    action:{label:"Play bender", href:"https://bender.brianfountain.com"},
+    filters:["Recent","Games","Founder"] },
+  { name:"1K Notes", year:"2025", cat:"Music · AI", accent:"#c9a2ec",
+    blurb:"A creative tool for writing songs from images — turn a picture into a prompt for melody and lyric.",
+    tags:["Music","Creative tool","Songwriting"],
+    media:{type:"image", src:"/assets/shot_1knotes.jpeg"},
+    action:{label:"Open 1knotes.com", href:"https://1knotes.com"},
+    filters:["Recent","AI","Founder"] },
+  { name:"Chapters", year:"2025", cat:"Writing · AI", accent:"#9aa6f0",
+    blurb:"A writing tool that turns a one-line premise into a complete novel outline — 27 beats across three acts, generated locally or with Claude.",
+    tags:["Writing tool","Story structure","Creative AI"],
+    media:{type:"image", src:"/assets/shot_chapters.jpeg"},
+    action:{label:"Open chapters.brianfountain.com", href:"https://chapters.brianfountain.com"},
+    filters:["Recent","AI","Story","Founder"] },
+  { name:"Vibeside", year:"2025", cat:"Dev Tools · AI", accent:"#8fd0c4",
+    blurb:"A lightweight mobile IDE built on one loop: ask for a revision, then review the running result. Publish when it looks right.",
+    tags:["IDE","Mobile-first","Agentic coding"],
+    media:{type:"image", src:"/assets/shot_vibeside.jpeg"},
+    action:{label:"Open vibesi.de", href:"https://vibesi.de"},
+    filters:["Recent","AI","Founder"] },
+  { name:"DaysToLive", year:"2015", cat:"Product · Messaging", accent:"#dcae72",
+    blurb:"A messaging service that leverages a sense of your own mortality: every few months, subscribers get an SMS reminder of their remaining days on Earth.",
+    tags:["Product design","Information architecture","SMS"],
+    media:{type:"placeholder"},
+    filters:["Story"] },
+  { name:"CouchCachet", year:"2013", cat:"Social · Satire", accent:"#d9a8c4",
+    blurb:"Part startup, part social satire — an app that lies and says you're out at the coolest parties while you sit home in pajamas. Built in 36 hours; won the Mashery Global prize with 15M+ media reach (NYT, Buzzfeed, Mashable, ABC News).",
+    tags:["Social","Satire","Award-winning"],
+    media:{type:"placeholder"},
+    action:{label:"Read the NYT feature", href:"https://www.nytimes.com/2013/01/23/nyregion/couchcachet-app-gives-new-meaning-to-lying-on-the-couch.html"},
+    filters:["Games","Story"] },
+  { name:"uChoos", year:"2011", cat:"Interactive Fiction", accent:"#c9a2ec",
+    blurb:"An interactive-fiction platform for the feature phone — a simple way to create and share choose-your-own-adventure stories with friends.",
+    tags:["Interactive fiction","Product design","Mobile"],
+    media:{type:"placeholder"},
+    filters:["Games","Story"] },
+  { name:"zown", year:"2011", cat:"Location Game", accent:"#d9c48a",
+    blurb:"A team-based outdoor strategy game — capture-the-flag on steroids, where teams battle to control the most territories (zowns) on a map. Official selection, 2012 Come Out and Play & City of Play festivals.",
+    tags:["Game design","Location-based","Festival selection"],
+    media:{type:"placeholder"},
+    filters:["Games"] },
+  { name:"SpotOn Trivia", year:"2011", cat:"Trivia · Mobile", accent:"#e7a68d",
+    blurb:"A trivia app conceived, built and launched over the 48-hour StartupBus ride from New York City to Austin.",
+    tags:["Trivia","Mobile","StartupBus"],
+    media:{type:"placeholder"},
+    filters:["Games"] },
+  { name:"FutureMate", year:"2012", cat:"Transmedia Story", accent:"#c9a2ec",
+    blurb:"A post-apocalyptic online-dating transmedia story: the government's portal for finding your perfect match after the cataclysm. Won the first StoryCode × Lincoln Film Center story hackathon — two sites, a film, an installation, a dating app and a theatre piece. Press in Forbes, Washington Post and PBS.",
+    tags:["Transmedia","Storyworld","Award-winning"],
+    media:{type:"placeholder"},
+    filters:["Story","Games"] },
+  { name:"Go On & Fix Your Hair", year:"2009", cat:"Music · Promo", accent:"#e8c33f",
+    blurb:"The song for Outside Lands' 2009 lineup announcement video, produced by Ghost Robot and directed by Elliot Jokelson, released under the band name Ranger Dave & The Bison. The video still runs on the festival YouTube channel.",
+    tags:["Songwriting","Outside Lands 2009","Ghost Robot"],
+    action:{label:"Watch on YouTube", href:"https://www.youtube.com/watch?v=JSTZAEBSTSM"},
+    media:{type:"video", demo:"/assets/outside_lands.mp4", frame:"/assets/outside_lands_frame.jpeg"},
+    filters:["Story"] },
+  { name:"JC2K", year:"2007", cat:"Musical · Comedy", accent:"#c9a2ec",
+    blurb:"The U.S. Army had a simple plan: breed a battalion of Jesus Christ clones and turn them into elite super-soldiers. But something went wrong — one of the six-million-dollar messiahs escaped, and now they must do the unthinkable: bring him home or take him down. A musical, presented at the 2007 New York Musical Theatre Festival.",
+    tags:["Book, music & lyrics","NYMF 2007","Satire"],
+    media:{type:"audio", src:"/assets/jc2k.mp3", poster:"/assets/logo_jc2k.jpg", cap:"♪  WHERE ARE YOU GOD?"},
+    filters:["Story"] },
+  { name:"ArmyBakeSale", year:"2003", cat:"Comedy · Web", accent:"#e7a68d",
+    blurb:"A comedic site pondering a world where schools have all the money they need but the Army has to hold a bake sale to buy a bomber. Exporting democracy and delicious baked goods since 2003.",
+    tags:["Comedy","Satire","Web"],
+    media:{type:"image", src:"/assets/shot_armybakesale.jpeg"},
+    action:{label:"Visit armybakesale.com", href:"https://armybakesale.com"},
+    filters:["Story"] }
+];
+
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+
+// Aurora palette: turn a project's accent into an analogous trio of glowing blob colors.
+function hexToHsl(hex){
+  hex=(hex||"#888888").replace('#','');
+  if(hex.length===3)hex=hex.replace(/(.)/g,'$1$1');
+  var r=parseInt(hex.substr(0,2),16)/255,g=parseInt(hex.substr(2,2),16)/255,b=parseInt(hex.substr(4,2),16)/255;
+  var mx=Math.max(r,g,b),mn=Math.min(r,g,b),h=0,s=0,l=(mx+mn)/2,d=mx-mn;
+  if(d){ s=l>0.5?d/(2-mx-mn):d/(mx+mn);
+    h=mx===r?(g-b)/d+(g<b?6:0):mx===g?(b-r)/d+2:(r-g)/d+4; h*=60; }
+  return [h,s*100,l*100];
+}
+function hsl(h,s,l,a){
+  h=((h%360)+360)%360; s=Math.max(0,Math.min(100,s)); l=Math.max(0,Math.min(100,l));
+  return "hsla("+h.toFixed(0)+","+s.toFixed(0)+"%,"+l.toFixed(0)+"%,"+a+")";
+}
+function auroraVars(accent){
+  var p=hexToHsl(accent),h=p[0],s=Math.max(45,p[1]),l=58;
+  return { "--c1":hsl(h,    s+6, l,   .85),
+           "--c2":hsl(h+40, s,   l-3, .80),
+           "--c3":hsl(h-44, s-6, l-6, .72) };
+}
+
+// Background patterns, cycled across bands in order. Each is a drifting adaptive layer.
+var PATTERNS=["blocks","cubes","weave","stars","waves","hex"];
+
+function renderBands(){
+  var film=document.getElementById("film"); film.innerHTML="";
+  var total=String(PROJECTS.length).padStart(2,"0");
+  PROJECTS.forEach(function(p,i){
+    var band=el("div","band"); band.dataset.filters=(p.filters||[]).join(",");
+    // Accent-derived aurora background (three drifting blobs).
+    var vars=auroraVars(p.accent); for(var k in vars) band.style.setProperty(k,vars[k]);
+    var media=el("div","band-media");
+    var aur=el("div","band-aurora");
+    aur.appendChild(el("div","band-blob b1"));
+    aur.appendChild(el("div","band-blob b2"));
+    aur.appendChild(el("div","band-blob b3"));
+    media.appendChild(aur);
+    // Pattern collection, sequenced across bands. Strip patterns wave; cubes drift.
+    var pat=PATTERNS[i % PATTERNS.length];
+    media.appendChild(el("div","band-"+pat));
+    band.appendChild(media);
+    band.appendChild(el("div","band-scrim"));
+
+    // Screenshots, the demo video, and the audio poster get a framed preview in a right-hand column.
+    var isVideo=p.media.type==="video" && p.media.demo;
+    var isImage=p.media.type==="image";
+    var isAudio=p.media.type==="audio";
+    var hasFrame=isVideo || isImage || isAudio;
+
+    var c=el("div",hasFrame?"band-content has-player":"band-content");
+    var host=c;
+    if(hasFrame){ host=el("div","band-text"); c.appendChild(host); }
+
+    host.appendChild(el("div","band-index",String(i+1).padStart(2,"0")+" / "+total));
+    host.appendChild(el("div","band-name",p.name));
+    var meta=el("div","band-meta",p.year+"  ·  "+p.cat); meta.style.color=p.accent; host.appendChild(meta);
+    host.appendChild(el("div","band-blurb",p.blurb));
+    var tg=el("div","band-tags"); (p.tags||[]).forEach(function(t){ tg.appendChild(el("span",null,t)); }); host.appendChild(tg);
+    if(p.action){
+      var a=el("a","band-cta",p.action.label); a.href=p.action.href; a.target="_blank"; a.rel="noopener";
+      a.style.background=p.accent; host.appendChild(a);
+    } else if(!hasFrame){ host.appendChild(el("div","band-archived","ARCHIVED")); }
+
+    if(isVideo){
+      var pl=el("div","band-player");
+      var pv=el("video"); pv.src=p.media.demo; pv.poster=p.media.frame||p.media.poster||""; pv.controls=true;
+      pv.playsInline=true; pv.setAttribute("playsinline",""); pv.preload="metadata";
+      pv.setAttribute("aria-label",p.name+" demo video");
+      pl.appendChild(pv); c.appendChild(pl);
+    } else if(isImage){
+      // Clickable framed screenshot linking to the live site (static frame if there's no link).
+      var fr=el(p.action?"a":"div","band-frame");
+      if(p.action){ fr.href=p.action.href; fr.target="_blank"; fr.rel="noopener"; fr.setAttribute("aria-label","Visit "+p.name); }
+      var im=el("img"); im.src=p.media.src; im.alt=p.name+" screenshot"; im.loading="lazy"; fr.appendChild(im);
+      c.appendChild(fr);
+    } else if(isAudio){
+      // Framed portrait poster with an inline audio player beneath it.
+      var au=el("div","band-audio");
+      var poster=el("img","poster"); poster.src=p.media.poster; poster.alt=p.name+" poster"; poster.loading="lazy";
+      au.appendChild(poster);
+      if(p.media.cap) au.appendChild(el("div","cap",p.media.cap));
+      var ac=el("audio"); ac.src=p.media.src; ac.controls=true; ac.preload="metadata";
+      ac.setAttribute("aria-label",p.name+" — audio");
+      au.appendChild(ac);
+      c.appendChild(au);
+    }
+
+    band.appendChild(c);
+    film.appendChild(band);
+  });
+}
+
+function initVideos(){
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var vids=document.querySelectorAll('video[data-autoplay]');
+  if(reduce || !("IntersectionObserver" in window)) return; // poster stays, no autoplay
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting && e.intersectionRatio>=0.5){ v.play().catch(function(){}); }
+      else { v.pause(); }
+    });
+  },{threshold:[0,0.5,1]});
+  vids.forEach(function(v){ io.observe(v); });
+}
+
+var FILTERS=["All","Recent","AI","Games","Story","Founder"];
+var activeFilter="All";
+function buildFilters(){
+  var box=document.getElementById("pfilters");
+  FILTERS.forEach(function(f){
+    var c=el("button","pchip"+(f==="All"?" on":""),f); c.dataset.f=f;
+    c.setAttribute("aria-pressed",f==="All"?"true":"false");
+    c.onclick=function(){ activeFilter=f; applyFilter(); };
+    box.appendChild(c);
+  });
+}
+function applyFilter(){
+  document.querySelectorAll("#pfilters .pchip").forEach(function(c){ var on=c.dataset.f===activeFilter; c.classList.toggle("on",on); c.setAttribute("aria-pressed",on?"true":"false"); });
+  document.querySelectorAll("#film .band").forEach(function(b){
+    var show=activeFilter==="All" || (b.dataset.filters||"").split(",").indexOf(activeFilter)!==-1;
+    b.style.display=show?"":"none";
+  });
+}
+
+// Run each band's blob animations only while it's on screen.
+function initAurora(){
+  var bands=document.querySelectorAll(".band");
+  if(!("IntersectionObserver" in window)){ bands.forEach(function(b){ b.classList.add("in-view"); }); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ e.target.classList.toggle("in-view", e.isIntersecting); });
+  },{threshold:0.2});
+  bands.forEach(function(b){ io.observe(b); });
+}
+
+function init(){
+  renderBands();
+  buildFilters();
+  initVideos();
+  initAurora();
+}
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+})();
+  </script>
+</body>
+</html>

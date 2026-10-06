@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UNYC Cost Model · Brian Fountain</title>
+<meta name="description" content="A line-by-line cost model for Universal Rice &amp; Beans (UNYC), built from USDA purchase prices, state distribution fees and New York City payroll data. Every input is sourced and editable.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/writing/universal-rice-and-beans/cost-model">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="UNYC Cost Model">
+<meta property="og:description" content="What free rice and beans for every New Yorker would cost, line by line, with every input sourced and editable.">
+<meta property="og:url" content="https://brianfountain.com/writing/universal-rice-and-beans/cost-model">
+<meta property="og:image" content="https://brianfountain.com/writing/universal-rice-and-beans/assets/shelf.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="UNYC Cost Model">
+<meta name="twitter:description" content="What free rice and beans for every New Yorker would cost, line by line, with every input sourced and editable.">
+<meta name="twitter:image" content="https://brianfountain.com/writing/universal-rice-and-beans/assets/shelf.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#e8a317;--acc-soft:rgba(232,163,23,.18);--acc-wash:rgba(232,163,23,.07);--acc-edge:rgba(232,163,23,.26);
+  --ink:#efe6da;--ink-2:rgba(239,230,218,.78);--ink-3:rgba(239,230,218,.55);--rule:rgba(239,230,218,.1);
+  /* Tornado colors, validated as a pair against the page background (#100d0b). */
+  --lo:#4a90e2;--hi:#c98500}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:#100d0b;color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid var(--rule)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
+  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:880px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(16px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+.eyebrow a{text-decoration:none;border-bottom:1px solid var(--acc-edge)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:var(--ink-2);margin-top:18px;max-width:62ch}
+.byline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(239,230,218,.5);margin-top:22px}
+
+main{max-width:880px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(16px,5vw,40px) 40px}
+h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
+  font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:56px 0 14px}
+section:first-child h2{margin-top:0}
+h3{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;font-weight:500;text-transform:uppercase;color:var(--acc);margin:30px 0 10px}
+main p{font-size:clamp(15px,1.5vw,16.5px);color:rgba(239,230,218,.86);margin-bottom:16px;max-width:68ch}
+main ul{margin:0 0 18px 0;padding-left:22px;max-width:68ch}
+main li{font-size:clamp(15px,1.5vw,16.5px);color:rgba(239,230,218,.86);margin-bottom:8px;padding-left:4px}
+main li::marker{color:var(--acc)}
+main strong{color:var(--ink);font-weight:700}
+main a{text-decoration:none;padding-bottom:.1em;border-bottom:1.5px solid rgba(232,163,23,.5)}
+main a:hover{border-bottom-color:var(--acc)}
+code{font-family:'JetBrains Mono',monospace;font-size:.88em;background:rgba(239,230,218,.06);padding:1px 5px;border-radius:4px}
+
+/* Headline tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 26px}
+.tile{border:1px solid rgba(239,230,218,.12);border-radius:12px;padding:14px 16px;background:rgba(239,230,218,.02)}
+.tile.main{background:var(--acc-wash);border-color:var(--acc-edge)}
+.tile .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.tile .v{font-family:'Fraunces',serif;font-size:clamp(24px,3.2vw,32px);line-height:1.15;margin-top:6px;font-variant-numeric:tabular-nums}
+.tile .s{font-size:12.5px;color:var(--ink-3);margin-top:4px;line-height:1.4}
+@media (max-width:760px){.tiles{grid-template-columns:repeat(2,1fr)}}
+
+/* Tables */
+.table-wrap{overflow-x:auto;margin:6px 0 24px;border:1px solid rgba(239,230,218,.12);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid rgba(239,230,218,.08);vertical-align:top}
+th{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;font-weight:500;color:rgba(239,230,218,.5);text-transform:uppercase;white-space:nowrap}
+td{color:rgba(239,230,218,.86)}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.sub td{font-weight:700;color:var(--ink)}
+tr.total td{font-weight:700;color:var(--ink);border-bottom:none;background:var(--acc-wash)}
+tr:last-child td{border-bottom:none}
+td .note{display:block;font-size:12.5px;color:var(--ink-3);line-height:1.5;margin-top:3px}
+td .note a{border-bottom-width:1px}
+td.muted{color:var(--ink-3)}
+
+/* Input tables: label + source on the left, three editable numbers on the right. */
+table.inputs td:first-child{min-width:260px}
+table.inputs input{width:92px;background:#1a1512;color:var(--ink);border:1px solid rgba(239,230,218,.18);border-radius:6px;
+  padding:5px 7px;font:500 13px 'JetBrains Mono',monospace;text-align:right;font-variant-numeric:tabular-nums}
+table.inputs input:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:transparent}
+table.inputs input.mid{border-color:var(--acc-edge);background:#211a12}
+table.inputs input.changed{border-color:var(--acc);color:#fff}
+table.inputs .unit{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3);white-space:nowrap}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:1px;border:1px solid}
+.tag.src{color:#9fc2ee;border-color:rgba(74,144,226,.45)}
+.tag.inf{color:#e7c27a;border-color:rgba(201,133,0,.5)}
+.tag.asm{color:rgba(239,230,218,.6);border-color:rgba(239,230,218,.25)}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:4px 0 18px}
+button.btn{font:600 13px 'Manrope',sans-serif;color:var(--ink);background:rgba(239,230,218,.06);border:1px solid rgba(239,230,218,.2);
+  border-radius:8px;padding:8px 14px;cursor:pointer}
+button.btn:hover{background:rgba(239,230,218,.12)}
+button.btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+label.check{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--ink-2);cursor:pointer}
+label.check input{accent-color:var(--acc);width:16px;height:16px}
+
+.callout{margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:68ch}
+.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
+.callout p + p{margin-top:10px}
+
+/* Tornado chart */
+.chart{margin:10px 0 8px;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .lbl{font:500 12px 'Manrope',sans-serif;fill:rgba(239,230,218,.86);paint-order:stroke;stroke:#100d0b;stroke-width:4px;stroke-linejoin:round}
+.chart .ax{font:400 10.5px 'JetBrains Mono',monospace;fill:rgba(239,230,218,.5)}
+.chart .val{font:500 10.5px 'JetBrains Mono',monospace;fill:rgba(239,230,218,.7)}
+.chart .grid{stroke:rgba(239,230,218,.08);stroke-width:1}
+.chart .base{stroke:rgba(239,230,218,.6);stroke-width:1.5}
+.chart rect.bar{cursor:default}
+.chart g.row:hover rect.hit{fill:rgba(239,230,218,.05)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:4px 0 6px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+#tip{position:fixed;z-index:50;pointer-events:none;background:#231d18;border:1px solid rgba(239,230,218,.16);border-radius:8px;
+  padding:9px 11px;font-size:12.5px;line-height:1.5;color:var(--ink);box-shadow:0 10px 28px rgba(0,0,0,.5);opacity:0;transition:opacity .1s;max-width:280px}
+#tip b{display:block;font-weight:700;margin-bottom:3px}
+#tip .r{display:flex;justify-content:space-between;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-2)}
+details{margin:6px 0 20px}
+summary{cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+summary:hover{color:var(--ink)}
+details[open] summary{margin-bottom:10px}
+
+.sources{margin-top:56px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12)}
+.sources h2{font-size:20px;margin:0 0 12px}
+.sources h3{margin-top:20px}
+.sources ul{padding-left:18px}
+.sources li{font-size:13.5px;color:rgba(239,230,218,.62);margin-bottom:6px}
+.endnote{margin-top:34px;font-size:14px;color:rgba(239,230,218,.55);max-width:68ch}
+
+@media (max-width:640px){
+  body{line-height:1.6}
+  .tb-back span{display:none}
+  table{font-size:13.5px}
+  /* Inputs stack on a phone: the label row on top, then low / central / high side by side. */
+  table.inputs thead{display:none}
+  table.inputs tr{display:grid;grid-template-columns:repeat(3,1fr) auto;align-items:end;column-gap:8px;border-bottom:1px solid rgba(239,230,218,.08);padding:10px 12px}
+  table.inputs td{border:0;padding:0}
+  table.inputs td:first-child{grid-column:1/-1;min-width:0;margin-bottom:8px}
+  table.inputs td.num{text-align:left}
+  table.inputs td.num::before{content:attr(data-k);display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:3px}
+  table.inputs input{width:100%}
+  table.inputs .unit{padding-bottom:7px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <a class="tb-kicker" href="/writing">WRITING</a>
+</header>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">COST MODEL &middot; <a href="/writing/universal-rice-and-beans">UNIVERSAL RICE &amp; BEANS</a></div>
+    <h1>What UNYC would cost</h1>
+    <p class="lede">The <a href="/writing/universal-rice-and-beans">essay</a> puts free rice and beans for every New Yorker at about $316 million a year. This page builds that number from the bottom up, using USDA's own purchase prices, the per-pound fees states pay distributors, and New York City payroll data. Each input below cites its source and can be edited.</p>
+    <p class="byline">BRIAN FOUNTAIN &middot; OCTOBER 2026</p>
+  </div>
+</div>
+
+<main>
+
+<section>
+  <h2>The result</h2>
+  <div class="tiles" id="tiles"></div>
+  <p id="summary-text"></p>
+
+  <div class="table-wrap">
+    <table id="summary">
+      <thead><tr><th>Line</th><th class="num">Low</th><th class="num">Central</th><th class="num">High</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p>The low and high columns set every input to its low or high value at the same time. The simulated range in the second tile draws each input independently between its low and high, ten thousand times, and reports the 10th and 90th percentiles.</p>
+</section>
+
+<section>
+  <h2>How the model works</h2>
+  <p>It is an activity-based cost model, the method <a href="https://ideas.repec.org/p/fpr/ifprid/1375.html">Margolies and Hoddinott</a> used at IFPRI to compare food and cash transfers in four countries. You list each thing that has to happen for a pound of rice to reach a kitchen, price each one from the best public number available, and add them up. They found that, per transfer, food cost two to four times as much as cash to deliver, almost entirely because of storage, handling and transport.</p>
+  <p>The model has five cost blocks:</p>
+  <ul>
+    <li><strong>Food</strong>, priced as packed and delivered by the truckload to a city warehouse. The anchor is USDA's own estimated delivered price for the same products it buys for food banks and tribal programs.</li>
+    <li><strong>Packaging premium</strong> for the printed UNYC bags over USDA's standard pack.</li>
+    <li><strong>Distribution</strong> from the warehouse to stores, pantries and vendors, priced per pound from what states pay contract distributors for USDA Foods.</li>
+    <li><strong>Leakage</strong>, a percentage of everything above, for food that is resold, hoarded or wasted.</li>
+    <li><strong>Administration</strong>: city staff priced from the payroll dataset with IBO's fringe rate, then lot inspection at USDA's published fees, IT, audits, outreach, a legal reserve, mobile trucks and pickup lockers.</li>
+  </ul>
+  <p>Two costs sit outside the annual total because the essay's design pushes them elsewhere: the handling that stores absorb, and one-time start-up spending. Both are estimated further down, and the handling cost can be switched into the total.</p>
+  <p>Each input carries a tag. <span class="tag src">Sourced</span> means the central value comes straight from a published number. <span class="tag inf">Inferred</span> means it is arithmetic on published numbers, with the steps in the note. <span class="tag asm">Assumption</span> means I could not find a public figure and picked a range.</p>
+</section>
+
+<section>
+  <h2>Inputs</h2>
+  <p>Edit any low, central or high value and every number on the page recalculates. The central column drives the headline. Changed cells turn gold.</p>
+  <div class="toolbar">
+    <button class="btn" type="button" id="reset">Reset to defaults</button>
+    <button class="btn" type="button" id="csv">Download inputs and results (CSV)</button>
+    <label class="check"><input type="checkbox" id="pay-handling"> City pays stores a handling fee</label>
+  </div>
+  <div id="inputs"></div>
+</section>
+
+<section>
+  <h2>Which inputs matter</h2>
+  <p>Each bar swings one input from its low to its high value while holding everything else at central. The vertical line is the central total. The longer the bar, the more the total depends on that input.</p>
+  <div class="legend"><span><i style="background:var(--lo)"></i>Input at its low value</span><span><i style="background:var(--hi)"></i>Input at its high value</span></div>
+  <div class="chart" id="tornado" role="img" aria-label="Tornado chart of the inputs that move the annual total most"></div>
+  <details>
+    <summary>Show as table</summary>
+    <div class="table-wrap"><table id="tornado-table">
+      <thead><tr><th>Input</th><th class="num">Total at low</th><th class="num">Total at high</th><th class="num">Swing</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </details>
+  <p id="tornado-text"></p>
+</section>
+
+<section>
+  <h2>Checking it against real programs</h2>
+  <p>A bottom-up model can be internally consistent and still wrong, so the outputs are set beside programs that already move food or benefits at scale. None of them works exactly like UNYC.</p>
+  <div class="table-wrap">
+    <table id="checks">
+      <thead><tr><th>Measure</th><th class="num">UNYC (central)</th><th>Benchmark</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p>Two of these comparisons cut against UNYC. Its admin share runs above Fair Fares and TEFAP. Part of that is real: lot inspection, trucks and lockers are things those programs do not do. Part is scale, since UNYC's food budget is smaller than the benefit flows those ratios are measured against. TEFAP's ratio also flatters TEFAP, because food banks raise private money to cover distribution that the federal grant does not. The delivered cost per pound sits well under the city's own emergency food program, which buys a mix that is one-third refrigerated.</p>
+</section>
+
+<section>
+  <h2>Costs outside the annual total</h2>
+  <h3>Store handling</h3>
+  <p>The essay has large stores absorb receiving, shelving and checkout. Priced per bag, that work costs little. A clerk stocks somewhere around 75 to 110 cases an hour, and a $0 scan adds a few seconds at the register. New York's <a href="https://dec.ny.gov/environmental-protection/recycling-composting/bottle-bill">bottle bill</a> pays stores 3.5 cents per container for a comparable chore.</p>
+  <div class="table-wrap"><table id="handling"><thead><tr><th></th><th class="num">Low</th><th class="num">Central</th><th class="num">High</th></tr></thead><tbody></tbody></table></div>
+  <p id="handling-text"></p>
+  <h3>Start-up</h3>
+  <p>One-time spending in the first year or two, kept out of the annual figure so it is not counted every year.</p>
+  <div class="table-wrap"><table id="startup">
+    <thead><tr><th>Item</th><th class="num">Low</th><th class="num">Central</th><th class="num">High</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>What the model leaves out</h2>
+  <ul>
+    <li><strong>Tariffs and trade policy.</strong> Jasmine and basmati are imported. The aromatic price range assumes today's freight and duties. A large tariff change on Thai or Indian rice would move that input past its high value, and it is already one of the biggest drivers.</li>
+    <li><strong>Crop shocks.</strong> U.S. rice prices are high after a 39-year-low crop (<a href="https://www.ers.usda.gov/topics/crops/rice/market-outlook">ERS</a>). The food lines are spot prices from autumn 2026. A real budget would hedge with multi-year contracts or carry a price reserve.</li>
+    <li><strong>Correlation.</strong> The simulation treats inputs as independent. In practice a bad rice year raises domestic and imported prices together, so the true spread is somewhat wider than the simulated one.</li>
+    <li><strong>Offsets.</strong> Nothing here nets out savings elsewhere: rice and beans the city's <a href="https://www.nyc.gov/assets/foodpolicy/downloads/pdf/CFC-Impact-Report-Brief-FY25.pdf">Community Food Connection</a> no longer needs to buy, or pantry demand that falls. Those are real but would need their own estimate.</li>
+    <li><strong>Take-up.</strong> The volume comes from what the city eats, scaled by a take-up share. If the program pulls in people who were not eating much rice before, volume goes up. If a $0 bag sits unclaimed in some neighborhoods, it goes down.</li>
+    <li><strong>Financing.</strong> Inventory float is counted as start-up working capital, with no interest cost.</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <h2>Datasets and sources</h2>
+  <h3>Food prices</h3>
+  <ul>
+    <li>USDA FNS: <a href="https://www.fns.usda.gov/sites/default/files/resource-files/TEFAPListofMaterialsReportFY26.xlsx">TEFAP List of Materials, FY26</a> (spreadsheet). Estimated delivered price per pound, pack size and truck weight for every USDA Food. Rice and pulse rows used here.</li>
+    <li>USDA FNS: <a href="https://www.fns.usda.gov/sites/default/files/resource-files/CSFPListofMaterialsReportFY26.xlsx">CSFP List of Materials, FY26</a> (spreadsheet) and <a href="https://www.fns.usda.gov/fdpir/factsheet">FDPIR program page</a>, for 1 lb packs.</li>
+    <li>USDA AMS: <a href="https://www.ams.usda.gov/mnreports/ams_1655.pdf">Weekly National Rice Summary</a>. Milled long-grain at $30.00 to $34.50 per hundredweight, week of September 28, 2026.</li>
+    <li>USDA AMS: <a href="https://www.ams.usda.gov/mnreports/ams_2914.pdf">Dry bean, pea and lentil grower bids</a>.</li>
+    <li>USDA RMA: <a href="https://www.rma.usda.gov/print/pdf/node/7746">2025 dry bean and dry pea harvest prices</a>.</li>
+    <li>Thai Rice Exporters Association: <a href="http://www.thairiceexporters.or.th/default_eng.htm">weekly export prices</a>. Hom Mali about $1,178 and Thai fragrant $687 per metric ton FOB, September 30, 2026.</li>
+    <li>APEDA (India): <a href="https://apeda.gov.in/sites/default/files/2026-04/MIC_February_Monthly_dashboard_Rice_210326.pdf">Rice market dashboard, February 2026</a>. Basmati export prices.</li>
+    <li>USDA ERS: <a href="https://www.ers.usda.gov/media/29637/rcs-26h.pdf">Rice Outlook, September 2026</a>, and the <a href="https://www.ers.usda.gov/data-products/rice-yearbook">Rice Yearbook</a> dataset.</li>
+    <li>USDA ERS: <a href="https://www.ers.usda.gov/data-products/vegetables-and-pulses-data">Vegetables and Pulses data</a>.</li>
+  </ul>
+  <h3>Volume</h3>
+  <ul>
+    <li>USDA ERS: <a href="https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system">Food Availability (Per Capita) Data System</a>.</li>
+    <li>Choices: <a href="https://www.choicesmagazine.org/choices-magazine/submitted-articles/who-will-eat-rice-in-the-united-states">Who (Will) Eat Rice in the United States?</a> (2024). Demographic shares of rice demand behind the essay's 1.6x multiplier.</li>
+  </ul>
+  <h3>Distribution and handling</h3>
+  <ul>
+    <li>Wisconsin DPI: <a href="https://dpi.wi.gov/school-nutrition/usda/product-values-fees">USDA Foods product values and fees, SY2026-27</a>. $0.02 admin, $0.07 storage and $0.1115 delivery per gross pound.</li>
+    <li>Maine DOE: <a href="https://www1.maine.gov/doe/index.php/schools/nutrition/programs/fd">USDA Foods distribution</a>. $3.25 storage plus $4.90 delivery per case of dry goods.</li>
+    <li>NY OGS: <a href="https://ogs.ny.gov/nysna-2023-usda-foods-schools">USDA Foods for schools, 2023</a>. $3.17 per case assessment; about 75% of program cost is warehousing and distribution.</li>
+    <li>Mercer County Food Bank: <a href="https://mercercountyfoodbank.org/wp-content/uploads/2025/03/MCFB-Member-Agency-Guidebook_2025.doc.pdf">Member agency guidebook, 2025</a>. Feeding America shared maintenance fee capped at $0.19 per pound.</li>
+    <li>U.S. Census Bureau: <a href="https://www2.census.gov/programs-surveys/awts/tables/2022/2022_awts_opex_table5.xlsx">Annual Wholesale Trade Survey, operating expenses, 2022</a> (spreadsheet). Grocery wholesalers spend 11.7% of sales on operations.</li>
+    <li>NYS DEC: <a href="https://dec.ny.gov/environmental-protection/recycling-composting/bottle-bill">Bottle bill</a>. 3.5 cent handling fee per container.</li>
+    <li>van Zelst et al.: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0925527306001587">Logistics drivers for shelf stacking in grocery retail</a>, International Journal of Production Economics (2009).</li>
+    <li>Catholic Charities Dallas: <a href="https://lp.ccdallas.org/mobile-food-pantry-operations">Mobile food pantry operations</a>. About $250,000 a year per truck program, including food.</li>
+    <li>ParcelHive: <a href="https://www.parcelhive.com/blog/outdoor-parcel-locker-costs-specs-roi">Outdoor parcel locker costs</a>. Vendor estimate, low reliability.</li>
+    <li>NYC DOT: <a href="https://www.nyc.gov/mayors-office/news/2024/04/mayor-adams-dot-commissioner-rodriguez-launch-lockernyc-combat-package-theft-reduce">LockerNYC pilot</a>. No per-unit cost disclosed.</li>
+  </ul>
+  <h3>Staff and administration</h3>
+  <ul>
+    <li>NYC Open Data: <a href="https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e">Citywide Payroll Data</a> (dataset k397-673e), FY2025 base salaries by civil service title.</li>
+    <li>NYC IBO: <a href="https://www.ibo.nyc.gov/assets/ibo/downloads/pdf/city-budget-overview/2025/2025-december-analysis-of-the-november-2025-financial-plan.pdf">Analysis of the November 2025 Financial Plan</a>. 42% fringe rate.</li>
+    <li>NYC IBO: <a href="https://www.ibo.nyc.gov/assets/ibo/downloads/pdf/infrastructure/2026/2026-june-expanding-fair-fares.pdf">Expanding Fair Fares, June 2026</a>. $6.9 million admin on an $89.8 million program, broken out by staffing, advertising, IT, mailing and other.</li>
+    <li>USDA AMS FGIS: <a href="https://www.ams.usda.gov/sites/default/files/media/FGISDirective9180_74.pdf">Directive 9180.74, fee schedule effective October 1, 2025</a>. Rice and pulse inspection, lot and lab fees.</li>
+    <li>NYC Comptroller: <a href="https://comptroller.nyc.gov/wp-content/uploads/2026/02/MyCity-System-Development-Public-Final-report-12-30-25-final-copy.pdf">Audit of MyCity system development, December 2025</a>. More than $100 million spent across 120 agreements.</li>
+    <li>City Record: <a href="https://a856-cityrecord.nyc.gov/RequestDetail/20240408005">Citywide financial statement audit contract, FY2024-27</a>. $21.8 million over four years.</li>
+    <li>NYC Council: <a href="https://council.nyc.gov/budget/wp-content/uploads/sites/54/2026/03/Human-Resources-Administration.pdf">HRA budget report, March 2026</a>. Community Food Connection budget and staffing.</li>
+    <li>NYC Mayor's Office of Food Policy: <a href="https://www.nyc.gov/assets/foodpolicy/downloads/pdf/CFC-Impact-Report-Brief-FY25.pdf">CFC FY25 Impact Report</a>. 47.1 million pounds for $51.9 million.</li>
+  </ul>
+  <h3>Benchmarks and method</h3>
+  <ul>
+    <li>Congressional Research Service: <a href="https://www.everycrsreport.com/reports/R45408.html">TEFAP: Background and Funding (R45408)</a>, updated August 2025. Table A-1.</li>
+    <li>Margolies and Hoddinott: <a href="https://ideas.repec.org/p/fpr/ifprid/1375.html">Costing alternative transfer modalities</a>, IFPRI Discussion Paper 1375; published in the <a href="https://www.tandfonline.com/doi/abs/10.1080/19439342.2014.984745">Journal of Development Effectiveness</a> (2015).</li>
+    <li>Gentilini: <a href="https://openknowledge.worldbank.org/server/api/core/bitstreams/98c1d0bc-a1a6-5b77-a5cb-78c75e41e372/content">The Other Side of the Coin</a>, World Bank Working Paper 7584 (2016). Cost-per-transfer tables across programs.</li>
+    <li>Caldés, Coady and Maluccio: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0305750X06000246">The cost of poverty alleviation transfer programs</a>, World Development (2006).</li>
+    <li>U.S. Census Bureau: <a href="https://www.census.gov/quickfacts/newyorkcitynewyork">QuickFacts, New York City</a>. Population estimate used for per-resident figures.</li>
+  </ul>
+</section>
+
+<p class="endnote">UNYC is a speculative proposal, not a city program. The ranges here are my reading of public data and are not a fiscal note. If you spot a better source for any input, especially the ones tagged as assumptions, I'd like to hear about it. <a href="/writing/universal-rice-and-beans">Back to the essay</a>.</p>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+// Every input: [low, central, high]. `kind` is the evidence tag. `note` is HTML shown under the label.
+var BUDGET = 124.7e9, POP = 8.48e6, LOT_LB = 42000;
+
+var GROUPS = [
+ {name:"Volume", items:[
+  {id:"rice", label:"Rice eaten in the city", unit:"lb/yr", v:[290e6,315e6,340e6], f:"M", kind:"inf",
+   note:'USDA\'s roughly 21 lb per American (<a href="https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system">ERS</a>), reweighted by the city\'s Hispanic and Asian shares using <a href="https://www.choicesmagazine.org/choices-magazine/submitted-articles/who-will-eat-rice-in-the-united-states">Choices</a> demand data. The essay\'s estimate.'},
+  {id:"pulse", label:"Dry pulses eaten in the city", unit:"lb/yr", v:[110e6,120e6,130e6], f:"M", kind:"inf",
+   note:'Same method as rice, from ERS pulse availability. The essay\'s estimate.'},
+  {id:"takeup", label:"Share of that volume moving to UNYC", unit:"share", v:[0.75,0.9,1.0], f:"pct", kind:"asm",
+   note:'Households buying aged basmati, organic or brand-loyal products keep buying them.'},
+  {id:"arom", label:"Aromatic share of rice (jasmine, basmati)", unit:"share", v:[0.2,0.3,0.4], f:"pct", kind:"asm",
+   note:'U.S. imports, mostly Thai jasmine and Indian basmati, hit a record 43 million cwt in 2026/27 (<a href="https://www.ers.usda.gov/media/29637/rcs-26h.pdf">ERS Rice Outlook</a>). The city\'s share is higher than the nation\'s; no city-level figure exists.'}
+ ]},
+ {name:"Food, packed and delivered to a city warehouse", items:[
+  {id:"pdom", label:"Domestic rice", unit:"$/lb", v:[0.36,0.42,0.48], f:"c", kind:"src",
+   note:'USDA delivered estimates: long-grain 2 lb bags $0.363, medium-grain $0.470 to $0.501 (<a href="https://www.fns.usda.gov/sites/default/files/resource-files/TEFAPListofMaterialsReportFY26.xlsx">TEFAP list, FY26</a>); long-grain 1 lb $0.480 (FDPIR, Oct 2026). Mill price is $0.30 to $0.345 before packing (<a href="https://www.ams.usda.gov/mnreports/ams_1655.pdf">AMS</a>).'},
+  {id:"parom", label:"Imported aromatic rice, landed and packed", unit:"$/lb", v:[0.50,0.65,0.85], f:"c", kind:"inf",
+   note:'FOB prices: Thai fragrant $0.31, Hom Mali $0.53 (<a href="http://www.thairiceexporters.or.th/default_eng.htm">Thai Rice Exporters</a>), basmati $0.41 to $0.52 (<a href="https://apeda.gov.in/sites/default/files/2026-04/MIC_February_Monthly_dashboard_Rice_210326.pdf">APEDA</a>). Plus an assumed $0.15 to $0.30 for ocean freight, duty and bagging.'},
+  {id:"ppulse", label:"Pulse blend", unit:"$/lb", v:[0.48,0.53,0.62], f:"c", kind:"src",
+   note:'USDA delivered estimates for 2 lb bags: lentils $0.478, green split peas $0.488, pinto $0.505, black $0.509, light red kidney $0.867 (<a href="https://www.fns.usda.gov/sites/default/files/resource-files/TEFAPListofMaterialsReportFY26.xlsx">TEFAP list, FY26</a>). Chickpeas are not on the list; grower bids run $0.15 to $0.21 (<a href="https://www.ams.usda.gov/mnreports/ams_2914.pdf">AMS</a>).'},
+  {id:"pack", label:"UNYC packaging premium", unit:"$/lb", v:[0,0.015,0.04], f:"c3", kind:"asm",
+   note:'USDA prices already include a plain bag. This covers the three-ink printed film and the 25 and 50 lb food-service sacks. No public per-bag figure found.'}
+ ]},
+ {name:"Distribution", items:[
+  {id:"dist", label:"Storage and delivery to stores, pantries and vendors", unit:"$/lb", v:[0.09,0.14,0.20], f:"c", kind:"src",
+   note:'Wisconsin pays $0.09 per lb for admin and storage, $0.2015 with delivery (<a href="https://dpi.wi.gov/school-nutrition/usda/product-values-fees">DPI, SY2026-27</a>). Feeding America caps food bank handling fees at $0.19 (<a href="https://mercercountyfoodbank.org/wp-content/uploads/2025/03/MCFB-Member-Agency-Guidebook_2025.doc.pdf">guidebook</a>). Grocery wholesalers spend 11.7% of sales on operations (<a href="https://www2.census.gov/programs-surveys/awts/tables/2022/2022_awts_opex_table5.xlsx">Census AWTS</a>).'}
+ ]},
+ {name:"Leakage", items:[
+  {id:"leak", label:"Resale, hoarding and waste", unit:"share", v:[0.05,0.10,0.15], f:"pct", kind:"asm",
+   note:'Applied to food, packaging and distribution. The essay\'s range. Egypt\'s bread subsidy lost 15 to 35% before it switched to paying per verified sale.'}
+ ]},
+ {name:"Administration: staff", items:[
+  {id:"fte", label:"City staff", unit:"FTE", v:[75,110,150], f:"n", kind:"asm",
+   note:'Procurement, contract management, data, audit and field compliance. Fair Fares runs on about 35; CFC added six positions to manage its contracts (<a href="https://council.nyc.gov/budget/wp-content/uploads/sites/54/2026/03/Human-Resources-Administration.pdf">Council</a>).'},
+  {id:"salary", label:"Average base salary", unit:"$/yr", v:[80000,92000,105000], f:"k", kind:"src",
+   note:'FY2025 means: Procurement Analyst $80.4k, Associate Staff Analyst $96.8k, Management Auditor $87.6k, Inspector $70.5k, Computer Systems Manager $163.1k, Motor Vehicle Operator $56.8k (<a href="https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e">NYC payroll data</a>).'},
+  {id:"fringe", label:"Fringe rate", unit:"of salary", v:[0.42,0.45,0.55], f:"pct", kind:"src",
+   note:'IBO uses 42% (<a href="https://www.ibo.nyc.gov/assets/ibo/downloads/pdf/city-budget-overview/2025/2025-december-analysis-of-the-november-2025-financial-plan.pdf">Dec 2025</a>). The high end allows for full pension cost.'},
+  {id:"otps", label:"Office, equipment and supplies per FTE", unit:"$/yr", v:[15000,20000,26000], f:"k", kind:"inf",
+   note:'Fair Fares carries $0.9M of "other admin" for about 35 staff, roughly $26k each (<a href="https://www.ibo.nyc.gov/assets/ibo/downloads/pdf/infrastructure/2026/2026-june-expanding-fair-fares.pdf">IBO, June 2026</a>).'}
+ ]},
+ {name:"Administration: everything else", items:[
+  {id:"lot", label:"Inspection and lab testing per truckload lot", unit:"$/lot", v:[150,275,450], f:"d", kind:"inf",
+   note:'FGIS: milled rice $57.70 per lot plus $79.30 to $99.10 an hour; pulses $13.75 to $23 per lot plus $34.20 an hour; aflatoxin $87 to $182, lead $55, cadmium $55 (<a href="https://www.ams.usda.gov/sites/default/files/media/FGISDirective9180_74.pdf">Directive 9180.74</a>). Arsenic is not on the schedule. Lots are 42,000 lb trucks.'},
+  {id:"it", label:"Reporting portal and IT, per year", unit:"$/yr", v:[1.0e6,2.5e6,5.0e6], f:"M", kind:"asm",
+   note:'Fair Fares spends $0.8M a year on IT. UNYC has to ingest register data from about 1,000 stores and run vendor ordering, so more. MyCity is the cautionary tale: over $100M (<a href="https://comptroller.nyc.gov/wp-content/uploads/2026/02/MyCity-System-Development-Public-Final-report-12-30-25-final-copy.pdf">Comptroller</a>).'},
+  {id:"audit", label:"Independent audits and evaluation", unit:"$/yr", v:[0.5e6,1.0e6,2.0e6], f:"M", kind:"asm",
+   note:'For scale, the audit of the entire city\'s financial statements costs about $5.4M a year (<a href="https://a856-cityrecord.nyc.gov/RequestDetail/20240408005">City Record</a>).'},
+  {id:"outreach", label:"Outreach, signage and translation", unit:"$/yr", v:[1.0e6,2.0e6,3.0e6], f:"M", kind:"src",
+   note:'Fair Fares spends $2.0M a year on advertising.'},
+  {id:"legal", label:"Legal reserve", unit:"$/yr", v:[0.5e6,2.0e6,5.0e6], f:"M", kind:"asm",
+   note:'The city\'s grocery store plan has already drawn a federal suit. Assume UNYC would too.'},
+  {id:"trucks", label:"Mobile trucks", unit:"count", v:[10,20,30], f:"n", kind:"asm",
+   note:'For neighborhoods without a supermarket. The trucks also restock the lockers.'},
+  {id:"truckcost", label:"Cost per truck-year", unit:"$/yr", v:[200000,250000,320000], f:"k", kind:"inf",
+   note:'Two Motor Vehicle Operators at $56.8k plus 42% fringe is about $161k, plus an assumed $40k to $160k for lease, fuel and insurance. Catholic Charities Dallas runs a mobile pantry for about $250k a year (<a href="https://lp.ccdallas.org/mobile-food-pantry-operations">source</a>).'},
+  {id:"lockers", label:"Pickup locker sites", unit:"count", v:[100,200,300], f:"n", kind:"asm",
+   note:'NYC DOT\'s LockerNYC pilot started with 7 units on a $1 contract and grew toward 70 sites, with no unit cost disclosed.'},
+  {id:"lockercost", label:"Cost per locker site-year", unit:"$/yr", v:[4000,8000,15000], f:"k", kind:"asm",
+   note:'Hardware of $3k to $12k a unit spread over five years, software at $100 to $500 a month, plus power and site fees (<a href="https://www.parcelhive.com/blog/outdoor-parcel-locker-costs-specs-roi">vendor estimate</a>, low reliability).'}
+ ]},
+ {name:"Outside the annual total: store handling", items:[
+  {id:"retail", label:"Share of pounds in retail bags", unit:"share", v:[0.75,0.85,0.9], f:"pct", kind:"asm",
+   note:'The rest goes out in 25 and 50 lb food-service sacks to vendors and pantries. Retail bags are 5 lb for rice and 2 lb for pulses.'},
+  {id:"fee", label:"Handling cost per retail bag", unit:"$/bag", v:[0.035,0.06,0.10], f:"c3", kind:"inf",
+   note:'NY\'s bottle bill pays 3.5 cents a container (<a href="https://dec.ny.gov/environmental-protection/recycling-composting/bottle-bill">DEC</a>). Stocking at 75 to 110 cases an hour is well under a cent a bag; the rest covers receiving, a few seconds at the register and shelf space.'}
+ ]},
+ {name:"Outside the annual total: start-up", items:[
+  {id:"itbuild", label:"Portal build", unit:"$", v:[3e6,6e6,12e6], f:"M", kind:"asm",
+   note:'One-time build before the yearly IT line takes over.'},
+  {id:"lockercap", label:"Locker hardware per site", unit:"$", v:[3000,7000,12000], f:"k", kind:"asm", note:'Vendor range, as above.'},
+  {id:"truckcap", label:"Truck purchase", unit:"$", v:[80000,120000,160000], f:"k", kind:"asm", note:'A box truck with shelving.'},
+  {id:"float", label:"Inventory float", unit:"weeks", v:[2,3,4], f:"n", kind:"asm",
+   note:'Food bought before the first bags are given away. The essay sets shipments at about two weeks of give-aways plus a buffer.'}
+ ]}
+];
+
+var ITEMS = {}, ORDER = [];
+GROUPS.forEach(function(g){ g.items.forEach(function(it){ it.def = it.v.slice(); ITEMS[it.id] = it; ORDER.push(it.id); }); });
+var HANDLING_IDS = {retail:1, fee:1}, STARTUP_IDS = {itbuild:1, lockercap:1, truckcap:1, float:1};
+// Chart labels for inputs whose full names don't fit beside the bars.
+var CHART = {takeup:'Take-up share', dist:'Delivery rate to stores', parom:'Imported rice price', arom:'Aromatic share of rice', lot:'Inspection cost per lot', it:'IT per year', audit:'Audits', outreach:'Outreach', otps:'Office cost per FTE', truckcost:'Cost per truck-year', lockercost:'Cost per locker-year'};
+var ADMIN_IDS = {fte:1, salary:1, fringe:1, otps:1, lot:1, it:1, audit:1, outreach:1, legal:1, trucks:1, truckcost:1, lockers:1, lockercost:1};
+// Names that read cleanly inside a sentence.
+var SHORT = {takeup:'take-up', dist:'the per-pound delivery rate', parom:'the landed price of imported rice', rice:'rice volume',
+  pdom:'the domestic rice price', leak:'leakage', pack:'the packaging premium', ppulse:'the pulse price', arom:'the aromatic share of rice',
+  pulse:'pulse volume', fte:'staff headcount', salary:'average salary', trucks:'the number of trucks', legal:'the legal reserve', it:'IT spending',
+  retail:'the retail bag share', fee:'the handling fee per bag'};
+
+// ---- The model ----------------------------------------------------------
+function model(p, payHandling){
+  var vr = p.rice*p.takeup, vp = p.pulse*p.takeup, vol = vr+vp;
+  var food = vr*((1-p.arom)*p.pdom + p.arom*p.parom) + vp*p.ppulse;
+  var pack = vol*p.pack, dist = vol*p.dist;
+  var leak = p.leak*(food+pack+dist);
+  var staff = p.fte*(p.salary*(1+p.fringe) + p.otps);
+  var insp = vol/LOT_LB*p.lot;
+  var trucks = p.trucks*p.truckcost, lockers = p.lockers*p.lockercost;
+  var admin = staff+insp+p.it+p.audit+p.outreach+p.legal+trucks+lockers;
+  var bags = vr*p.retail/5 + vp*p.retail/2;
+  var handling = bags*p.fee;
+  var total = food+pack+dist+leak+admin + (payHandling ? handling : 0);
+  var startup = p.itbuild + p.lockers*p.lockercap + p.trucks*p.truckcap + food/52*p.float;
+  return {vol:vol, food:food, pack:pack, dist:dist, leak:leak, staff:staff, insp:insp, it:p.it, audit:p.audit,
+    outreach:p.outreach, legal:p.legal, trucks:trucks, lockers:lockers, admin:admin, bags:bags, handling:handling,
+    total:total, startup:startup, itbuild:p.itbuild, lockerHw:p.lockers*p.lockercap, truckHw:p.trucks*p.truckcap, float:food/52*p.float};
+}
+function params(which){ var p={}; ORDER.forEach(function(id){ p[id]=ITEMS[id].v[which]; }); return p; }
+
+// Seeded so the simulated range doesn't flicker between page loads.
+function rng(seed){ return function(){ seed|=0; seed=seed+0x6D2B79F5|0; var t=Math.imul(seed^seed>>>15,1|seed);
+  t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function tri(u,a,m,b){ if(b<=a) return a; var c=(m-a)/(b-a); return u<c ? a+Math.sqrt(u*(b-a)*(m-a)) : b-Math.sqrt((1-u)*(b-a)*(b-m)); }
+function simulate(payHandling){
+  var r=rng(20261005), out=[], N=10000;
+  for(var i=0;i<N;i++){ var p={}; ORDER.forEach(function(id){ var v=ITEMS[id].v; p[id]=tri(r(),v[0],v[1],v[2]); }); out.push(model(p,payHandling).total); }
+  out.sort(function(a,b){return a-b;});
+  return {p10:out[Math.floor(N*.1)], p50:out[Math.floor(N*.5)], p90:out[Math.floor(N*.9)]};
+}
+
+// ---- Formatting ----------------------------------------------------------
+function $M(x){ if(Math.abs(x)<5e4) return '$0'; return '$'+(x/1e6).toFixed(x<10e6?1:0)+'M'; }
+function fmtIn(v,f){ if(f==="M") return +(v/1e6).toFixed(3); if(f==="pct") return +(v*100).toFixed(1); if(f==="k") return +(v/1000).toFixed(1); return v; }
+function parseIn(s,f){ var v=parseFloat(s); if(isNaN(v)) return null; if(f==="M") return v*1e6; if(f==="pct") return v/100; if(f==="k") return v*1000; return v; }
+function unitLabel(it){ return it.f==="M" ? (it.unit==="lb/yr"?"M lb/yr":"$M"+(it.unit==="$/yr"?"/yr":"")) : it.f==="pct" ? "%" : it.f==="k" ? "$k"+(it.unit==="$/yr"?"/yr":"") : it.unit; }
+var TAGS = {src:'<span class="tag src">Sourced</span>', inf:'<span class="tag inf">Inferred</span>', asm:'<span class="tag asm">Assumption</span>'};
+
+// ---- Inputs UI ----------------------------------------------------------
+function buildInputs(){
+  var html='';
+  GROUPS.forEach(function(g){
+    html+='<h3>'+g.name+'</h3><div class="table-wrap"><table class="inputs"><thead><tr><th>Input</th><th class="num">Low</th><th class="num">Central</th><th class="num">High</th><th>Unit</th></tr></thead><tbody>';
+    g.items.forEach(function(it){
+      html+='<tr><td>'+it.label+TAGS[it.kind]+'<span class="note">'+it.note+'</span></td>';
+      [0,1,2].forEach(function(k){
+        html+='<td class="num" data-k="'+['LOW','CENTRAL','HIGH'][k]+'"><input type="number" step="any" inputmode="decimal" data-id="'+it.id+'" data-k="'+k+'"'+(k===1?' class="mid"':'')+
+          ' value="'+fmtIn(it.v[k],it.f)+'" aria-label="'+it.label+', '+['low','central','high'][k]+'"></td>';
+      });
+      html+='<td class="unit">'+unitLabel(it)+'</td></tr>';
+    });
+    html+='</tbody></table></div>';
+  });
+  document.getElementById('inputs').innerHTML=html;
+}
+document.addEventListener('input',function(e){
+  var el=e.target; if(!el.dataset || !el.dataset.id) return;
+  var it=ITEMS[el.dataset.id], k=+el.dataset.k, v=parseIn(el.value,it.f);
+  if(v===null) return;
+  it.v[k]=v;
+  el.classList.toggle('changed', Math.abs(v-it.def[k])>1e-12);
+  render();
+});
+document.getElementById('reset').addEventListener('click',function(){
+  ORDER.forEach(function(id){ ITEMS[id].v=ITEMS[id].def.slice(); });
+  buildInputs(); render();
+});
+document.getElementById('pay-handling').addEventListener('change',render);
+
+// ---- Render ------------------------------------------------------------
+var last={};
+function render(){
+  var pay=document.getElementById('pay-handling').checked;
+  var lo=model(params(0),pay), mid=model(params(1),pay), hi=model(params(2),pay), sim=simulate(pay);
+  last={lo:lo,mid:mid,hi:hi,sim:sim,pay:pay};
+
+  document.getElementById('tiles').innerHTML=
+    tile('main','Central estimate',$M(mid.total),'per year, every input at central')+
+    tile('','Simulated range',$M(sim.p10)+'–'+$M(sim.p90),'10th to 90th percentile')+
+    tile('','Per resident','$'+Math.round(mid.total/POP),'per year, '+(POP/1e6).toFixed(2)+'M residents')+
+    tile('','Share of city budget',(mid.total/BUDGET*100).toFixed(2)+'%','of $124.7B, FY2026');
+
+  var rows=[
+    ['Food, packed and delivered','food'],['Packaging premium','pack'],['Distribution to stores','dist'],
+    ['<strong>Food, packaging and delivery</strong>','fpd','sub'],
+    ['Leakage','leak'],
+    ['City staff (with fringe and overhead)','staff'],['Inspection and lab testing','insp'],['IT and reporting portal','it'],
+    ['Audits','audit'],['Outreach','outreach'],['Legal reserve','legal'],['Mobile trucks','trucks'],['Pickup lockers','lockers'],
+    ['<strong>Administration</strong>','admin','sub']
+  ];
+  if(pay) rows.push(['Store handling fee','handling','sub']);
+  rows.push(['Total','total','total']);
+  var g=function(r,key){ return key==='fpd' ? r.food+r.pack+r.dist : r[key]; };
+  document.querySelector('#summary tbody').innerHTML=rows.map(function(r){
+    return '<tr'+(r[2]?' class="'+r[2]+'"':'')+'><td>'+r[0]+'</td>'+
+      '<td class="num">'+$M(g(lo,r[1]))+'</td><td class="num">'+$M(g(mid,r[1]))+'</td><td class="num">'+$M(g(hi,r[1]))+'</td></tr>';
+  }).join('');
+
+  var fpd=mid.food+mid.pack+mid.dist;
+  document.getElementById('summary-text').innerHTML=
+    'At central values the program costs <strong>'+$M(mid.total)+'</strong> a year to move '+Math.round(mid.vol/1e6)+' million pounds, or $'+(mid.total/mid.vol).toFixed(2)+' a pound all in. '+
+    'Food, packaging and delivery come to '+$M(fpd)+', and '+Math.round(mid.dist/fpd*100)+'% of that is the trip from warehouse to store. '+
+    'Administration comes to '+$M(mid.admin)+'. Priced from payroll data with fringe and office costs, the '+Math.round(ITEMS.fte.v[1])+' staff cost '+$M(mid.staff)+', and nothing else on the admin list comes close.';
+
+  renderTornado(pay, mid.total);
+  renderChecks(mid);
+  renderHandling(lo,mid,hi);
+  document.querySelector('#startup tbody').innerHTML=[
+    ['Portal build','itbuild'],['Locker hardware','lockerHw'],['Trucks','truckHw'],['Inventory float (working capital)','float'],['Total start-up','startup','total']
+  ].map(function(r){ return '<tr'+(r[2]?' class="total"':'')+'><td>'+r[0]+'</td><td class="num">'+$M(lo[r[1]])+'</td><td class="num">'+$M(mid[r[1]])+'</td><td class="num">'+$M(hi[r[1]])+'</td></tr>'; }).join('');
+}
+function tile(cls,k,v,s){ return '<div class="tile '+cls+'"><div class="k">'+k+'</div><div class="v">'+v+'</div><div class="s">'+s+'</div></div>'; }
+
+function renderChecks(m){
+  var perLb=(m.food+m.pack+m.dist)/m.vol, nonFood=(m.dist+m.admin)/m.vol, adminShare=m.admin/m.total;
+  var ctr=(m.pack+m.dist+m.admin)/m.food, foodLb=m.food/m.vol;
+  var rows=[
+    ['Food cost per pound, delivered to the warehouse','$'+foodLb.toFixed(2),
+     'USDA\'s own delivered estimates run $0.36 for long-grain rice and $0.48 to $0.51 for common pulses. The blend sits above that because of imported aromatic rice.'],
+    ['Cost per pound delivered to the store','$'+perLb.toFixed(2),
+     'NYC Community Food Connection paid <strong>$1.10</strong> a pound in FY25, for a mix that was 33% refrigerated and 6% frozen (<a href="https://www.nyc.gov/assets/foodpolicy/downloads/pdf/CFC-Impact-Report-Brief-FY25.pdf">CFC FY25</a>).'],
+    ['Non-food cost per pound (distribution and admin)','$'+nonFood.toFixed(2),
+     'Wisconsin charges schools <strong>$0.20</strong> a pound for admin, storage and delivery of USDA Foods. Food banks may charge partner agencies up to <strong>$0.19</strong>.'],
+    ['Administration as a share of total cost',(adminShare*100).toFixed(1)+'%',
+     'Fair Fares: <strong>7.7%</strong> ($6.9M of $89.8M, <a href="https://www.ibo.nyc.gov/assets/ibo/downloads/pdf/infrastructure/2026/2026-june-expanding-fair-fares.pdf">IBO</a>). TEFAP: administrative and distribution funds were <strong>7.5%</strong> of food value in FY2024 ($156.2M against $2.08B, <a href="https://www.everycrsreport.com/reports/R45408.html">CRS</a>). HRA budgeted about <strong>25%</strong> on top of food for its small CFC voucher pilot.'],
+    ['Cost-transfer ratio (non-food cost per $1 of food)','$'+ctr.toFixed(2),
+     'Caldés, Coady and Maluccio found <strong>$0.11</strong> for Mexico\'s PROGRESA cash program over four years and <strong>$0.50 to $0.63</strong> for smaller Central American programs. Margolies and Hoddinott found food transfers cost 2 to 4 times as much as cash to deliver.']
+  ];
+  document.querySelector('#checks tbody').innerHTML=rows.map(function(r){
+    return '<tr><td>'+r[0]+'</td><td class="num"><strong>'+r[1]+'</strong></td><td><span class="note" style="margin:0">'+r[2]+'</span></td></tr>';
+  }).join('');
+}
+
+function renderHandling(lo,mid,hi){
+  document.querySelector('#handling tbody').innerHTML=
+    '<tr><td>Retail bags a year</td><td class="num">'+Math.round(lo.bags/1e6)+'M</td><td class="num">'+Math.round(mid.bags/1e6)+'M</td><td class="num">'+Math.round(hi.bags/1e6)+'M</td></tr>'+
+    '<tr class="total"><td>Handling cost absorbed by stores</td><td class="num">'+$M(lo.handling)+'</td><td class="num">'+$M(mid.handling)+'</td><td class="num">'+$M(hi.handling)+'</td></tr>';
+  document.getElementById('handling-text').innerHTML='That is about '+$M(mid.handling)+' a year at central values, spread across roughly 1,000 stores, or about $'+Math.round(mid.handling/984/52)+' a store per week. '+
+    'It is small enough that paying stores a fee, the legal fix the essay suggests, barely moves the total. Tick the box above the inputs to add it.';
+}
+
+// ---- Tornado ----------------------------------------------------------
+function renderTornado(pay, base){
+  var p1=params(1), rows=[];
+  ORDER.forEach(function(id){
+    if(STARTUP_IDS[id] || (!pay && HANDLING_IDS[id])) return;
+    var v=ITEMS[id].v, a=Object.assign({},p1), b=Object.assign({},p1);
+    a[id]=v[0]; b[id]=v[2];
+    var ta=model(a,pay).total, tb=model(b,pay).total;
+    rows.push({id:id,label:ITEMS[id].label,lo:ta,hi:tb,swing:Math.abs(tb-ta)});
+  });
+  rows.sort(function(x,y){return y.swing-x.swing;});
+  var all=rows; rows=rows.slice(0,10);
+
+  var host=document.getElementById('tornado'), W=Math.max(320,host.clientWidth||800), narrow=W<600;
+  var labW=narrow?0:250, rowH=narrow?46:30, top=22, padR=56, padL=narrow?8:labW+50;
+  var min=Math.min.apply(null,rows.map(function(r){return Math.min(r.lo,r.hi);})), max=Math.max.apply(null,rows.map(function(r){return Math.max(r.lo,r.hi);}));
+  var span=Math.max(max-base,base-min)*1.05, x0=base-span, x1=base+span;
+  var X=function(v){ return padL+(v-x0)/(x1-x0)*(W-padL-padR); };
+  var H=top+rows.length*rowH+8, s='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">';
+  // Recessive grid: ticks every $25M or $50M depending on span.
+  var pxPer=(W-padL-padR)/(x1-x0), step=[5e6,10e6,25e6,50e6,100e6,250e6].filter(function(v){ return v*pxPer>=64; })[0]||500e6;
+  for(var t=Math.ceil(x0/step)*step;t<=x1;t+=step){
+    s+='<line class="grid" x1="'+X(t)+'" x2="'+X(t)+'" y1="'+(top-6)+'" y2="'+(H-6)+'"/><text class="ax" x="'+X(t)+'" y="'+(top-10)+'" text-anchor="middle">'+$M(t)+'</text>';
+  }
+  rows.forEach(function(r,i){
+    var y=top+i*rowH, by=narrow?y+20:y+6, bh=narrow?16:18;
+    s+='<g class="row" data-i="'+i+'"><rect class="hit" x="0" y="'+y+'" width="'+W+'" height="'+rowH+'" fill="transparent"/>';
+    if(!narrow) s+='<text class="lbl" x="'+(labW+40)+'" y="'+(y+19)+'" text-anchor="end">'+esc(trunc(CHART[r.id]||r.label,36))+'</text>';
+    // Each side is drawn from the baseline out, with its rounded end away from the base.
+    [[r.lo,'var(--lo)'],[r.hi,'var(--hi)']].forEach(function(d){
+      var a=X(Math.min(d[0],base)), b=X(Math.max(d[0],base)), w=Math.max(0,b-a-1);
+      if(w<.5) return;
+      var x=d[0]<base?a:a+1;
+      s+='<rect class="bar" x="'+x+'" y="'+by+'" width="'+w+'" height="'+bh+'" rx="3" fill="'+d[1]+'"/>';
+    });
+    var right=Math.max(r.lo,r.hi);
+    s+='<text class="val" x="'+(X(right)+6)+'" y="'+(by+bh-4)+'">'+(r.swing>=0.5e6?'±'+$M(r.swing/2).slice(1):'')+'</text></g>';
+  });
+  s+='<line class="base" x1="'+X(base)+'" x2="'+X(base)+'" y1="'+(top-4)+'" y2="'+(H-4)+'"/>';
+  if(narrow) rows.forEach(function(r,i){ s+='<text class="lbl" x="'+padL+'" y="'+(top+i*rowH+14)+'">'+esc(CHART[r.id]||r.label)+'</text>'; });
+  s+='</svg>';
+  host.innerHTML=s;
+  host.querySelectorAll('g.row').forEach(function(g){
+    var r=rows[+g.dataset.i];
+    g.addEventListener('mousemove',function(e){ showTip(e,'<b>'+esc(r.label)+'</b><div class="r"><span>At low</span><span>'+$M(r.lo)+'</span></div><div class="r"><span>At high</span><span>'+$M(r.hi)+'</span></div><div class="r"><span>Swing</span><span>'+$M(r.swing)+'</span></div>'); });
+    g.addEventListener('mouseleave',hideTip);
+  });
+  document.querySelector('#tornado-table tbody').innerHTML=all.map(function(r){
+    return '<tr><td>'+esc(r.label)+'</td><td class="num">'+$M(r.lo)+'</td><td class="num">'+$M(r.hi)+'</td><td class="num">'+$M(r.swing)+'</td></tr>';
+  }).join('');
+  var t3=rows.slice(0,3).map(function(r){return SHORT[r.id]||r.label.toLowerCase();});
+  var adminTop=all.filter(function(r){return ADMIN_IDS[r.id];})[0], dist=all.filter(function(r){return r.id==='dist';})[0];
+  document.getElementById('tornado-text').innerHTML='The three biggest drivers are '+t3[0]+', '+t3[1]+' and '+t3[2]+'. '+
+    'The largest administrative input, '+(SHORT[adminTop.id]||adminTop.label.toLowerCase())+', swings the total by '+$M(adminTop.swing)+
+    (adminTop.swing<dist.swing?', against '+$M(dist.swing)+' for the delivery rate alone.':'.');
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+function trunc(s,n){ return s.length>n ? s.slice(0,n-1)+'…' : s; }
+var tip=document.getElementById('tip');
+function showTip(e,h){ tip.innerHTML=h; tip.style.opacity=1; var x=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-10), y=e.clientY+14;
+  if(y+tip.offsetHeight>innerHeight-10) y=e.clientY-tip.offsetHeight-14; tip.style.left=x+'px'; tip.style.top=y+'px'; }
+function hideTip(){ tip.style.opacity=0; }
+
+// ---- CSV ----------------------------------------------------------------
+document.getElementById('csv').addEventListener('click',function(){
+  var q=function(s){ return '"'+String(s).replace(/"/g,'""')+'"'; };
+  var lines=[['section','input','unit','low','central','high','evidence'].join(',')];
+  GROUPS.forEach(function(g){ g.items.forEach(function(it){
+    lines.push([q(g.name),q(it.label),q(it.unit),it.v[0],it.v[1],it.v[2],it.kind].join(','));
+  }); });
+  lines.push('');
+  lines.push(['result','low','central','high'].join(','));
+  ['food','pack','dist','leak','staff','insp','it','audit','outreach','legal','trucks','lockers','admin','handling','total','startup'].forEach(function(k){
+    lines.push([k,Math.round(last.lo[k]),Math.round(last.mid[k]),Math.round(last.hi[k])].join(','));
+  });
+  lines.push(['simulated_p10_p50_p90',Math.round(last.sim.p10),Math.round(last.sim.p50),Math.round(last.sim.p90)].join(','));
+  lines.push(['city_pays_handling',last.pay].join(','));
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'}));
+  a.download='unyc-cost-model.csv'; document.body.appendChild(a); a.click(); a.remove();
+});
+
+buildInputs(); render();
+var rt; addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(function(){ renderTornado(last.pay,last.mid.total); },150); });
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>G3NPRO: A Technical Overview · Brian Fountain</title>
+<meta name="description" content="How G3NPRO turns a script into produced animation: agentic cinematography, a provider-agnostic generation pipeline, and an interface built for review at production speed.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/projects/g3npro">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/brian_fountain.jpeg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="G3NPRO: A Technical Overview">
+<meta property="og:description" content="Agentic cinematography, a provider-agnostic generation pipeline, and an interface built for review at production speed.">
+<meta property="og:url" content="https://brianfountain.com/projects/g3npro">
+<meta property="og:image" content="https://brianfountain.com/projects/g3npro/assets/property-overview.jpg">
+<meta property="og:image:alt" content="The Young Robin Hood property overview in G3NPRO Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="G3NPRO: A Technical Overview">
+<meta name="twitter:description" content="Agentic cinematography, a provider-agnostic generation pipeline, and an interface built for review at production speed.">
+<meta name="twitter:image" content="https://brianfountain.com/projects/g3npro/assets/property-overview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{--acc:#8fd0ff;--acc-soft:rgba(143,208,255,.16);--acc-wash:rgba(143,208,255,.07);--acc-edge:rgba(143,208,255,.22)}
+body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
+.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
+.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:840px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:62ch}
+article{max-width:840px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:44px 0 14px}
+article h2:first-child{margin-top:0}
+article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:18px;max-width:70ch}
+article strong{color:#efe6da;font-weight:700}
+article code{font-family:'JetBrains Mono',monospace;font-size:.86em;background:rgba(239,230,218,.08);border:1px solid rgba(239,230,218,.1);border-radius:6px;padding:1px 6px;white-space:nowrap}
+article ul,article ol{margin:0 0 18px 0;padding-left:22px;max-width:70ch}
+article li{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:12px;padding-left:4px}
+article li::marker{color:var(--acc)}
+.callout{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:70ch}
+.callout .ico{font-size:19px;line-height:1.3;flex:none}
+.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
+figure{margin:26px 0 30px}
+figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(239,230,218,.14);box-shadow:0 18px 48px rgba(0,0,0,.45)}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:rgba(239,230,218,.55);margin-top:10px;max-width:70ch}
+.fig-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0 30px}
+.fig-pair figure{margin:0}
+@media (max-width:700px){.fig-pair{grid-template-columns:1fr}}
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12);font-size:14px;color:rgba(239,230,218,.55);max-width:70ch}
+@media (max-width:640px){body{line-height:1.6}article p,article li{font-size:15.5px}}
+</style></head><body>
+<header class="topbar">
+  <a class="tb-back" href="/">&#8617; <span>Brian Fountain</span></a>
+  <a class="tb-kicker" href="/projects">PROJECTS</a>
+</header>
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">TECHNICAL OVERVIEW</div>
+    <h1>G3NPRO: Script to Screen with Agents in the Loop</h1>
+    <p class="lede">G3NPRO is a production platform for animation studios that turns a script into produced video: cinematography planning, storyboards, character-consistent visuals, dialogue, music and a cut, with people making the calls that matter. This overview covers three parts of the system: the agentic workflows, the generation pipeline, and the interface that keeps humans fast.</p>
+  </div>
+</div>
+<article>
+  <h2>The shape of the system</h2>
+  <p>The domain model mirrors real production: a <strong>Property</strong> (a show or film) holds <strong>Projects</strong> (individual episodes or shorts), each Project holds a <strong>Script</strong> parsed into <strong>Scenes</strong>, and each Scene breaks down into <strong>Shots</strong> with composition, camera movement and duration. Every generated image, video and audio file is a tracked <strong>MediaAsset</strong> attached to the thing it serves. The screenshots throughout this page come from Young Robin Hood, an original animated property developed inside the platform.</p>
+  <figure>
+    <img src="assets/property-overview.jpg" alt="The Young Robin Hood property overview in G3NPRO Studio, showing key art and the property navigation" loading="lazy">
+    <figcaption>The Young Robin Hood property. Key art, references and every project for the series live under one roof.</figcaption>
+  </figure>
+
+  <h2>Agentic workflows</h2>
+  <p>The centerpiece is the <strong>Director Agent</strong>, a Claude-powered cinematography system. Given a script, it breaks scenes into dramatic beats, plans coverage, chooses shot types and angles, and writes detailed visual prompts in cinematic language. It works in two modes: autonomously, generating a full shot list for a scene, and interactively, recommending or refining shots in response to a person's notes.</p>
+  <p>Every exchange with the model runs through structured schemas rather than free text. Scene analysis, shot batches, refinements and prompt enhancements each have a defined shape, so the agent's output lands directly in the database as scenes and shots instead of prose that a human must transcribe. The same discipline applies in the other direction: an in-app agent operates the platform through a small set of typed tools, including <code>generate_shot</code>, <code>search_characters</code> and <code>navigate_to_property</code>, so agent actions go through the same code paths as human ones.</p>
+  <p>Supporting agents handle enrichment. When a script mentions a new character or location, enrichment services draft descriptions and visual references that a person can accept, edit or discard. Background jobs follow one rule: they only update models. The interface listens and redraws itself, which keeps the agent code simple and the UI honest about what is actually in the database.</p>
+  <div class="fig-pair">
+    <figure>
+      <img src="assets/characters.jpg" alt="The Young Robin Hood character library: Robin, Squill, Bramble and Wren, each with generated portraits" loading="lazy">
+      <figcaption>The character library. Robin, Squill, Bramble and Wren, each with reference art the pipeline holds onto.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/projects.jpg" alt="The projects index for Young Robin Hood, showing eleven projects with generated cover art" loading="lazy">
+      <figcaption>Eleven Young Robin Hood projects, each an episode or short with its own script, shots and cut.</figcaption>
+    </figure>
+  </div>
+
+  <h2>A generation pipeline that refuses to marry a provider</h2>
+  <p>Generative models change monthly, so the pipeline is built to survive its providers. Three layers make that work.</p>
+  <p><strong>Purposes.</strong> Every generative request is classified by purpose, from <code>character_portrait</code> to <code>shot_video_lip_sync</code> to <code>music_score</code>. The purpose manifest currently defines 45 of them across image, video, audio and text. A purpose captures what the production needs; it says nothing about which model produces it. That separation is what lets the platform swap models under a workflow without touching the workflow itself.</p>
+  <p><strong>Adapters.</strong> A factory maps each request to one of more than a dozen provider adapters behind a common interface: Runware, Kling, Runway, fal.ai, BytePlus, ElevenLabs, Tripo3D, and self-hosted ComfyUI execution on Modal among them. New model, new adapter, same pipeline.</p>
+  <p><strong>Strategy resolution.</strong> Before anything generates, a resolver inspects what assets the subject already has and cascades to the best available technique: a trained LoRA for identity if the character has one, reference-image conditioning if there are references, plain text-to-generation as the floor, and hybrid modes that combine a LoRA for identity with references for style. Consistency is enforced by the data on file rather than by prompt wording.</p>
+  <p>Underneath all of it sits a model asset registry that tracks multi-gigabyte model files by content hash across environments (local disk, Modal volumes, S3), plus tooling that parses ComfyUI workflow graphs, extracts their model and extension dependencies, and validates a deployment before it runs. Characters get their own finetuned LoRAs, trained from captioned image sets managed inside the platform.</p>
+  <figure>
+    <img src="assets/style-library.jpg" alt="The Style Library for Young Robin Hood, showing the Traditional 2D Animation foundation and tagged reference images" loading="lazy">
+    <figcaption>The Style Library. A style foundation plus tagged references (character, location, prop, establishing shot) that the strategy resolver draws on for every generation.</figcaption>
+  </figure>
+
+  <h2>An interface built for judgment at speed</h2>
+  <p>A platform that generates hundreds of assets per episode lives or dies on how quickly a person can review them. The UX work concentrates there.</p>
+  <p>The whole interface updates through morph-based page refreshes: when a background job finishes a render, the page redraws in place while preserving scroll position, form state and anything the user is mid-editing. Nobody refreshes to see if a shot is done. The <strong>review screen</strong> presents one shot at a time with its prompt, keyframes and generated frame, and keyboard-driven controls to approve, regenerate or edit. Prompts use <code>@mentions</code> that bind directly to characters and locations, so "@Robin" in a prompt is a reference to the character record, his references and his LoRA rather than a hopeful string.</p>
+  <figure>
+    <img src="assets/review.jpg" alt="The shot review screen showing a rendered frame of Robin in Sherwood Forest, the @Robin-tagged prompt, keyframes, and approve and regenerate controls" loading="lazy">
+    <figcaption>Shot review. One frame, its bound prompt, and a decision: approve, regenerate or dig in. The quality gate is a person.</figcaption>
+  </figure>
+  <p>Approved shots flow into a <strong>timeline editor</strong> with tracks for visuals, dialogue, sound effects, music and ambience, scene markers, snapping and export. For teams with an existing finishing workflow, a DaVinci Resolve plugin connects through a device-authorization flow and a dedicated API, so the platform meets editors inside the tool they already trust.</p>
+  <figure>
+    <img src="assets/timeline-editor.jpg" alt="The multi-track timeline editor for The Big Fall, with visual, dialogue, sound, music and ambient tracks and scene markers" loading="lazy">
+    <figcaption>The timeline for The Big Fall: 6 scenes, 46 shots, and every track in one place, assembled from approved material.</figcaption>
+  </figure>
+
+  <h2>What the architecture is really for</h2>
+  <p>Each piece answers the same question from a different angle: where does the machine end and the person begin? Agents plan and draft through schemas so their work arrives structured and reviewable. The pipeline resolves strategy from real assets so consistency is enforced by data. The interface makes human judgment the fastest step in the system instead of the slowest. The result is a production process where a small team can carry a property like Young Robin Hood from a script to a reviewed, assembled cut, and where every frame that ships was approved by a person who could see exactly what they were approving.</p>
+
+  <p class="endnote">G3NPRO has animation studio customers. Screenshots show Young Robin Hood, an original property developed in the platform. Generation runs across commercial APIs and self-hosted ComfyUI on Modal.</p>
+</article>
+</body></html>

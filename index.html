@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brian Fountain · Education Executive, Technologist & Artist</title>
+<meta name="description" content="Brian Fountain works in the overlap of education, technology and art: Fortune 500 curriculum, generative-media products, and two decades of teaching, building and storytelling.">
+<meta name="author" content="Brian Fountain">
+<link rel="canonical" href="https://brianfountain.com/">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="brian_fountain.jpeg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brian Fountain">
+<meta property="og:title" content="Brian Fountain · Education Executive, Technologist & Artist">
+<meta property="og:description" content="Two decades in the overlap of education, technology and art: Fortune 500 curriculum and generative-media products.">
+<meta property="og:url" content="https://brianfountain.com/">
+<meta property="og:image" content="https://brianfountain.com/brian_fountain.jpeg">
+<meta property="og:image:alt" content="Portrait of Brian Fountain">
+<meta property="og:image:width" content="1950">
+<meta property="og:image:height" content="1950">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brian Fountain · Education Executive, Technologist & Artist">
+<meta name="twitter:description" content="Two decades in the overlap of education, technology and art: Fortune 500 curriculum and generative-media products.">
+<meta name="twitter:image" content="https://brianfountain.com/brian_fountain.jpeg">
+<meta name="twitter:image:alt" content="Portrait of Brian Fountain">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{background:#100d0b;font-family:'Manrope',sans-serif;color:#efe6da;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit}
+  a{color:inherit}
+
+  @keyframes bfpulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.9;transform:scale(1.04)}}
+  @keyframes bffloatA{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(7px,-9px) rotate(.7deg)}}
+  @keyframes bffloatB{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-8px,7px) rotate(-.6deg)}}
+  @keyframes bffloatC{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(6px,8px) rotate(.5deg)}}
+  @keyframes bffloatD{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-7px,-7px) rotate(-.7deg)}}
+
+  /* ============ DESKTOP (Venn — 2a) ============ */
+  #desktop{display:none;flex-direction:column;height:100vh;height:100dvh;overflow:hidden;
+    background:radial-gradient(120% 80% at 50% 30%,#1a1512,#100d0b 72%)}
+  #stageScaler{width:100%;height:100%;display:flex;flex-direction:column;min-height:0}
+  .venn-card{width:100%;height:100%;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:0;
+    background:radial-gradient(120% 80% at 50% 30%,#1a1512,#100d0b 72%);
+    font-family:'Manrope',sans-serif;color:#efe6da}
+  .chrome{flex:none;position:relative;z-index:60}
+  .stage-mid{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+
+  .nav-row{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;border-bottom:1px solid rgba(239,230,218,.08)}
+  .brand{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:24px;letter-spacing:.01em;white-space:nowrap}
+  .seg{display:flex;background:rgba(239,230,218,.06);border:1px solid rgba(239,230,218,.14);border-radius:100px;padding:3px}
+  .seg button{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:100px;border:none;background:transparent;
+    color:rgba(239,230,218,.6);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;cursor:pointer;transition:.2s}
+  .seg button.on{background:#efe6da;color:#12110f;font-weight:700}
+  .btn-ghost{display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;border:1px solid rgba(239,230,218,.22);
+    background:rgba(239,230,218,.05);color:#efe6da;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;cursor:pointer;transition:.2s}
+  .btn-ghost:hover{background:rgba(239,230,218,.12)}
+
+  .filter-row{height:42px;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 30px;border-bottom:1px solid rgba(239,230,218,.08);background:rgba(0,0,0,.15)}
+  .filter-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:rgba(239,230,218,.4);flex:none}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .chip{padding:4px 10px;border-radius:100px;border:1px solid rgba(239,230,218,.2);background:rgba(239,230,218,.04);
+    color:rgba(239,230,218,.75);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.04em;cursor:pointer;transition:.2s}
+  .chip.on{border-color:transparent;background:#efe6da;color:#12110f;font-weight:700}
+  .chip-clear{padding:4px 10px;border-radius:100px;border:1px dashed rgba(239,230,218,.22);background:transparent;
+    color:rgba(239,230,218,.5);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.04em;cursor:pointer;opacity:.35}
+
+  .venn-stage{position:relative;width:1260px;height:600px;flex:none;transform-origin:center center}
+  .domain{position:absolute;width:540px;height:350px;border-radius:60px;mix-blend-mode:screen}
+  .domain-label{position:absolute;font-family:'JetBrains Mono',monospace;letter-spacing:.2em}
+  .avatar-wrap{position:absolute;left:580px;top:255px;width:100px;height:100px;z-index:40;text-align:center;animation:bffloatD 20s ease-in-out infinite}
+  .avatar-glow{position:absolute;left:-12px;top:-12px;right:-12px;bottom:16px;border-radius:26px;background:radial-gradient(circle,rgba(231,221,208,.28),transparent 70%);animation:bfpulse 4s ease-in-out infinite}
+  .avatar{position:relative;width:100px;height:100px;border-radius:20px;overflow:hidden;border:2px solid rgba(239,230,218,.85);box-shadow:0 10px 30px -6px rgba(0,0,0,.7)}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .union-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;color:rgba(239,230,218,.7);margin-top:9px}
+
+  .node{position:absolute;width:152px}
+  .node button{width:100%;box-sizing:border-box;display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:14px;
+    cursor:pointer;font-family:'Manrope',sans-serif;transition:transform .35s cubic-bezier(.34,1.4,.5,1),border-color .3s,box-shadow .3s,background .3s}
+  .node .thumb{width:30px;height:30px;border-radius:7px;flex:none}
+  .node .txt{display:flex;flex-direction:column;gap:2px;min-width:0;text-align:left}
+  .node .role{font-size:12px;font-weight:700;line-height:1.15;color:#efe6da}
+  .node .sub{font-size:9px;font-family:'JetBrains Mono',monospace;letter-spacing:.03em;color:rgba(239,230,218,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  .panel{flex:none;display:flex;
+    background:linear-gradient(0deg,#181310,#100c0a);border-top:1px solid rgba(239,230,218,.12);box-shadow:0 -30px 60px -20px rgba(0,0,0,.7);z-index:80}
+  .panel-inner{display:flex;gap:26px;padding:16px 34px;width:100%;box-sizing:border-box;align-items:stretch}
+  /* Fixed-width preview slot: its width never changes, so the detail text never shifts.
+     The frame inside is right-aligned — square logos and 16:9 screenshots share a right edge. */
+  .preview-slot{width:248px;flex:none;align-self:center;display:flex;justify-content:flex-end}
+  .preview{height:139px;border-radius:12px;position:relative;overflow:hidden;
+    background:#17130f;border:1px solid rgba(239,230,218,.12)}
+  .preview.ar-wide{width:248px}
+  .preview.ar-square{width:139px}
+  .play-badge{width:46px;height:46px;border-radius:50%;background:rgba(18,17,15,.55);border:1px solid rgba(239,230,218,.7);
+    display:flex;align-items:center;justify-content:center;color:#efe6da;font-size:15px;padding-left:3px;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+  .panel-mid{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+  .panel-domains{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em}
+  .panel-role{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:25px;line-height:1.04;margin-top:5px}
+  .panel-company{font-size:13px;font-weight:600;margin-top:7px}
+  .panel-year{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:rgba(239,230,218,.5);margin-top:3px}
+  .panel-blurb{font-size:13px;line-height:1.5;color:rgba(239,230,218,.78);margin-top:7px;max-width:760px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .panel-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .panel-tags span{padding:5px 11px;border-radius:100px;border:1px solid rgba(239,230,218,.18);font-size:11px;color:rgba(239,230,218,.7)}
+  .panel-right{width:190px;flex:none;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;text-align:right}
+  .panel-counter{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:30px;color:rgba(239,230,218,.85)}
+  .panel-inview{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:rgba(239,230,218,.4);margin-top:2px}
+  .panel-link{font-family:'JetBrains Mono',monospace;font-size:12px;text-decoration:none}
+
+  /* desktop timeline view */
+  .dt-scroll{flex:1;min-height:0;overflow-y:auto;padding:34px 0}
+  .dt-wrap{max-width:660px;margin:0 auto;position:relative;padding-left:96px;box-sizing:border-box}
+  .dt-line{position:absolute;left:52px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,rgba(231,166,141,.55),rgba(143,208,196,.55))}
+  .dt-row{position:relative;margin-bottom:22px}
+  .dt-year{position:absolute;left:-96px;top:3px;width:44px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(239,230,218,.55)}
+  .dt-dot{position:absolute;left:-50px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid #12110f;box-shadow:0 0 0 3px rgba(0,0,0,.35)}
+  .dt-card{background:rgba(26,20,17,.72);border:1px solid rgba(239,230,218,.12);border-radius:14px;padding:14px 16px;display:flex;gap:14px}
+  .dt-thumb{width:52px;height:52px;border-radius:10px;flex:none}
+  .dt-role{font-size:15px;font-weight:700;line-height:1.2}
+  .dt-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;margin-top:3px}
+  .dt-blurb{font-size:12.5px;line-height:1.5;color:rgba(239,230,218,.72);margin-top:7px}
+  .dt-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .dt-tags span{padding:4px 9px;border-radius:100px;border:1px solid rgba(239,230,218,.16);font-size:10px;color:rgba(239,230,218,.65)}
+
+  /* ============ MOBILE (Timeline — 3a) ============ */
+  #mobile{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden;
+    background:radial-gradient(120% 60% at 50% 0%,#1a1512,#0e0b09 70%);font-family:'Manrope',sans-serif;color:#efe6da}
+  .m-header{flex:none;background:rgba(14,11,9,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(239,230,218,.08);padding-top:env(safe-area-inset-top)}
+  .m-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:14px 18px 10px}
+  .m-brand{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:22px;white-space:nowrap}
+  .m-seg{display:flex;background:rgba(239,230,218,.06);border:1px solid rgba(239,230,218,.14);border-radius:100px;padding:2px}
+  .m-seg button{padding:6px 11px;border-radius:100px;border:none;background:transparent;color:rgba(239,230,218,.5);
+    font-family:'JetBrains Mono',monospace;font-size:9px;cursor:pointer;transition:.2s}
+  .m-seg button.on{background:#efe6da;color:#12110f;font-weight:700}
+  .m-chips{display:flex;gap:6px;overflow-x:auto;padding:0 18px 12px;-webkit-overflow-scrolling:touch}
+  .m-chips::-webkit-scrollbar{display:none}
+  .m-chip{flex:none;padding:6px 11px;border-radius:100px;border:1px solid rgba(239,230,218,.2);background:rgba(239,230,218,.04);
+    color:rgba(239,230,218,.75);font-family:'JetBrains Mono',monospace;font-size:9.5px;white-space:nowrap;cursor:pointer}
+  .m-chip.on{border-color:transparent;background:#efe6da;color:#12110f;font-weight:700}
+
+  .m-scroll{flex:1;overflow-y:auto;padding:20px 0 40px}
+  .m-tl{position:relative;padding-left:70px;padding-right:16px}
+  .m-line{position:absolute;left:40px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,rgba(231,166,141,.55),rgba(143,208,196,.55))}
+  .m-row{position:relative;margin-bottom:16px}
+  .m-year{position:absolute;left:-70px;top:3px;width:30px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(239,230,218,.55)}
+  .m-dot{position:absolute;left:-35px;top:5px;width:10px;height:10px;border-radius:50%;border:2px solid #12110f;box-shadow:0 0 0 3px rgba(0,0,0,.35)}
+  .m-card{background:rgba(26,20,17,.72);border:1px solid rgba(239,230,218,.12);border-radius:12px;padding:12px 13px;display:flex;gap:11px}
+  .m-thumb{width:42px;height:42px;border-radius:9px;flex:none}
+  .m-role{font-size:13.5px;font-weight:700;line-height:1.2}
+  .m-sub{font-family:'JetBrains Mono',monospace;font-size:9.5px;margin-top:3px}
+  .m-blurb{font-size:11.5px;line-height:1.5;color:rgba(239,230,218,.7);margin-top:6px}
+  .m-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .m-tags span{padding:3px 8px;border-radius:100px;border:1px solid rgba(239,230,218,.16);font-size:9.5px;color:rgba(239,230,218,.6)}
+
+  /* mobile venn fallback (compact list card view when Venn tapped on phone) */
+  .m-venn{padding:18px}
+  .m-venn-note{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(239,230,218,.45);text-align:center;margin-bottom:16px}
+  .m-vcard{display:flex;align-items:center;gap:11px;padding:12px 13px;border-radius:14px;margin-bottom:10px;
+    background:rgba(24,19,16,.82);border:1px solid rgba(239,230,218,.16);cursor:pointer}
+  .m-vthumb{width:34px;height:34px;border-radius:8px;flex:none}
+  .m-vrole{font-size:13px;font-weight:700;line-height:1.15}
+  .m-vsub{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(239,230,218,.5);margin-top:2px}
+
+  /* Nav labels never wrap; with PROJECTS and WRITING both present the row runs out of
+     width around 1120px, so the play/pause control drops to its icon rather than letting
+     the brand and the nav buttons break onto second lines. */
+  .nav-row .btn-ghost{white-space:nowrap}
+  @media (max-width:1120px){ #dPlayLabel{display:none} }
+  @media (min-width:900px){ #desktop{display:flex} #mobile{display:none} }
+</style>
+</head>
+<body>
+
+<!-- ===================== DESKTOP ===================== -->
+<div id="desktop">
+  <div id="stageScaler">
+    <div class="venn-card">
+      <!-- nav + filter -->
+      <div class="chrome">
+        <div class="nav-row">
+          <div class="brand">Brian Fountain</div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="seg">
+              <button id="dViewVenn" class="on"><span>◇</span><span>Venn</span></button>
+              <button id="dViewTl"><span>≡</span><span>Timeline</span></button>
+            </div>
+            <a href="/projects" class="btn-ghost" style="text-decoration:none"><span style="font-size:12px">◲</span><span>PROJECTS</span></a>
+            <a href="/writing" class="btn-ghost" style="text-decoration:none"><span style="font-size:12px">▤</span><span>WRITING</span></a>
+            <button id="dPlay" class="btn-ghost"><span id="dPlayIcon" style="font-size:11px">❚❚</span><span id="dPlayLabel">PAUSE</span></button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">FILTER</span>
+          <div class="chips" id="dChips"></div>
+          <button class="chip-clear" id="dClear">✕ clear</button>
+        </div>
+      </div>
+
+      <!-- venn stage -->
+      <div class="stage-mid" id="dStageMid">
+      <div class="venn-stage" id="dVenn">
+        <div class="domain" style="left:360px;top:40px;border:1.5px solid rgba(231,166,141,.42);background:radial-gradient(120% 120% at 50% 20%,rgba(231,166,141,.13),rgba(231,166,141,.02) 72%);animation:bffloatA 15s ease-in-out infinite"></div>
+        <div class="domain" style="left:537px;top:215px;border:1.5px solid rgba(143,208,196,.42);background:radial-gradient(120% 120% at 70% 80%,rgba(143,208,196,.12),rgba(143,208,196,.02) 72%);animation:bffloatC 18s ease-in-out infinite"></div>
+        <div class="domain" style="left:145px;top:180px;border:1.5px solid rgba(201,162,236,.42);background:radial-gradient(120% 120% at 30% 80%,rgba(201,162,236,.12),rgba(201,162,236,.02) 72%);animation:bffloatB 16s ease-in-out infinite"></div>
+
+        <div class="domain-label" style="left:360px;top:58px;width:540px;text-align:center;font-size:12px;letter-spacing:.24em;color:#e7a68d">EDUCATION</div>
+        <div class="domain-label" style="left:913px;top:533px;font-size:12px;color:#8fd0c4">TECHNOLOGY</div>
+        <div class="domain-label" style="left:193px;top:492px;font-size:12px;color:#c9a2ec">ART</div>
+
+        <div class="avatar-wrap">
+          <div class="avatar-glow"></div>
+          <div class="avatar"><img src="brian_fountain.jpeg" alt="Brian Fountain"></div>
+          <div class="union-label">BRIAN</div>
+        </div>
+        <!-- nodes injected here -->
+      </div>
+      </div>
+
+      <!-- detail panel -->
+      <div class="panel" id="dPanel">
+        <div class="panel-inner">
+          <div class="preview-slot"><div class="preview ar-wide" id="dPreview"></div></div>
+          <div class="panel-mid">
+            <span class="panel-domains" id="pDomains"></span>
+            <div class="panel-role" id="pRole"></div>
+            <div class="panel-company" id="pCompany"></div>
+            <div class="panel-year" id="pYear"></div>
+            <div class="panel-blurb" id="pBlurb"></div>
+            <div class="panel-tags" id="pTags"></div>
+          </div>
+          <div class="panel-right">
+            <div>
+              <div class="panel-counter" id="pCounter"></div>
+              <div class="panel-inview">IN VIEW</div>
+            </div>
+            <a class="panel-link" id="pLink" target="_blank" rel="noopener"></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- desktop timeline (hidden by default) -->
+      <div class="dt-scroll" id="dTimeline" style="display:none">
+        <div class="dt-wrap">
+          <div class="dt-line"></div>
+          <div id="dtRows"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MOBILE ===================== -->
+<div id="mobile">
+  <div class="m-header">
+    <div class="m-top">
+      <div class="m-brand">Brian Fountain</div>
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;flex:1 1 auto">
+        <a href="/projects" class="m-chip" style="text-decoration:none;flex:none">Projects ↗</a>
+        <a href="/writing" class="m-chip" style="text-decoration:none;flex:none">Writing ↗</a>
+        <div class="m-seg">
+          <button id="mViewVenn"><span>◇</span> Venn</button>
+          <button id="mViewTl" class="on">≡ Timeline</button>
+        </div>
+      </div>
+    </div>
+    <div class="m-chips" id="mChips"></div>
+  </div>
+  <div class="m-scroll" id="mScroll"></div>
+</div>
+
+<script>
+(function(){
+  var DATA = [
+    { role:"Learning Experience Designer", company:"TikTok", year:"2021–2025",
+      x:836, y:210, w:196, domains:["Education","Technology"], accent:"#d9c48a", link:"",
+      filters:["Teaching","Leadership","Product"],
+      blurb:"Led the effort to scale technical learning across TikTok's sales organization. Replaced courses with a competency model that built a learning path per person, plus a dashboard on the LMS so leaders saw team progress in real time.",
+      tags:["Learning strategy","Dashboards","Cross-functional"] },
+    { role:"Ruby/Rails Instructor", company:"General Assembly", year:"2013–2016",
+      x:878, y:320, domains:["Education","Technology"], accent:"#d9c48a", link:"",
+      filters:["Teaching","Code"],
+      blurb:"Taught 30+ classes and workshops on HTML, CSS, the command line, Ruby on Rails and Git, to adults who mostly arrived with no programming background. Consistently the highest-rated instructor.",
+      tags:["Teaching","Ruby/Rails","Bootcamp"] },
+    { role:"Chief Creative Officer", company:"NY Code + Design Academy", year:"2014–2017",
+      x:488, y:215, domains:["Education","Art","Technology"], accent:"#e7a68d", link:"",
+      filters:["Teaching","Leadership","Curriculum"],
+      blurb:"Guided the creative vision and voice of the academy. Led design and delivery of corporate training for Fortune 500 clients (Disney Parks Tech, Estée Lauder). Authored the mission, values, teacher-training and curriculum processes as NYCDA grew from three to seven locations.",
+      tags:["Creative direction","Curriculum","Fortune 500"] },
+    { role:"Instructional Designer", company:"Thinkful", year:"2020",
+      x:435, y:320, domains:["Education","Art"], accent:"#d9a8c4", link:"",
+      filters:["Curriculum","Code"],
+      blurb:"Creative lead on the redesign of the free Prep program, the course that readies prospective students for the qualifying assessment. Shaped the voice, content and approach across HTML, CSS and JavaScript.",
+      tags:["Instructional design","Voice & content"] },
+    { role:"Instructional Designer", company:"Adecco @ Google", year:"2018–2019",
+      x:630, y:115, domains:["Education"], accent:"#e7a68d", link:"",
+      filters:["Curriculum","Storytelling"],
+      blurb:"Partnered with Google's Global Curriculum Manager for Measurement & Attribution on courses teaching businesses to verify their marketing meets its goals. Written as stories about one business making one decision.",
+      tags:["Storytelling","Measurement","Courseware"] },
+    { role:"Founder & Product Design Lead", company:"G3NPRO", year:"2025–now",
+      x:508, y:446, w:190, domains:["Technology","Art"], accent:"#8fd0c4", link:"g3npro.com",
+      filters:["Founder","AI","Product"],
+      blurb:"A production platform that turns a script into animation. Agents plan the coverage and generate the shots. A person approves every one that ships. Used by animation studios today.",
+      tags:["Generative AI","Animation","Product design"] },
+    { role:"Founder", company:"GenBuzz", year:"2025–now",
+      x:840, y:548, domains:["Technology","Art"], accent:"#8fd0c4", link:"genbuzz.news",
+      filters:["Founder","AI","Storytelling"],
+      blurb:"A daily publication covering AI filmmaking. Agents ingest the sources and draft each story with attribution. Nothing runs until I approve it.",
+      tags:["Agentic","News","AI film"] },
+    { role:"Founder", company:"1K Notes", year:"2025–now",
+      x:508, y:536, domains:["Art","Technology"], accent:"#c9a2ec", link:"1knotes.com",
+      filters:["Founder","Music","AI"],
+      blurb:"A creative tool for people who would never call themselves songwriters. Attach a photo and the model writes an original song from it, melody and lyric included.",
+      tags:["Music","Creative tool","Songwriting"] },
+    { role:"Founder", company:"Vibeside", year:"2025–now",
+      x:978, y:410, domains:["Technology"], accent:"#8fd0c4", link:"vibesi.de",
+      filters:["Founder","Code","AI"],
+      blurb:"A panel for the side projects you keep half finished. Hand a task to Claude Code from your phone, on any machine you own, and review the running app rather than the diff.",
+      tags:["IDE","Mobile-first","Agentic coding"] },
+    { role:"Creator", company:"Corn for Cars", year:"2026",
+      x:945, y:490, domains:["Technology","Art"], accent:"#d9c48a", link:"solar.brianfountain.com",
+      filters:["Storytelling","Code"],
+      blurb:"An interactive data story about the 30 million acres America farms for fuel, and the 339,000 acres of solar that would move the same vehicle-miles. County-level maps of corn, sunlight, the aquifer and the grid, modeled from USDA, PVGIS, USGS and DOE data.",
+      tags:["Data visualization","Mapping","Energy"] },
+    { role:"Game Designer", company:"Cryptions", year:"2026",
+      x:1050, y:340, domains:["Art","Technology"], accent:"#e7a68d", link:"games.brianfountain.com/cryptions",
+      filters:["Games","Code"],
+      blurb:"A daily word puzzle where nothing groups by what it says. Sixteen tiles each hide a different word, behind anagrams, homophones, insertions, deletions and strings buried inside other strings, and the four groups only surface once you decode them. The tile colours mean something too.",
+      tags:["Daily puzzle","Cryptic wordplay","Game design"] },
+    { role:"Creator", company:"Cain's Jawbone Reader", year:"2026",
+      x:330, y:566, w:190, domains:["Art","Technology"], accent:"#d9c48a", link:"games.brianfountain.com/cains-jawbone",
+      filters:["Games","Storytelling","Code"],
+      blurb:"Edward Powys Mathers printed his 1934 murder mystery with its hundred pages in the wrong order. Exactly one of the 100! arrangements is right. This is somewhere to work, not an answer: read the pages, link the ones that follow each other, tag what you notice, and keep case notes on the six murderers and their six victims. Everything stays in your browser and exports as a case file.",
+      tags:["Puzzle","Reading tool","Local-first"] },
+    { role:"Game Designer", company:"Cobwebs and Keys", year:"2026",
+      x:680, y:548, w:160, domains:["Art","Technology"], accent:"#d6a344", link:"games.brianfountain.com/cobwebs",
+      filters:["Games","Code"],
+      blurb:"A digital recreation of Mystery Mansion, the 1984 Milton Bradley board game. Seven chests are hidden in the old house and only two hold the real treasure: build the rooms, search them, and carry a chest out of the front door. Play solo or host a game and hand friends a four-letter code.",
+      tags:["Board game","Multiplayer","Game design"] },
+    { role:"Game Writer & Narrative Designer", company:"Bee Square Games", year:"2012–2014",
+      x:782, y:434, w:200, domains:["Art","Technology"], accent:"#c9a2ec", link:"",
+      filters:["Games","Storytelling"],
+      blurb:"Sole writer on Run Sheldon: copy, narrative design and marketing. It launched #1 for Free Family Games in 30+ countries with a million-plus downloads.",
+      tags:["Games","Narrative","iOS"] },
+    { role:"Digital Director", company:"Mister Face", year:"2010–2015",
+      x:312, y:384, domains:["Art"], accent:"#c9a2ec", link:"",
+      filters:["Storytelling","Leadership"],
+      blurb:"Concepted and wrote transmedia campaigns for brands across radio, live events and digital, with comedy as the house style.",
+      tags:["Comedy","Branding","Transmedia"] },
+    { role:"Artist & Writer", company:"Lincoln Center Artist Academy", year:"2011–2013",
+      x:312, y:484, domains:["Art"], accent:"#c9a2ec", link:"",
+      filters:["Storytelling","Games"],
+      blurb:"Lincoln Center Artist Academy inductee (2013), Austin Film Festival official selection (writer), and winner of multiple story and tech hackathons. A decade of narrative and performance.",
+      tags:["Writing","Film","Awards"] }
+  ];
+  // Card imagery: company logos, live-site screenshots, and the Run Sheldon video thumbnail.
+  // ar: "square" logos render in a right-aligned square frame; "wide" images in a 16:9 frame.
+  var IMG = {
+    "TikTok":                        {src:"assets/logo_tiktok.png",         ar:"square", fit:"contain"},
+    "General Assembly":              {src:"assets/logo_generalassembly.png",ar:"square", fit:"contain"},
+    "NY Code + Design Academy":      {src:"assets/logo_nycda.png",          ar:"square", fit:"contain"},
+    "Thinkful":                      {src:"assets/logo_thinkful.png",       ar:"square", fit:"contain"},
+    "Adecco @ Google":               {src:"assets/logo_google.png",         ar:"square", fit:"contain"},
+    "G3NPRO":                        {src:"assets/shot_g3npro.jpeg",        ar:"wide",   fit:"cover", chip:"assets/icon_g3npro.png"},
+    "GenBuzz":                       {src:"assets/shot_genbuzz.jpeg",       ar:"wide",   fit:"cover", chip:"assets/icon_genbuzz.png"},
+    "1K Notes":                      {src:"assets/shot_1knotes.jpeg",       ar:"wide",   fit:"cover", chip:"assets/icon_1knotes.png"},
+    "Vibeside":                      {src:"assets/shot_vibeside.jpeg",      ar:"wide",   fit:"cover", chip:"assets/icon_vibeside.svg"},
+    "Corn for Cars":                 {src:"assets/shot_solar.jpeg",         ar:"wide",   fit:"cover", chip:"assets/icon_solar.png"},
+    "Cryptions":                     {src:"assets/shot_cryptions.jpeg",     ar:"wide",   fit:"cover", chip:"assets/icon_games.svg"},
+    "Cain's Jawbone Reader":         {src:"assets/shot_cains_jawbone.jpeg", ar:"wide",   fit:"cover", chip:"assets/icon_games.svg"},
+    "Cobwebs and Keys":              {src:"assets/shot_cobwebs.jpeg",       ar:"wide",   fit:"cover", chip:"assets/icon_cobwebs.png"},
+    "Bee Square Games":              {src:"assets/logo_beesquare.png",      ar:"square", fit:"contain", video:"https://www.youtube.com/watch?v=12ZJwamYhY8"},
+    "Mister Face":                   {src:"assets/logo_misterface.png",     ar:"square", fit:"contain"},
+    "Lincoln Center Artist Academy": {src:"assets/logo_lincolncenter.svg",  ar:"square", fit:"contain"}
+  };
+  // Thumbnails (venn chips + timeline) always use a square representation:
+  // a dedicated square chip icon when present, otherwise the (already square) logo.
+  function setImg(elm,d){
+    var im=IMG[d.company]; if(!im) return;
+    elm.style.backgroundImage="url('"+(im.chip||im.src)+"')";
+    elm.style.backgroundSize=im.chip?"cover":(im.fit||"cover");
+    elm.style.backgroundPosition="center";
+    elm.style.backgroundRepeat="no-repeat";
+    elm.style.backgroundColor="#17130f";
+  }
+  var VOCAB = ["Teaching","Curriculum","Leadership","Founder","AI","Product","Code","Storytelling","Games","Music"];
+  var FLOATS = ["bffloatA","bffloatB","bffloatC","bffloatD"];
+  var CARD_W = 152;
+
+  var state = { sel:0, playing:true, filter:null, view:"venn" };
+  var timer = null;
+
+  function startYear(d){ var m=(d.year||"").match(/\d{4}/); return m?+m[0]:0; }
+  function matches(i){ return !state.filter || DATA[i].filters.indexOf(state.filter)!==-1; }
+  function matchesItem(d){ return !state.filter || d.filters.indexOf(state.filter)!==-1; }
+  function nextMatch(from){
+    var n=DATA.length;
+    for(var k=1;k<=n;k++){ var idx=(from+k)%n; if(matches(idx)) return idx; }
+    return from;
+  }
+  function el(tag,cls,txt){ var e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e; }
+
+  /* ---------- tour timer ---------- */
+  function restartTimer(){
+    clearInterval(timer);
+    timer=setInterval(function(){
+      if(state.playing){ state.sel=nextMatch(state.sel); render(); }
+    },3800);
+  }
+
+  /* ---------- build static node buttons once ---------- */
+  var nodeEls=[];
+  function buildNodes(){
+    var stage=document.getElementById("dVenn");
+    DATA.forEach(function(d,i){
+      var wrap=el("div","node");
+      var cw=d.w||CARD_W;
+      wrap.style.width=cw+"px";
+      wrap.style.left=(d.x-cw/2)+"px";
+      wrap.style.top=(d.y-26)+"px";
+      wrap.style.animation=FLOATS[i%4]+" "+(9+(i%5))+"s ease-in-out "+(-(i*1.7).toFixed(1))+"s infinite";
+      var btn=el("button");
+      var thumb=el("span","thumb");
+      setImg(thumb,d);
+      thumb.style.border="1px solid "+d.accent+"55";
+      var txt=el("div","txt");
+      txt.appendChild(el("span","role",d.role));
+      txt.appendChild(el("span","sub",d.company+" · "+d.year));
+      btn.appendChild(thumb); btn.appendChild(txt);
+      btn.onclick=function(){ state.sel=i; state.playing=false; render(); };
+      btn.onmouseenter=function(){ if(i!==state.sel){ btn.style.borderColor="rgba(239,230,218,.55)"; btn.style.boxShadow="0 16px 34px -10px rgba(0,0,0,.8)"; } };
+      btn.onmouseleave=function(){ applyNodeStyle(i); };
+      wrap.appendChild(btn);
+      stage.appendChild(wrap);
+      nodeEls.push({wrap:wrap,btn:btn});
+    });
+  }
+  function applyNodeStyle(i){
+    var d=DATA[i], active=(i===state.sel), dimmed=state.filter&&!matches(i);
+    var w=nodeEls[i].wrap, b=nodeEls[i].btn;
+    w.style.opacity=dimmed?0.16:1;
+    w.style.filter=dimmed?"saturate(.3)":"none";
+    w.style.pointerEvents=dimmed?"none":"auto";
+    w.style.zIndex=active?45:30;
+    b.style.border="1px solid "+(active?"rgba(239,230,218,.6)":"rgba(239,230,218,.16)");
+    b.style.borderLeft="3px solid "+d.accent;
+    b.style.background=active?"rgba(40,30,24,.96)":"rgba(24,19,16,.82)";
+    b.style.backdropFilter="blur(6px)"; b.style.webkitBackdropFilter="blur(6px)";
+    b.style.boxShadow=active?("0 0 0 2px "+d.accent+", 0 18px 42px -12px rgba(0,0,0,.85)"):"0 8px 22px -12px rgba(0,0,0,.7)";
+    b.style.transform=active?"scale(1.08)":"scale(1)";
+  }
+
+  /* ---------- chips ---------- */
+  function buildChips(container,cls){
+    container.innerHTML="";
+    VOCAB.forEach(function(t){
+      var c=el("button",cls,t);
+      c.dataset.tag=t;
+      c.onclick=function(){
+        state.filter=(state.filter===t)?null:t;
+        if(!matches(state.sel)) state.sel=nextMatch(state.sel);
+        state.playing=false; render();
+      };
+      container.appendChild(c);
+    });
+  }
+
+  /* ---------- timeline rows ---------- */
+  function buildTimeline(container,opts){
+    container.innerHTML="";
+    var sorted=DATA.slice().sort(function(a,b){ return startYear(b)-startYear(a); });
+    sorted.filter(matchesItem).forEach(function(d){
+      var row=el("div",opts.row);
+      var yr=el("div",opts.year,String(startYear(d)));
+      var dot=el("div",opts.dot); dot.style.background=d.accent;
+      var card=el("div",opts.card); card.style.borderLeft="3px solid "+d.accent;
+      if(opts.thumb){
+        var th=el("div",opts.thumb);
+        setImg(th,d);
+        th.style.border="1px solid "+d.accent+"55";
+        card.appendChild(th);
+      }
+      var body=el("div"); body.style.flex="1"; body.style.minWidth="0";
+      body.appendChild(el("div",opts.role,d.role));
+      var sub=el("div",opts.sub,d.company+" · "+d.year); sub.style.color=d.accent;
+      body.appendChild(sub);
+      body.appendChild(el("div",opts.blurb,d.blurb));
+      if(opts.tags){
+        var tg=el("div",opts.tags);
+        d.tags.forEach(function(t){ tg.appendChild(el("span",null,t)); });
+        body.appendChild(tg);
+      }
+      card.appendChild(body);
+      row.appendChild(yr); row.appendChild(dot); row.appendChild(card);
+      container.appendChild(row);
+    });
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    var d=DATA[state.sel];
+
+    // desktop view toggle
+    var isVenn=state.view==="venn";
+    document.getElementById("dViewVenn").classList.toggle("on",isVenn);
+    document.getElementById("dViewTl").classList.toggle("on",!isVenn);
+    document.getElementById("dStageMid").style.display=isVenn?"flex":"none";
+    document.getElementById("dPanel").style.display=isVenn?"flex":"none";
+    document.getElementById("dPlay").style.display=isVenn?"flex":"none";
+    document.getElementById("dTimeline").style.display=isVenn?"none":"flex";
+
+    // nodes
+    for(var i=0;i<DATA.length;i++) applyNodeStyle(i);
+
+    // chips (both)
+    document.querySelectorAll("#dChips .chip").forEach(function(c){ c.classList.toggle("on",c.dataset.tag===state.filter); });
+    document.querySelectorAll("#mChips .m-chip").forEach(function(c){ c.classList.toggle("on",c.dataset.tag===state.filter); });
+    document.getElementById("dClear").style.opacity=state.filter?1:0.35;
+
+    // panel
+    var prev=document.getElementById("dPreview"), im=IMG[d.company]||{};
+    prev.className="preview "+(im.ar==="square"?"ar-square":"ar-wide");
+    prev.style.backgroundImage=im.src?("url('"+im.src+"')"):"none";
+    prev.style.backgroundSize=im.fit||"cover";
+    prev.style.backgroundPosition="center";
+    prev.style.backgroundRepeat="no-repeat";
+    var openUrl=im.video||(d.link?("https://"+d.link):"");
+    prev.onclick=openUrl?function(){window.open(openUrl,"_blank","noopener");}:null;
+    prev.style.cursor=openUrl?"pointer":"default";
+    var pd=document.getElementById("pDomains"); pd.textContent=d.domains.join("  +  ").toUpperCase(); pd.style.color=d.accent;
+    document.getElementById("pRole").textContent=d.role;
+    var pc=document.getElementById("pCompany"); pc.textContent=d.company; pc.style.color=d.accent;
+    document.getElementById("pYear").textContent=d.year;
+    document.getElementById("pBlurb").textContent=d.blurb;
+    var pt=document.getElementById("pTags"); pt.innerHTML=""; d.tags.forEach(function(t){ pt.appendChild(el("span",null,t)); });
+    document.getElementById("pCounter").textContent=String(state.sel+1).padStart(2,"0")+" / "+String(DATA.length).padStart(2,"0");
+    var lk=document.getElementById("pLink");
+    if(d.link){ lk.style.display="block"; lk.textContent=d.link+" ↗"; lk.href="https://"+d.link; lk.style.color=d.accent; }
+    else lk.style.display="none";
+
+    // play button
+    document.getElementById("dPlayIcon").textContent=state.playing?"❚❚":"▶";
+    document.getElementById("dPlayLabel").textContent=state.playing?"PAUSE":"PLAY";
+
+    // desktop timeline
+    if(!isVenn) buildTimeline(document.getElementById("dtRows"),
+      {row:"dt-row",year:"dt-year",dot:"dt-dot",card:"dt-card",thumb:"dt-thumb",role:"dt-role",sub:"dt-sub",blurb:"dt-blurb",tags:"dt-tags"});
+
+    renderMobile();
+  }
+
+  /* ---------- mobile ---------- */
+  function renderMobile(){
+    var scroll=document.getElementById("mScroll");
+    var mVenn=state.view==="venn";
+    document.getElementById("mViewVenn").classList.toggle("on",mVenn);
+    document.getElementById("mViewTl").classList.toggle("on",!mVenn);
+    scroll.innerHTML="";
+    if(!mVenn){
+      var tl=el("div","m-tl");
+      var container=el("div"); tl.appendChild(el("div","m-line"));
+      buildTimeline(container,{row:"m-row",year:"m-year",dot:"m-dot",card:"m-card",thumb:"m-thumb",role:"m-role",sub:"m-sub",blurb:"m-blurb",tags:"m-tags"});
+      while(container.firstChild) tl.appendChild(container.firstChild);
+      scroll.appendChild(tl);
+    } else {
+      var wrap=el("div","m-venn");
+      wrap.appendChild(el("div","m-venn-note","EDUCATION · TECHNOLOGY · ART — TAP TO EXPLORE"));
+      DATA.forEach(function(d){
+        if(!matchesItem(d)) return;
+        var c=el("div","m-vcard"); c.style.borderLeft="3px solid "+d.accent;
+        var th=el("div","m-vthumb");
+        setImg(th,d);
+        th.style.border="1px solid "+d.accent+"55";
+        var body=el("div"); body.style.minWidth="0";
+        body.appendChild(el("div","m-vrole",d.role));
+        var sub=el("div","m-vsub",d.company+" · "+d.year); sub.style.color=d.accent;
+        body.appendChild(sub);
+        c.appendChild(th); c.appendChild(body);
+        wrap.appendChild(c);
+      });
+      scroll.appendChild(wrap);
+    }
+  }
+
+  /* ---------- scaler ---------- */
+  function scaleStage(){
+    var d=document.getElementById("desktop");
+    if(getComputedStyle(d).display==="none") return;
+    var mid=document.getElementById("dStageMid");
+    var stage=document.getElementById("dVenn");
+    if(!mid||!stage||mid.clientHeight===0) return;
+    var availW=mid.clientWidth-48, availH=mid.clientHeight-32;
+    var s=Math.min(availW/1260, availH/600);
+    s=Math.max(0.45, Math.min(s, 1.35));
+    stage.style.transform="scale("+s+")";
+  }
+
+  /* ---------- wire events ---------- */
+  function init(){
+    // Land on the Timeline (3a) on phones; Venn (2a) on desktop.
+    state.view = window.matchMedia("(min-width:900px)").matches ? "venn" : "timeline";
+    buildNodes();
+    buildChips(document.getElementById("dChips"),"chip");
+    buildChips(document.getElementById("mChips"),"m-chip");
+
+    document.getElementById("dViewVenn").onclick=function(){ state.view="venn"; render(); scaleStage(); };
+    document.getElementById("dViewTl").onclick=function(){ state.view="timeline"; render(); scaleStage(); };
+    document.getElementById("mViewVenn").onclick=function(){ state.view="venn"; render(); };
+    document.getElementById("mViewTl").onclick=function(){ state.view="timeline"; render(); };
+    document.getElementById("dPlay").onclick=function(){ state.playing=!state.playing; render(); };
+    document.getElementById("dClear").onclick=function(){ state.filter=null; state.playing=false; render(); };
+
+    render();
+    restartTimer();
+    scaleStage();
+    window.addEventListener("resize",scaleStage);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init);
+  else init();
+})();
+</script>
+</body>
+</html>
