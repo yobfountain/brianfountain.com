@@ -24,50 +24,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-:root{--acc:#e8a317;--acc-soft:rgba(232,163,23,.18);--acc-wash:rgba(232,163,23,.07);--acc-edge:rgba(232,163,23,.26)}
+:root{--acc:#e8a317;--acc-soft:rgba(232,163,23,.18);--acc-wash:rgba(232,163,23,.07);--acc-edge:rgba(232,163,23,.26);--col:720px;--measure:66ch;--p-gap:18px;--lede:60ch}
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
-a{color:inherit}
-
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
-.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
-.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
-.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
-  color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
-.tb-kicker:hover{color:rgba(239,230,218,.85)}
-
-.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
-.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
-  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
-.hero-inner{position:relative;max-width:720px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
-h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
-  font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
 .subtitle{font-family:'Fraunces',serif;font-optical-sizing:auto;font-style:italic;font-weight:400;font-size:clamp(20px,2.6vw,27px);line-height:1.25;color:rgba(239,230,218,.72);margin-top:10px}
-.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:60ch}
-.byline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(239,230,218,.5);margin-top:22px}
 
-article{max-width:720px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
-article h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
-  font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:48px 0 14px}
-article h2:first-child{margin-top:0}
-article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:18px;max-width:66ch}
-article strong{color:#efe6da;font-weight:700}
-article ul{margin:0 0 18px 0;padding-left:22px;max-width:66ch}
-article li{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:10px;padding-left:4px}
-article li::marker{color:var(--acc)}
+
 /* Links use a bottom border, like the glossary terms, so both rules sit the same distance below the text. */
 article a{text-decoration:none;padding-bottom:.15em;border-bottom:1.5px solid rgba(232,163,23,.5)}
 article a:hover{border-bottom-color:var(--acc)}
 
-/* Figures break out of the text column on wide screens so the scenes read as photographs. */
 figure{margin:30px 0 34px}
-figure.wide{margin-left:calc(50% - min(50vw - 20px, 540px));margin-right:calc(50% - min(50vw - 20px, 540px))}
-figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(239,230,218,.12);box-shadow:0 18px 48px rgba(0,0,0,.45)}
 figure.flat img{box-shadow:none}
 /* A small broadcast-style bug marks every generated photograph. */
 .shot{position:relative;display:block}
@@ -75,8 +43,7 @@ figure.flat img{box-shadow:none}
   background:rgba(16,13,11,.62);border:1px solid rgba(239,230,218,.35);color:rgba(239,230,218,.9);
   font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.12em;
   -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);pointer-events:none}
-figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:rgba(239,230,218,.55);margin-top:10px;max-width:70ch}
-figure.wide figcaption{padding:0 4px}
+
 
 /* Four dishes in a row; two by two on a phone. */
 .dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
@@ -94,21 +61,11 @@ td{color:rgba(239,230,218,.86)}
 td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
 tr.total td{font-weight:700;color:#efe6da;border-bottom:none;background:var(--acc-wash)}
 
-.callout{margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:66ch}
-.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
-.callout p + p{margin-top:10px}
-
 .sources{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12)}
 .sources h2{font-size:20px;margin:0 0 12px}
 .sources ul{padding-left:18px}
 .sources li{font-size:13.5px;color:rgba(239,230,218,.6);margin-bottom:6px}
-.endnote{margin-top:34px;font-size:14px;color:rgba(239,230,218,.55);max-width:66ch}
-
-@media (max-width:640px){
-  body{line-height:1.6}
-  article p,article li{font-size:15.5px}
-  .tb-back span{display:none}
-}
+.endnote{margin-top:34px;padding-top:0;border-top:0}
 
 /* Glossary annotations, same pattern as solar.brianfountain.com: a dotted term opens one shared popover. */
 button.ann{font:inherit;line-height:inherit;vertical-align:baseline;color:inherit;background:none;border:0;padding:0 .04em;margin:0;

@@ -24,60 +24,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-:root{--acc:#8fd0c4;--acc-soft:rgba(143,208,196,.18);--acc-wash:rgba(143,208,196,.08);--acc-edge:rgba(143,208,196,.24)}
+:root{--acc:#8fd0c4;--acc-soft:rgba(143,208,196,.18);--acc-wash:rgba(143,208,196,.08);--acc-edge:rgba(143,208,196,.24);--col:720px;--measure:66ch;--p-gap:18px;--lede:60ch}
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{background:#100d0b;color:#efe6da;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;
-  line-height:1.65}
-a{color:inherit}
 
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
-.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
-.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
-.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
-  color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
-.tb-kicker:hover{color:rgba(239,230,218,.85)}
-
-/* A single reading column. The glow sits behind the header only, so it never competes
-   with body copy the way a full-bleed aurora would. */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
-.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
-  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
-.hero-inner{position:relative;max-width:720px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
-h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
-  font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
-.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:60ch}
-
-article{max-width:720px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
-article h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
-  font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:44px 0 14px}
-article h2:first-child{margin-top:0}
-article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:18px;max-width:66ch}
-article strong{color:#efe6da;font-weight:700}
-article ol,article ul{margin:0 0 18px 0;padding-left:22px;max-width:66ch}
-article li{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:12px;padding-left:4px}
-article li::marker{color:var(--acc)}
-article ul ul,article ol ol,article ul ol,article ol ul{margin:12px 0 0 0}
-
-.callout{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px;padding:16px 18px;border-radius:14px;
-  background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:66ch}
-.callout .ico{font-size:19px;line-height:1.3;flex:none}
-.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
-.callout p + p{margin-top:9px}
 .callout .label{font-weight:700;color:#efe6da}
 
-.endnote{margin-top:52px;padding-top:22px;border-top:1px solid rgba(239,230,218,.12);
-  font-size:14px;color:rgba(239,230,218,.55);max-width:66ch}
 .endnote em{font-style:italic}
 
-@media (max-width:640px){
-  body{line-height:1.6}
-  article p,article li{font-size:15.5px}
-}
 </style>
 </head>
 <body>

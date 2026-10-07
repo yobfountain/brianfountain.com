@@ -10,7 +10,7 @@ collapses to a **chronological timeline** on mobile.
 |------|-----------|
 | `index.html` | The entire site — HTML + CSS + JS inline. The `DATA` array (in the `<script>`) is the single source of truth for every role/venture. |
 | `brian_fountain.jpeg` | Avatar shown at the center of the Venn ("BRIAN") and used as the OG/Twitter share image. |
-| `assets/` | Card imagery + `favicon.svg` (BF monogram), all local (self-contained). `logo_*` = company logos, `icon_*` = project favicons used as chips, `shot_*` = live-site screenshots used in the big preview. |
+| `assets/` | `site.css` (shared stylesheet for the content pages, see below), card imagery + `favicon.svg` (BF monogram), all local. `logo_*` = company logos, `icon_*` = project favicons used as chips, `shot_*` = live-site screenshots used in the big preview. |
 | `work/journey/` | Supplemental page recreating the Journey pilot at TikTok: an interactive phone demo (lesson, knowledge check, stitch prompt, sticker board) beside prose. Self-contained; its still lives in `work/journey/assets/`. |
 | `work/instructional-design/` | Portfolio page collecting the roles that involved educational content (TikTok, Thinkful, Google, NYCDA, General Assembly), the facilitation work, and the Journey prototype. Self-contained; reuses `assets/` logos and the Journey still. |
 | `work/ai-product-design/` | Consolidated portfolio of the products built on generative models (G3NPRO, GenBuzz, Vibeside, 1K Notes, Chapters). Each opens with a three-cell strip stating what the model does, what the person does, and what the interface owes them. Self-contained; reuses `assets/` screenshots and the G3NPRO demo video. |
@@ -18,6 +18,25 @@ collapses to a **chronological timeline** on mobile.
 
 Fonts (Fraunces, Manrope, JetBrains Mono) load from Google Fonts — the only external
 dependency. Everything else is bundled.
+
+### Shared CSS
+
+The content pages (`work/*`, `writing/*`, `projects/g3npro/`) link `/assets/site.css` before
+their own `<style>`. It holds the frame every page shares: base colors and fonts, the top bar,
+hero, article typography, figures and captions, `figure.wide`, the callout and the endnote.
+Page-family differences are variables a page sets in its `:root`:
+
+| Variable | Default (work pages) | Essays |
+|---|---|---|
+| `--col` | `840px` | `720px` |
+| `--measure` | `70ch` | `66ch` |
+| `--p-gap` | `16px` | `18px` |
+| `--lede` | `62ch` | `60ch` |
+| `--h1` | `clamp(32px,5.4vw,54px)` | (same) |
+
+Each page also sets its accent (`--acc`, `--acc-soft`, `--acc-wash`, `--acc-edge`) and keeps
+anything unique to it in its own `<style>`. Change shared styling in `site.css`, not by copying
+rules into pages. The home page and `/projects` are app-like and keep their own styles.
 
 ## Editing the site
 

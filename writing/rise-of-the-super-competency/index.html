@@ -25,57 +25,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-:root{--acc:#f0a868;--acc-soft:rgba(240,168,104,.18);--acc-wash:rgba(240,168,104,.07);--acc-edge:rgba(240,168,104,.26);
-  /* Chart series, validated as a pair against the chart surface. */
-  --s-trad:#d0694a;--s-super:#24a894;
-  /* Status colors, reserved for the graph states and always shown with a text label. */
-  --st-stale:#e5484d;--st-review:#e0a43a;
-  --ink:#efe6da;--ink-2:rgba(239,230,218,.72);--ink-3:rgba(239,230,218,.5);--rule:rgba(239,230,218,.12);--surface:#17120f}
+:root{--acc:#f0a868;--acc-soft:rgba(240,168,104,.18);--acc-wash:rgba(240,168,104,.07);--acc-edge:rgba(240,168,104,.26);--s-trad:#d0694a;--s-super:#24a894;--st-stale:#e5484d;--st-review:#e0a43a;--ink-2:rgba(239,230,218,.72);--ink-3:rgba(239,230,218,.5);--rule:rgba(239,230,218,.12);--surface:#17120f;--col:720px;--measure:66ch;--p-gap:18px;--lede:60ch;--h1:clamp(34px,5.8vw,60px)}
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{background:#100d0b;color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
-a{color:inherit}
+.hero{border-bottom:0}
+.hero-inner{padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) 0}
 
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
-.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
-.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
-.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
-  color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
-.tb-kicker:hover{color:rgba(239,230,218,.85)}
+body > article{padding:0 clamp(20px,5vw,40px) 40px}
 
-.hero{position:relative;overflow:hidden}
-.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
-  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
-.hero-inner{position:relative;max-width:720px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) 0}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
-h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
-  font-size:clamp(34px,5.8vw,60px);line-height:1.04;margin-top:14px;letter-spacing:-.01em}
-.byline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--ink-3);margin-top:20px}
+article ol:not([class]){margin:0 0 20px 0;padding-left:24px}
+article ol:not([class]) > li{margin-bottom:8px}
+article ol:not([class]) > li::marker{font-family:'JetBrains Mono',monospace;font-size:.85em}
 
-article{max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,40px) 40px}
-article h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
-  font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:52px 0 14px}
-article p{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:18px;max-width:66ch}
-article strong{color:var(--ink);font-weight:700}
-article ol{margin:0 0 20px 0;padding-left:24px;max-width:66ch}
-article li{font-size:clamp(15px,1.5vw,17px);color:rgba(239,230,218,.86);margin-bottom:8px;padding-left:4px}
-article li::marker{color:var(--acc);font-family:'JetBrains Mono',monospace;font-size:.85em}
-
-/* Figures break out of the text column on wide screens. */
 figure{margin:30px 0 38px}
-figure.wide{margin-left:calc(50% - min(50vw - 20px, 540px));margin-right:calc(50% - min(50vw - 20px, 540px))}
 figure.hero-fig{margin-top:30px;margin-bottom:44px}
-figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--rule);box-shadow:0 18px 48px rgba(0,0,0,.45)}
 .shot{position:relative;display:block}
 .shot::after{content:"AI";position:absolute;right:12px;bottom:12px;padding:3px 7px 2px;border-radius:5px;
   background:rgba(16,13,11,.62);border:1px solid rgba(239,230,218,.35);color:rgba(239,230,218,.9);
   font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.12em;
   -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);pointer-events:none}
-figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:var(--ink-3);margin-top:10px;max-width:70ch}
-figure.wide figcaption{padding:0 4px}
+
 
 /* Shared panel look for the drawn figures. */
 .panel{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 14px;position:relative}
@@ -265,17 +235,13 @@ mark.lit{box-shadow:inset 0 0 0 1.5px currentColor;background:rgba(239,230,218,.
 }
 
 /* Negative side margins equal the padding, so the callout's text lines up with the body copy and only the box extends past it. */
-.callout{--pad:20px;margin:6px calc(-1 * (var(--pad) + 1px)) 26px;padding:18px var(--pad) 20px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge)}
+.callout{--pad:20px;margin:6px calc(-1 * (var(--pad) + 1px)) 26px;padding:18px var(--pad) 20px;max-width:none}
 .callout h3{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(19px,2.1vw,22px);line-height:1.25;color:var(--acc);margin-bottom:8px}
-article .callout p{margin:0;color:rgba(239,230,218,.9)}
-@media (max-width:640px){.callout{--pad:14px}}
-
-.endnote{margin-top:52px;padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:rgba(239,230,218,.55);max-width:66ch}
+/* Callout text matches the body copy here, not the smaller shared callout size. */
+article .callout p{margin:0;color:rgba(239,230,218,.9);font-size:clamp(15px,1.5vw,17px)}
+@media (max-width:640px){.callout{--pad:14px}article .callout p{font-size:15.5px}}
 
 @media (max-width:640px){
-  body{line-height:1.6}
-  article p,article li{font-size:15.5px}
-  .tb-back span{display:none}
   .panel{padding:14px 12px 10px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}

@@ -2,7 +2,7 @@
 
 The source for [brianfountain.com](https://brianfountain.com), the personal site of Brian Fountain. On a desktop the home page lays out two decades of work as a Venn diagram of education, technology and art. Below 900px wide it becomes a timeline.
 
-It's plain HTML, CSS and JavaScript. There's no build step or framework to install. Each page is one self-contained `index.html` with its styles and scripts inline, and the only outside request is Google Fonts.
+It's plain HTML, CSS and JavaScript. There's no build step or framework to install. Each page is one `index.html`. The content pages under `work/`, `writing/` and `projects/g3npro/` share a stylesheet, `assets/site.css`, and keep anything unique to them in the page's own `<style>`. The only outside request is Google Fonts.
 
 ## What's here
 
@@ -12,7 +12,7 @@ It's plain HTML, CSS and JavaScript. There's no build step or framework to insta
 | `projects/` | Shipped projects, with a technical overview of G3NPRO under `projects/g3npro/`. |
 | `work/` | Longer pages on specific kinds of work: instructional design, curriculum design, technical enablement and instruction, AI product design, AI fluency education, and creative technology. `work/journey/` is a working rebuild of Journey, a learning-in-the-feed pilot. |
 | `writing/` | Essays on learning design, plus a policy sketch (Universal Rice & Beans) with its own interactive cost model. |
-| `assets/` | Logos, project icons, screenshots, audio and video shared across pages. |
+| `assets/` | `site.css`, the shared stylesheet, plus logos, project icons, screenshots, audio and video used across pages. |
 | `docs/` | Planning notes from building the projects page. |
 
 ## Running it locally
@@ -38,7 +38,7 @@ To add or change a role on the home page, edit its entry in `DATA`:
 
 Card images are mapped by company in the separate `IMG` object.
 
-A new essay goes in its own folder under `writing/` with an `index.html`, plus a card in `writing/index.html`. If the post has its own share image, give its card the `has-img` class and a thumbnail.
+A new essay goes in its own folder under `writing/` with an `index.html`, plus a card in `writing/index.html`. Link `/assets/site.css` before the page's `<style>`, then set the accent and the essay layout in `:root`; copying an existing essay's head is the quickest start. If the post has its own share image, give its card the `has-img` class and a thumbnail.
 
 ## Images
 

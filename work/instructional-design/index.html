@@ -18,25 +18,15 @@
 <meta name="twitter:image" content="https://brianfountain.com/work/journey/assets/lesson-still.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-:root{--acc:#e7a68d;--acc-soft:rgba(231,166,141,.16);--acc-wash:rgba(231,166,141,.07);--acc-edge:rgba(231,166,141,.24);--ink:#efe6da;--ink-86:rgba(239,230,218,.86);--ink-70:rgba(239,230,218,.7);--ink-55:rgba(239,230,218,.55);--ink-45:rgba(239,230,218,.45);--line:rgba(239,230,218,.12)}
-body{background:#100d0b;color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
-a{color:inherit}
+:root{--acc:#e7a68d;--acc-soft:rgba(231,166,141,.16);--acc-wash:rgba(231,166,141,.07);--acc-edge:rgba(231,166,141,.24)}
+
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
-.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
-.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
-.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-45);text-decoration:none;transition:color .2s}
-.tb-kicker:hover{color:rgba(239,230,218,.85)}
-.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
-.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
-.hero-inner{position:relative;max-width:840px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
-h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em;max-width:18ch}
-.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(239,230,218,.78);margin-top:18px;max-width:62ch}
+
+h1{max-width:18ch}
 
 /* the span of years, as a small map of the page */
 .span{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
@@ -44,13 +34,8 @@ h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-si
 .span a:hover{color:var(--ink)}
 .span a span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--acc)}
 
-article{max-width:840px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
-article h2{text-wrap:pretty;font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:0 0 14px;max-width:32ch}
-article p{font-size:clamp(15px,1.5vw,17px);color:var(--ink-86);margin-bottom:16px;max-width:70ch}
-article strong{color:var(--ink);font-weight:700}
-article ul{margin:0 0 18px 0;padding-left:22px;max-width:70ch}
-article li{font-size:clamp(15px,1.5vw,17px);color:var(--ink-86);margin-bottom:12px;padding-left:4px}
-article li::marker{color:var(--acc)}
+article h2{text-wrap:pretty;margin:0 0 14px;max-width:32ch}
+
 
 /* one role: a dossier header, then prose */
 .role{padding:clamp(30px,5vw,46px) 0;border-top:1px solid var(--line);scroll-margin-top:24px}
@@ -73,11 +58,8 @@ blockquote cite{display:block;font-style:normal;font-family:'JetBrains Mono',mon
 .result b{display:block;font-family:'Fraunces',serif;font-weight:400;font-size:26px;line-height:1.1;color:var(--ink);margin-bottom:6px}
 .result span{font-size:13.5px;line-height:1.45;color:var(--ink-70)}
 
-figure{margin:24px 0 30px;max-width:70ch}
+figure{max-width:70ch}
 figure a{display:block}
-figure img,figure video{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(239,230,218,.14);box-shadow:0 18px 48px rgba(0,0,0,.45)}
-figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:var(--ink-55);margin-top:10px;max-width:70ch}
-figcaption a{color:rgba(239,230,218,.75)}
 
 /* the Journey figure: a portrait still beside the reason it exists */
 .journey{display:grid;grid-template-columns:minmax(200px,240px) 1fr;gap:clamp(18px,3vw,32px);align-items:center;margin:8px 0 26px;padding:20px;border-radius:18px;background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:70ch}
@@ -92,10 +74,8 @@ figcaption a{color:rgba(239,230,218,.75)}
 .ledger b{font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.45}
 .ledger span{font-size:15px;color:var(--ink-86);line-height:1.55}
 
-.endnote{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-55);max-width:70ch}
 @media (max-width:640px){
-  body{line-height:1.6}
-  article p,article li{font-size:15.5px}
+  blockquote p{font-size:15.5px}
   .journey{grid-template-columns:1fr}
   .journey img{max-width:220px;margin:0 auto}
   .ledger div{grid-template-columns:1fr;gap:4px}

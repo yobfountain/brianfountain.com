@@ -1,0 +1,82 @@
+/* Shared frame for the content pages (/work, /writing, /projects/g3npro).
+   The home page and /projects are app-like and keep their own styles.
+
+   Each page links this file before its own <style>, then sets its accent
+   (--acc and its soft/wash/edge tints) and anything unique to that page.
+   Layout differences between page families are variables, not copies:
+
+     --col      text column and hero width     work 840px, essays 720px
+     --measure  paragraph line length          work 70ch,  essays 66ch
+     --p-gap    space after a paragraph        work 16px,  essays 18px
+     --lede     hero intro line length         work 62ch,  essays 60ch
+     --h1       headline size                                          */
+
+:root{
+  --col:840px;--measure:70ch;--p-gap:16px;--lede:62ch;--h1:clamp(32px,5.4vw,54px);
+  --bg:#100d0b;
+  --ink:#efe6da;--ink-90:rgba(239,230,218,.9);--ink-86:rgba(239,230,218,.86);--ink-78:rgba(239,230,218,.78);
+  --ink-70:rgba(239,230,218,.7);--ink-55:rgba(239,230,218,.55);--ink-50:rgba(239,230,218,.5);--ink-45:rgba(239,230,218,.45);
+  --line:rgba(239,230,218,.12);
+  --serif:'Fraunces',serif;--sans:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.65}
+a{color:inherit}
+
+/* Top bar: back to home on the left, section label on the right. */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid rgba(239,230,218,.1)}
+.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:18px;text-decoration:none}
+.tb-back span{font-family:var(--mono);font-size:12px;opacity:.7}
+.tb-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-45);text-decoration:none;transition:color .2s}
+.tb-kicker:hover{color:rgba(239,230,218,.85)}
+
+/* Hero. The glow sits behind the header only, so it never competes with body copy. */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
+.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
+  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;max-width:var(--col);margin:0 auto;padding:clamp(44px,8vw,84px) clamp(20px,5vw,40px) clamp(30px,5vw,52px)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--acc)}
+h1{font-family:var(--serif);font-optical-sizing:auto;font-weight:400;font-size:var(--h1);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:var(--ink-78);margin-top:18px;max-width:var(--lede)}
+.byline{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-50);margin-top:22px}
+
+/* Article text. The column rule targets body > article so pages that nest an
+   article inside their own layout (Journey's two-column grid) keep theirs. */
+body > article{max-width:var(--col);margin:0 auto;padding:clamp(30px,5vw,52px) clamp(20px,5vw,40px) 40px}
+article h2{font-family:var(--serif);font-optical-sizing:auto;font-weight:400;font-size:clamp(23px,2.8vw,31px);line-height:1.2;margin:44px 0 14px}
+article h2:first-child{margin-top:0}
+article p{font-size:clamp(15px,1.5vw,17px);color:var(--ink-86);margin-bottom:var(--p-gap);max-width:var(--measure)}
+article strong{color:var(--ink);font-weight:700}
+/* Plain prose lists only; a list with a class is a page component and styles itself.
+   :where() keeps these as weak as a bare "article li", so page rules like .sources li win. */
+article :where(ol:not([class]),ul:not([class])){margin:0 0 18px 0;padding-left:22px;max-width:var(--measure)}
+article :where(ol:not([class]),ul:not([class])) > li{font-size:clamp(15px,1.5vw,17px);color:var(--ink-86);margin-bottom:12px;padding-left:4px}
+article :where(ol:not([class]),ul:not([class])) > li::marker{color:var(--acc)}
+article :where(ol:not([class]),ul:not([class])) :where(ol,ul){margin:12px 0 0 0}
+
+/* Figures and captions. */
+figure{margin:24px 0 30px}
+figure img,figure video{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(239,230,218,.14);box-shadow:0 18px 48px rgba(0,0,0,.45)}
+figcaption{font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--ink-55);margin-top:10px;max-width:70ch}
+figcaption a{color:rgba(239,230,218,.75)}
+/* A wide figure breaks out of the text column, up to 1080px, keeping a 20px gutter on narrow screens. */
+figure.wide{margin-left:calc(50% - min(50vw - 20px, 540px));margin-right:calc(50% - min(50vw - 20px, 540px))}
+figure.wide figcaption{padding:0 4px}
+
+/* Callout: a tinted box in the page accent. With an .ico child it lays out as icon + text. */
+.callout{margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:var(--measure)}
+.callout:has(> .ico){display:flex;gap:14px;align-items:flex-start}
+.callout .ico{font-size:19px;line-height:1.3;flex:none}
+.callout p{margin:0;font-size:15px;color:var(--ink-90)}
+.callout p + p{margin-top:10px}
+
+/* Closing line under the article. */
+.endnote{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-55);max-width:var(--measure)}
+
+@media (max-width:640px){
+  body{line-height:1.6}
+  article p,article :where(ol:not([class]),ul:not([class])) > li{font-size:15.5px}
+}

@@ -24,35 +24,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-:root{--acc:#e8a317;--acc-soft:rgba(232,163,23,.18);--acc-wash:rgba(232,163,23,.07);--acc-edge:rgba(232,163,23,.26);
-  --ink:#efe6da;--ink-2:rgba(239,230,218,.78);--ink-3:rgba(239,230,218,.55);--rule:rgba(239,230,218,.1);
-  /* Tornado colors, validated as a pair against the page background (#100d0b). */
-  --lo:#4a90e2;--hi:#c98500}
+:root{--acc:#e8a317;--acc-soft:rgba(232,163,23,.18);--acc-wash:rgba(232,163,23,.07);--acc-edge:rgba(232,163,23,.26);--ink-2:rgba(239,230,218,.78);--ink-3:rgba(239,230,218,.55);--rule:rgba(239,230,218,.1);--lo:#4a90e2;--hi:#c98500;--col:880px;--measure:68ch}
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{background:#100d0b;color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65}
-a{color:inherit}
+.hero-inner{padding:clamp(44px,8vw,84px) clamp(16px,5vw,40px) clamp(30px,5vw,52px)}
 
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:14px clamp(18px,5vw,40px);border-bottom:1px solid var(--rule)}
-.tb-back{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-size:18px;text-decoration:none}
-.tb-back span{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.7}
-.tb-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
-  color:rgba(239,230,218,.45);text-decoration:none;transition:color .2s}
-.tb-kicker:hover{color:rgba(239,230,218,.85)}
-
-.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(239,230,218,.08)}
-.hero-glow{position:absolute;inset:-60% -20% auto;height:420px;
-  background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft),transparent 70%);pointer-events:none}
-.hero-inner{position:relative;max-width:880px;margin:0 auto;padding:clamp(44px,8vw,84px) clamp(16px,5vw,40px) clamp(30px,5vw,52px)}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--acc)}
 .eyebrow a{text-decoration:none;border-bottom:1px solid var(--acc-edge)}
-h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
-  font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin-top:14px;letter-spacing:-.01em}
-.lede{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:var(--ink-2);margin-top:18px;max-width:62ch}
-.byline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(239,230,218,.5);margin-top:22px}
 
 main{max-width:880px;margin:0 auto;padding:clamp(30px,5vw,52px) clamp(16px,5vw,40px) 40px}
 h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;
@@ -113,10 +91,6 @@ button.btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 label.check{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--ink-2);cursor:pointer}
 label.check input{accent-color:var(--acc);width:16px;height:16px}
 
-.callout{margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--acc-wash);border:1px solid var(--acc-edge);max-width:68ch}
-.callout p{margin:0;font-size:15px;color:rgba(239,230,218,.9)}
-.callout p + p{margin-top:10px}
-
 /* Tornado chart */
 .chart{margin:10px 0 8px;position:relative}
 .chart svg{display:block;width:100%;height:auto;overflow:visible}
@@ -143,11 +117,9 @@ details[open] summary{margin-bottom:10px}
 .sources h3{margin-top:20px}
 .sources ul{padding-left:18px}
 .sources li{font-size:13.5px;color:rgba(239,230,218,.62);margin-bottom:6px}
-.endnote{margin-top:34px;font-size:14px;color:rgba(239,230,218,.55);max-width:68ch}
+.endnote{margin-top:34px;padding-top:0;border-top:0}
 
 @media (max-width:640px){
-  body{line-height:1.6}
-  .tb-back span{display:none}
   table{font-size:13.5px}
   /* Inputs stack on a phone: the label row on top, then low / central / high side by side. */
   table.inputs thead{display:none}
