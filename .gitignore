@@ -5,3 +5,6 @@ assets/Say_What_You_See.mov
 deploy.sh
 .DS_Store
 .playwright-mcp/
+
+# Full-quality Outside Lands video: deployed to the server, too large for the repo.
+assets/outside_lands_hq.mp4
